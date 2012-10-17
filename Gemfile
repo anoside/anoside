@@ -55,6 +55,7 @@ group :development do
   gem 'guard-rspec'
   gem 'guard-spork'
   gem 'quiet_assets'
+  gem 'rb-fsevent', require: false # used in Guard
   gem 'thin'
 end
 
