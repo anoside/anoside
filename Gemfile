@@ -1,38 +1,69 @@
 source 'https://rubygems.org'
 
+ruby '1.9.3'
+
 gem 'rails', '3.2.8'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+# Controller
+gem 'inherited_resources'
 
+# Model
+gem 'client_side_validations'
 gem 'mysql2'
+gem 'validates_email_format_of'
+
+# View
+gem 'active_decorator'
+gem 'jbuilder'
+gem 'simple_form'
+gem 'slim-rails'
+
+# Others
+gem 'devise'
+gem 'exception_notification'
+gem 'rails-i18n'
 
 
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
-  gem 'uglifier', '>= 1.0.3'
+group :development, :test do
+  gem 'capistrano'
+  gem 'capistrano_colors'
+  gem 'capistrano-ext'
+  gem 'capybara'
+  gem 'capybara-webkit'
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
+  gem 'pry-rails'
+  gem 'rspec-rails'
+  gem 'rvm-capistrano'
+  gem 'spork-rails'
 end
 
-gem 'jquery-rails'
+group :assets do
+  gem 'bourbon'
+  gem 'coffee-rails'
+  gem 'font-awesome-sass-rails'
+  gem 'handlebars_assets'
+  gem 'jquery-rails'
+  gem 'sass-rails'
+  gem 'uglifier'
+  gem 'underscore-rails'
+end
 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+group :development do
+  gem 'awesome_print'
+  gem 'growl'
+  gem 'guard-rspec'
+  gem 'guard-spork'
+  gem 'quiet_assets'
+  gem 'thin'
+end
 
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
+group :production do
+  gem 'unicorn'
+end
 
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'
+group :test do
+  gem 'capybara-screenshot'
+  gem 'fuubar'
+  gem 'simplecov', require: false
+end
