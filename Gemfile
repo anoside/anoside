@@ -21,7 +21,6 @@ gem 'slim-rails'
 # Others
 gem 'devise'
 gem 'exception_notification'
-gem 'rails-i18n'
 
 
 group :development, :test do
