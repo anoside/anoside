@@ -44,6 +44,7 @@ group :assets do
   gem 'font-awesome-sass-rails'
   gem 'handlebars_assets'
   gem 'jquery-rails'
+  gem 'neat'
   gem 'sass-rails'
   gem 'uglifier'
   gem 'underscore-rails'
