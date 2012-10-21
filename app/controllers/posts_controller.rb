@@ -2,7 +2,9 @@ class PostsController < InheritedResources::Base
   def index
     @post = Post.new
 
-    index!
+    index! do
+      @posts = @posts.order('created_at DESC')
+    end
   end
 
   def create

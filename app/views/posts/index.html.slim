@@ -1,3 +1,11 @@
 = simple_form_for @post do |f|
   = f.input :body
   = f.button :submit
+
+ul.posts
+  - @posts.each do |post|
+    li
+      .body
+        = simple_format(post.body)
+      .date
+        = time_ago_in_words(post.created_at)
