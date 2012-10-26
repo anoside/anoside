@@ -1,3 +1,6 @@
+= content_for :templates do
+  = render 'shared/templates/comments/comment'
+
 = simple_form_for @post do |f|
   = f.input :body
   = f.button :submit
@@ -7,5 +10,16 @@ ul.posts
     li
       .body
         = simple_format(post.body)
-      .date
-        = time_ago_in_words(post.created_at)
+      .footer
+        span.comment-button
+          = t('words.reply')
+        span.date
+          = time_ago_in_words(post.created_at)
+      .comments
+        ul
+          - post.comments.each do |comment|
+            li
+              = comment.body
+        = simple_form_for [post, post.comments.new], remote: true do |f|
+          = f.input 'body'
+          = f.submit t('words.reply')
