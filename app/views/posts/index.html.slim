@@ -17,7 +17,7 @@
             span.date
               = time_ago_in_words(post.created_at)
         ul.comments
-          - post.comments.each do |comment|
+          - post.recent_comments.reverse_each do |comment|
             li.comment
               .body
                 = comment.body
