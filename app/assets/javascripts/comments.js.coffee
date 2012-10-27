@@ -17,7 +17,7 @@ class Form
         @clearForm()
 
   expand: ->
-    @$form.height(60)
+    @$form.find('textarea').height(60)
 
   showButton: ->
     @$form.children('input[type="submit"]').show()
@@ -30,5 +30,5 @@ class Form
 
 $ ->
   if $('#posts.index').length
-    $('.comments form').each ->
+    $('ul.posts form').each ->
       new Form($(@))

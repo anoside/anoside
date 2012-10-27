@@ -1,0 +1,17 @@
+body {
+  background-color: $white;
+}
+
+textarea {
+  @include box-shadow(0 0 1px 0 rgba(0,0,0,0.4) inset);
+
+  border: solid 1px $gray;
+}
+
+a, button, input[type='submit'] {
+  &.btn {
+    background-color: #a63f5a;
+    border: solid 1px #c83b5e;
+    color: $white;
+  }
+}

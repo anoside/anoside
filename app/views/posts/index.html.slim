@@ -1,25 +1,29 @@
 = content_for :templates do
   = render 'shared/templates/comments/comment'
 
-= simple_form_for @post do |f|
-  = f.input :body
-  = f.button :submit
+#main
+  = simple_form_for @post do |f|
+    = f.input :body, label: false
+    .form-actions
+      = f.submit class: 'btn'
 
-ul.posts
-  - @posts.each do |post|
-    li
-      .body
-        = simple_format(post.body)
-      .footer
-        span.comment-button
-          = t('words.reply')
-        span.date
-          = time_ago_in_words(post.created_at)
-      .comments
-        ul
+  ul.posts
+    - @posts.each do |post|
+      li
+        .post
+          .body
+            = simple_format(post.body)
+          .footer
+            span.date
+              = time_ago_in_words(post.created_at)
+        ul.comments
           - post.comments.each do |comment|
-            li
-              = comment.body
+            li.comment
+              .body
+                = comment.body
+              .footer
+                span.date
+                  = time_ago_in_words(comment.created_at)
         = simple_form_for [post, post.comments.new], remote: true do |f|
-          = f.input 'body'
-          = f.submit t('words.reply')
+          = f.input 'body', label: false
+          = f.submit t('words.reply'), class: 'btn'

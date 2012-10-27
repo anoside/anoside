@@ -1,7 +1,76 @@
 #posts {
   &.index {
+    form#new_post {
+      @include shift(3);
+      @include span-columns(6);
+
+      margin-bottom: 50px;
+
+      .input {
+        margin-bottom: 5px;
+
+        textarea {
+          height: 70px;
+          width: 100%;
+        }
+      }
+
+      .form-actions {
+        text-align: right;
+      }
+    }
+
     ul.posts {
-      .comments {
+      @include span-columns(8);
+
+      clear: both;
+      list-style: none;
+
+      > li {
+        padding: 10px 0;
+
+        .post {
+          border: solid 1px $gray {
+            radius: 10px;
+          }
+
+          .body, .footer {
+            padding: 10px;
+          }
+
+          .footer {
+            background-color: $gray;
+            border: {
+              radius: 0 0 9px 9px;
+              top: solid 1px $gray;
+            }
+          }
+        }
+
+        ul.comments, form {
+          margin-left: 50px;
+        }
+
+        ul.comments {
+          background-color: #f8fbf8;
+          list-style: none;
+          padding: 0;
+
+          li.comment {
+            border-bottom: solid 1px $gray;
+            margin-bottom: 10px;
+            padding: 0 0 10px 10px;
+
+            &:last-child {
+              border: none;
+            }
+
+            .body {
+              margin-bottom: 10px;
+            }
+          }
+        }
+
         form {
           textarea {
             height: 40px;

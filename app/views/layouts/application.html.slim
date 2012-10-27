@@ -9,21 +9,23 @@ html
     = csrf_meta_tags
 
   body id="#{params[:controller].gsub(/\//, '_')}" class="#{params[:action]}"
-    header
-      h1 = link_to 'Anoside', root_path
-      ul.actions
-        - if user_signed_in?
-          li = link_to t('words.signout'), destroy_user_session_path, method: 'delete'
-        - else
-          li = link_to t('words.signup'), new_user_registration_path
-          li = link_to t('words.signin'), new_user_session_path
-    #container
-      #wrapper
-        #content
+    #wrapper
+      header
+        h1 = link_to 'Anoside', root_path
+        nav
+          ul
+            - if user_signed_in?
+              li = link_to t('words.signout'), destroy_user_session_path, method: 'delete'
+            - else
+              li = link_to t('words.signup'), new_user_registration_path
+              li = link_to t('words.signin'), new_user_session_path
+      #container
+        #contents
           = yield
-    footer
-      .copyright
-        | COPYRIGHT © 2012 ANOSIDE ALL RIGHTS RESERVED.
+      footer
+        p.copyright
+          small
+            | COPYRIGHT © 2012 ANOSIDE ALL RIGHTS RESERVED.
 
     = javascript_include_tag 'application'
     

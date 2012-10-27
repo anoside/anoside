@@ -1,2 +1,7 @@
 script#comment type='text/x-handlebars-template'
-  li {{body}}
+  li.comment
+    .body
+      | {{body}}
+    .footer
+      span.date
+        | {{created_at}}
