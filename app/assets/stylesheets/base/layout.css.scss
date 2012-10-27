@@ -39,7 +39,6 @@
     #contents {
       #main {
         @include pad;
-        @include span-columns(12);
       }
     }
   }

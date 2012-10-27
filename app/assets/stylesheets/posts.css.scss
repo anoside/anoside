@@ -27,74 +27,20 @@
       list-style: none;
 
       > li {
+        @include comments-block;
+        @include post-block;
+
         padding: 10px 0;
-
-        .post {
-          border: solid 1px $gray {
-            radius: 10px;
-          }
-
-          .body, .footer {
-            padding: 10px;
-          }
-
-          .footer {
-            background-color: $gray;
-            border: {
-              radius: 0 0 9px 9px;
-              top: solid 1px $gray;
-            }
-          }
-        }
-
-        ul.comments, form {
-          margin-left: 50px;
-        }
-
-        ul.comments {
-          background-color: #f8fbf8;
-          list-style: none;
-          padding: 0;
-
-          li.comment {
-            @include clearfix;
-
-            border-bottom: solid 1px $gray;
-            margin-bottom: 10px;
-            padding: 0 0 10px 10px;
-
-            &:last-child {
-              border: none;
-            }
-
-            .left {
-              @include span-columns(1 of 8);
-
-              width: 1%;
-            }
-
-            .right {
-              @include span-columns(7 of 8);
-
-              width: 95%;
-
-              .body {
-                margin-bottom: 10px;
-              }
-            }
-          }
-        }
-
-        form {
-          textarea {
-            height: 40px;
-          }
-
-          input[type='submit'] {
-            display: none;
-          }
-        }
       }
+    }
+  }
+
+  &.show {
+    #main {
+      @include comments-block;
+      @include post-block;
+      @include shift(2);
+      @include span-columns(8);
     }
   }
 }

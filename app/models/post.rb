@@ -12,4 +12,8 @@ class Post < ActiveRecord::Base
 
     self
   end
+
+  def has_unviewable_comments?
+    comments.count > 5
+  end
 end

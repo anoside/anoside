@@ -16,6 +16,8 @@
           .footer
             span.date
               = time_ago_in_words(post.created_at)
+        - if post.has_unviewable_comments?
+          = link_to t('posts.view_all_n_comments', comments_count: post.comments.count), post_path(post.id), target: '_blank'
         ul.comments
           - post.recent_comments.reverse_each do |comment|
             = render 'comments/comment', comment: comment

@@ -32,3 +32,7 @@ $ ->
   if $('#posts.index').length
     $('ul.posts form').each ->
       new Form($(@))
+
+  if $('#posts.show').length
+    $('form.new_comment').each ->
+      new Form($(@))

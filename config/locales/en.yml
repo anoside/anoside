@@ -4,3 +4,5 @@ en:
     signin: Sign In
     signout: Sign Out
     signup: Sign Up
+  posts:
+    view_all_n_comments: 'View all %{comments_count} comments'
