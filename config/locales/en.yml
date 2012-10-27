@@ -1,4 +1,6 @@
 en:
+  messages:
+    are_you_sure: Are you sure?
   words:
     reply: Reply
     signin: Sign In

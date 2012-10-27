@@ -1,7 +1,8 @@
 class Post < ActiveRecord::Base
   attr_accessible :body, :title
 
-  has_many :comments
+  belongs_to :author, class_name: 'User'
+  has_many :comments, dependent: :destroy
   has_many :recent_comments, class_name: 'Comment', order: 'created_at DESC', limit: 5
 
   validates :body, length: { maximum: 500 }, presence: true

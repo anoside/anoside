@@ -5,4 +5,11 @@ class User < ActiveRecord::Base
   validates :username, format: { with: /\A[A-Za-z0-9_]+\z/ }, presence: true, uniqueness: true
 
   devise :database_authenticatable, :registerable, :rememberable, :trackable
+
+  
+  def owns_post?(post)
+    return false if post && post.author_id == 0
+
+    self == post.author
+  end
 end
