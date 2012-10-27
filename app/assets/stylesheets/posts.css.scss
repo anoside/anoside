@@ -57,6 +57,8 @@
           padding: 0;
 
           li.comment {
+            @include clearfix;
+
             border-bottom: solid 1px $gray;
             margin-bottom: 10px;
             padding: 0 0 10px 10px;
@@ -65,8 +67,20 @@
               border: none;
             }
 
-            .body {
-              margin-bottom: 10px;
+            .left {
+              @include span-columns(1 of 8);
+
+              width: 1%;
+            }
+
+            .right {
+              @include span-columns(7 of 8);
+
+              width: 95%;
+
+              .body {
+                margin-bottom: 10px;
+              }
             }
           }
         }

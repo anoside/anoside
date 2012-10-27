@@ -11,14 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121022133927) do
+ActiveRecord::Schema.define(:version => 20121027100816) do
 
   create_table "comments", :force => true do |t|
-    t.integer  "author_id",  :default => 0, :null => false
-    t.integer  "post_id",                   :null => false
-    t.text     "body",                      :null => false
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.integer  "relative_id",                :null => false
+    t.integer  "author_id",   :default => 0, :null => false
+    t.integer  "post_id",                    :null => false
+    t.text     "body",                       :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
   add_index "comments", ["author_id"], :name => "index_comments_on_author_id"
