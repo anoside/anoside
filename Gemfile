@@ -40,6 +40,7 @@ end
 group :assets do
   gem 'bourbon'
   gem 'coffee-rails'
+  gem 'flutie'
   gem 'font-awesome-sass-rails'
   gem 'handlebars_assets'
   gem 'jquery-rails'
