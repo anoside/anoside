@@ -1,12 +1,7 @@
 = content_for :templates do
   = render 'shared/templates/comments/comment', comment: { id: '{{id}}', relative_id: '{{relative_id}}', body: '{{body}}', created_at: '{{created_at}}' }
 
-.post
-  .body
-    = simple_format(@post.body)
-  .footer
-    span.date
-      = time_ago_in_words(@post.created_at)
+= render 'posts/post', post: @post
 ul.comments
   - @post.comments.each do |comment|
     = render 'comments/comment', comment: comment
