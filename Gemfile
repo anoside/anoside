@@ -8,6 +8,7 @@ gem 'rails', '3.2.8'
 gem 'inherited_resources'
 
 # Model
+gem 'acts-as-taggable-on'
 gem 'client_side_validations'
 gem 'mysql2'
 gem 'validates_email_format_of'
