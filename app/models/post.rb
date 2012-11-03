@@ -7,6 +7,8 @@ class Post < ActiveRecord::Base
 
   validates :body, length: { maximum: 500 }, presence: true
 
+  acts_as_ordered_taggable
+
 
   def set_title!
     self.title = body.rstrip.split(/\r?\n/).first.truncate(45)

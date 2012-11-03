@@ -5,3 +5,4 @@
 #= require base
 
 #= require comments
+#= require posts

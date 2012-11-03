@@ -23,3 +23,12 @@ a, button, input[type='submit'] {
     color: $white;
   }
 }
+
+.fake-link {
+  color: #1a4882;
+
+  &:hover {
+    color: #052246;
+    cursor: pointer;
+  }
+}

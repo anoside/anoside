@@ -19,12 +19,31 @@
         top: solid 1px $gray;
       }
       padding: 5px 10px;
+
+      .bottom {
+        .tags {
+          ul {
+            display: inline;
+            list-style: none;
+            margin: 0;
+
+            li {
+              display: inline;
+              margin-right: 5px;
+            }
+          }
+
+          .tag-addition-form {
+            display: none;
+          }
+        }
+      }
     }
   }
 }
 
 @mixin comments-block {
-  ul.comments, form {
+  ul.comments, form.new_comment {
     margin-left: 30px;
   }
 
@@ -59,7 +78,7 @@
     }
   }
 
-  form {
+  form.new_comment {
     textarea {
       height: 40px;
     }

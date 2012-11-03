@@ -1,10 +1,13 @@
 en:
   messages:
     are_you_sure: Are you sure?
+    separate_with_comma: Separate with comma.
   words:
     reply: Reply
+    save: Save
     signin: Sign In
     signout: Sign Out
     signup: Sign Up
   posts:
     view_all_n_comments: 'View all %{comments_count} comments'
+    add_tag_to_posts: Add tag

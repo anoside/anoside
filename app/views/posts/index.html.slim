@@ -1,5 +1,7 @@
 = content_for :templates do
   = render 'shared/templates/comments/comment', comment: { id: '{{id}}', relative_id: '{{relative_id}}', body: '{{body}}', created_at: '{{created_at}}' }
+  = render 'shared/templates/posts/tag', tag: { name: '{{name}}' }
+
 
 = simple_form_for @post do |f|
   = f.input :body, label: false

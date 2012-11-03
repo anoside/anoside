@@ -2,9 +2,21 @@
   .body
     = simple_format(post.body)
   .footer
-    span.date
-      = time_ago_in_words(post.created_at)
-    - if current_user.owns_post?(post)
-      span.delete
-        = link_to post_path(post.id), method: :delete, confirm: t('messages.are_you_sure') do
-          i.icon-trash
+    .top
+      span.date
+        = time_ago_in_words(post.created_at)
+      - if current_user.owns_post?(post)
+        span.delete
+          = link_to post_path(post.id), method: :delete, confirm: t('messages.are_you_sure') do
+            i.icon-trash
+    .bottom
+      .tags
+        ul
+          - post.tags.each do |tag|
+            = render 'posts/tag', tag: tag
+        span.tag-addition-button.fake-link
+          = t('posts.add_tag_to_posts')
+        span.tag-addition-form
+          = simple_form_for post, remote: true do |f|
+            = f.input 'tag_list', label: false, hint: t('messages.separate_with_comma')
+            = f.submit t('words.save'), class: 'btn'
