@@ -29,10 +29,10 @@ class Form
     @$form.find('textarea').val('')
 
 $ ->
-  if $('#posts.index').length
+  if $('.posts-index').length
     $('ul.posts form').each ->
       new Form($(@))
 
-  if $('#posts.show').length
+  if $('.posts-show').length
     $('form.new_comment').each ->
       new Form($(@))

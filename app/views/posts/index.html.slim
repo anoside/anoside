@@ -1,30 +1,29 @@
 = content_for :templates do
   = render 'shared/templates/comments/comment', comment: { id: '{{id}}', relative_id: '{{relative_id}}', body: '{{body}}', created_at: '{{created_at}}' }
 
-#main
-  = simple_form_for @post do |f|
-    = f.input :body, label: false
-    .form-actions
-      = f.submit class: 'btn'
+= simple_form_for @post do |f|
+  = f.input :body, label: false
+  .form-actions
+    = f.submit class: 'btn'
 
-  ul.posts
-    - @posts.each do |post|
-      li
-        .post
-          .body
-            = simple_format(post.body)
-          .footer
-            span.date
-              = time_ago_in_words(post.created_at)
-            - if current_user.owns_post?(post)
-              span.delete
-                = link_to post_path(post.id), method: :delete, confirm: t('messages.are_you_sure') do
-                  i.icon-trash
-        - if post.has_unviewable_comments?
-          = link_to t('posts.view_all_n_comments', comments_count: post.comments.count), post_path(post.id), target: '_blank'
-        ul.comments
-          - post.recent_comments.reverse_each do |comment|
-            = render 'comments/comment', comment: comment
-        = simple_form_for [post, post.comments.new], remote: true do |f|
-          = f.input 'body', label: false
-          = f.submit t('words.reply'), class: 'btn'
+ul.posts
+  - @posts.each do |post|
+    li
+      .post
+        .body
+          = simple_format(post.body)
+        .footer
+          span.date
+            = time_ago_in_words(post.created_at)
+          - if current_user.owns_post?(post)
+            span.delete
+              = link_to post_path(post.id), method: :delete, confirm: t('messages.are_you_sure') do
+                i.icon-trash
+      - if post.has_unviewable_comments?
+        = link_to t('posts.view_all_n_comments', comments_count: post.comments.count), post_path(post.id), target: '_blank'
+      ul.comments
+        - post.recent_comments.reverse_each do |comment|
+          = render 'comments/comment', comment: comment
+      = simple_form_for [post, post.comments.new], remote: true do |f|
+        = f.input 'body', label: false
+        = f.submit t('words.reply'), class: 'btn'

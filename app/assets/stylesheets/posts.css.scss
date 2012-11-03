@@ -1,46 +1,37 @@
-#posts {
-  &.index {
-    form#new_post {
-      @include shift(3);
-      @include span-columns(6);
+.posts-index {
+  form#new_post {
+    margin-bottom: 50px;
 
-      margin-bottom: 50px;
+    .input {
+      margin-bottom: 5px;
 
-      .input {
-        margin-bottom: 5px;
-
-        textarea {
-          height: 70px;
-          width: 100%;
-        }
-      }
-
-      .form-actions {
-        text-align: right;
+      textarea {
+        height: 70px;
+        width: 100%;
       }
     }
 
-    ul.posts {
-      @include span-columns(8);
-
-      clear: both;
-      list-style: none;
-
-      > li {
-        @include comments-block;
-        @include post-block;
-
-        padding: 10px 0;
-      }
+    .form-actions {
+      text-align: right;
     }
   }
 
-  &.show {
-    #main {
+  ul.posts {
+    clear: both;
+    list-style: none;
+
+    > li {
       @include comments-block;
       @include post-block;
-      @include shift(2);
-      @include span-columns(8);
+
+      padding: 10px 0;
     }
+  }
+}
+
+.posts-show {
+  #main {
+    @include comments-block;
+    @include post-block;
   }
 }

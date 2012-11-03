@@ -4,8 +4,8 @@
     @include linear-gradient(#367d69, #2f5d50);
 
     border-bottom: 1px solid #16332b;
-    height: 70px;
-    padding: 0 2%;
+    height: 50px;
+    padding: 0 20px;
 
     a {
       color: $white;
@@ -13,19 +13,14 @@
     }
 
     h1, nav {
-      line-height: 70px;
+      line-height: 50px;
     }
 
     h1 {
-      @include span-columns(4);
-
       margin: 0;
     }
 
     nav {
-      @include omega();
-      @include span-columns(8);
-
       ul {
         margin: 0;
         text-align: right;
@@ -34,11 +29,29 @@
   }
 
   #container {
-    @include outer-container;
+    margin: 0 auto;
+    width: 920px;
 
     #contents {
-      #main {
-        @include pad;
+      @include display-box;
+
+      margin-top: 20px;
+
+      body.posts-index & {
+        #dashboard {
+          width: 400px;
+        }
+
+        #main {
+          width: 520px;
+        }
+      }
+
+      body.posts-show & {
+        #main {
+          margin: 0 auto;
+          width: 600px;
+        }
       }
     }
   }
