@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121103162954) do
+ActiveRecord::Schema.define(:version => 20121110104418) do
 
   create_table "comments", :force => true do |t|
     t.integer  "relative_id",                :null => false
@@ -29,8 +29,10 @@ ActiveRecord::Schema.define(:version => 20121103162954) do
     t.integer  "author_id",  :default => 0, :null => false
     t.string   "title",                     :null => false
     t.text     "body",                      :null => false
+    t.string   "deleted_by"
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
+    t.datetime "deleted_at"
   end
 
   add_index "posts", ["author_id"], :name => "index_posts_on_author_id"

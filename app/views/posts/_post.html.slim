@@ -1,6 +1,5 @@
 .post
-  .body
-    = simple_format(post.body)
+  = post_body_tag(post)
   .footer
     .top
       span.date

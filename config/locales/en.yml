@@ -2,6 +2,7 @@ en:
   messages:
     are_you_sure: Are you sure?
     separate_with_comma: Separate with comma.
+    this_post_was_deleted_by_author: This post was deleted by author.
   words:
     reply: Reply
     save: Save
