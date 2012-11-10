@@ -10,6 +10,7 @@ gem 'inherited_resources'
 # Model
 gem 'acts-as-taggable-on'
 gem 'client_side_validations'
+gem 'enumerize'
 gem 'mysql2'
 gem 'validates_email_format_of'
 
