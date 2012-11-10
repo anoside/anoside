@@ -5,33 +5,43 @@
 
     border-bottom: 1px solid #16332b;
     height: 50px;
-    padding: 0 20px;
 
-    a {
-      color: $white;
-      text-decoration: none;
-    }
+    .container {
+      @include display-box;
 
-    h1, nav {
-      line-height: 50px;
-    }
+      a {
+        color: $white;
+        text-decoration: none;
+      }
 
-    h1 {
-      margin: 0;
-    }
+      h1, nav li {
+        line-height: 50px;
+      }
 
-    nav {
-      ul {
+      h1 {
         margin: 0;
-        text-align: right;
+        padding-left: 10px;
+        width: 150px;
+      }
+
+      nav {
+        padding-right: 10px;
+        width: 850px;
+
+        ul {
+          margin: 0;
+          text-align: right;
+
+          li {
+            display: inline;
+            margin-left: 17px;
+          }
+        }
       }
     }
   }
 
-  #container {
-    margin: 0 auto;
-    width: 920px;
-
+  .container {
     #contents {
       @include display-box;
 

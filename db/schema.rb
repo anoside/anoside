@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121110104418) do
+ActiveRecord::Schema.define(:version => 20121110154301) do
 
   create_table "comments", :force => true do |t|
     t.integer  "relative_id",                :null => false
@@ -37,6 +37,15 @@ ActiveRecord::Schema.define(:version => 20121110104418) do
 
   add_index "posts", ["author_id"], :name => "index_posts_on_author_id"
 
+  create_table "preferences", :force => true do |t|
+    t.integer  "user_id",                                 :null => false
+    t.boolean  "email_when_commented", :default => false, :null => false
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
+  end
+
+  add_index "preferences", ["user_id"], :name => "index_preferences_on_user_id", :unique => true
+
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
     t.integer  "taggable_id"
@@ -60,7 +69,7 @@ ActiveRecord::Schema.define(:version => 20121110104418) do
 
   create_table "users", :force => true do |t|
     t.string   "username",                            :null => false
-    t.string   "email",               :default => "", :null => false
+    t.string   "email"
     t.string   "encrypted_password",  :default => "", :null => false
     t.datetime "remember_created_at"
     t.integer  "sign_in_count",       :default => 0

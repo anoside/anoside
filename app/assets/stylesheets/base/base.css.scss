@@ -3,11 +3,16 @@
 }
 
 html, body {
-  min-width: 960px;
+  min-width: 1000px;
 }
 
 body {
   background-color: $white;
+}
+
+.container {
+  margin: 0 auto;
+  width: 1000px;
 }
 
 textarea {
