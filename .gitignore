@@ -3,5 +3,6 @@
 /.bundle
 
 /log/*.log
+/coverage
 /tmp
 /vendor/bundle
