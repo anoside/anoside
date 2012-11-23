@@ -1,4 +1,6 @@
 class PostsController < InheritedResources::Base
+  before_filter :authenticate_user!, only: [:create, :update, :destroy]
+
   def index
     @post = Post.new
 

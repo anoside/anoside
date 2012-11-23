@@ -10,6 +10,7 @@ en:
     signin: Sign In
     signout: Sign Out
     signup: Sign Up
+    update: Update
   posts:
     view_all_n_comments: 'View all %{comments_count} comments'
     add_tag_to_posts: Add tag

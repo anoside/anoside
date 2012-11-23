@@ -1,0 +1,8 @@
+h2 = t('words.account_settings')
+
+= simple_form_for current_user, url: update_to_normal_users_path do |f|
+  = f.input :username
+  = f.input :password
+  = f.input :guest, as: :hidden, input_html: { value: false }
+
+  = f.button :submit, t('words.update')

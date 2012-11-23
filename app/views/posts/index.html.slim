@@ -3,10 +3,11 @@
   = render 'shared/templates/posts/tag', tag: { name: '{{name}}' }
 
 
-= simple_form_for @post do |f|
-  = f.input :body, label: false
-  .form-actions
-    = f.submit class: 'btn'
+- if user_signed_in?
+  = simple_form_for @post do |f|
+    = f.input :body, label: false
+    .form-actions
+      = f.submit class: 'btn'
 
 ul.posts
   - @posts.each do |post|
@@ -17,6 +18,7 @@ ul.posts
       ul.comments
         - post.recent_comments.reverse_each do |comment|
           = render 'comments/comment', comment: comment
-      = simple_form_for [post, post.comments.new], remote: true do |f|
-        = f.input 'body', label: false
-        = f.submit t('words.reply'), class: 'btn'
+      - if user_signed_in?
+        = simple_form_for [post, post.comments.new], remote: true do |f|
+          = f.input 'body', label: false
+          = f.submit t('words.reply'), class: 'btn'

@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :username
+  attr_accessible :email, :guest, :password, :password_confirmation,
+    :remember_me, :username
 
   has_one :preference
 
@@ -10,6 +11,13 @@ class User < ActiveRecord::Base
 
   after_create do
     Preference.create(user_id: self.id)
+  end
+
+  def self.create_guest
+    username = "guest_#{SecureRandom.hex}"
+    password = SecureRandom.hex
+
+    User.create(username: username, password: password, guest: true)
   end
   
   def owns_post?(post)

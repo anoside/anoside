@@ -1,4 +1,6 @@
 class PreferencesController < InheritedResources::Base
+  before_filter :authenticate_user!, only: [:update]
+
   def update
     @preference = current_user.preference
     

@@ -15,7 +15,10 @@ html
           nav
             ul
               - if user_signed_in?
-                li = link_to t('words.settings'), edit_user_registration_path
+                - if current_user.guest?
+                  li = link_to t('words.update_to_normal_user'), edit_user_registration_path
+                - else
+                  li = link_to t('words.settings'), edit_user_registration_path
                 li = link_to t('words.signout'), destroy_user_session_path, method: 'delete'
               - else
                 li = link_to t('words.signup'), new_user_registration_path
