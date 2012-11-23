@@ -21,8 +21,8 @@ class User < ActiveRecord::Base
   end
   
   def owns_post?(post)
-    return false if post && post.author_id == 0
+    return false if post && post.user_id == 0
 
-    self == post.author
+    self == post.user
   end
 end

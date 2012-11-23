@@ -11,22 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121123082438) do
+ActiveRecord::Schema.define(:version => 20121123141530) do
 
   create_table "comments", :force => true do |t|
     t.integer  "relative_id",                :null => false
-    t.integer  "author_id",   :default => 0, :null => false
+    t.integer  "user_id",     :default => 0, :null => false
     t.integer  "post_id",                    :null => false
     t.text     "body",                       :null => false
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
   end
 
-  add_index "comments", ["author_id"], :name => "index_comments_on_author_id"
   add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
+  add_index "comments", ["user_id"], :name => "index_comments_on_author_id"
 
   create_table "posts", :force => true do |t|
-    t.integer  "author_id",  :default => 0, :null => false
+    t.integer  "user_id",    :default => 0, :null => false
     t.string   "title",                     :null => false
     t.text     "body",                      :null => false
     t.string   "deleted_by"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(:version => 20121123082438) do
     t.datetime "deleted_at"
   end
 
-  add_index "posts", ["author_id"], :name => "index_posts_on_author_id"
+  add_index "posts", ["user_id"], :name => "index_posts_on_author_id"
 
   create_table "preferences", :force => true do |t|
     t.integer  "user_id",                                 :null => false

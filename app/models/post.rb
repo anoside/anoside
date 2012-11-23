@@ -3,21 +3,21 @@ class Post < ActiveRecord::Base
 
   attr_accessible :body, :deleted_at, :deleted_by, :title
 
-  belongs_to :author, class_name: 'User'
+  belongs_to :user
   has_many :comments
   has_many :recent_comments, class_name: 'Comment', order: 'created_at DESC', limit: 5
 
   validates :body, length: { maximum: 500 }, presence: true
 
   acts_as_ordered_taggable
-  enumerize :deleted_by, in: [:author, :admin]
+  enumerize :deleted_by, in: [:user, :admin]
 
 
   # Overwrite Active Record's destroy method for soft deletion.
   # I can't use rails3_acts_as_paranoid gem because acts-as-taggable-on gem
   # removes dependent tags forcefully.
   def destroy
-    update_attributes(deleted_by: :author, deleted_at: Time.now)
+    update_attributes(deleted_by: :user, deleted_at: Time.now)
   end
 
   def deleted?

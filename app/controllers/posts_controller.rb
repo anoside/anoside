@@ -12,7 +12,7 @@ class PostsController < InheritedResources::Base
   def create
     @post = Post.new(params[:post])
 
-    @post.author_id = current_user.id if user_signed_in?
+    @post.user_id = current_user.id if user_signed_in?
     @post.set_title!
 
     create! { root_path }
