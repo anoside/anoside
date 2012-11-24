@@ -23,6 +23,7 @@ gem 'slim-rails'
 # Others
 gem 'devise'
 gem 'exception_notification'
+gem 'sidekiq'
 
 
 group :development, :test do
