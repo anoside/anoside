@@ -21,6 +21,7 @@ gem 'simple_form'
 gem 'slim-rails'
 
 # Others
+gem 'cld'
 gem 'devise'
 gem 'exception_notification'
 gem 'sidekiq'

@@ -63,6 +63,8 @@ GEM
       timers (>= 1.0.0)
     childprocess (0.3.6)
       ffi (~> 1.0, >= 1.0.6)
+    cld (0.6.0)
+      ffi
     client_side_validations (3.2.1)
     coderay (1.0.8)
     coffee-rails (3.2.2)
@@ -344,6 +346,7 @@ DEPENDENCIES
   capybara
   capybara-screenshot
   capybara-webkit
+  cld
   client_side_validations
   coffee-rails
   database_cleaner
