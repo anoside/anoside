@@ -22,7 +22,11 @@ class PostsController < InheritedResources::Base
     @post = Post.find(params[:id])
     @post.tag_list = params[:post][:tag_list]
 
-    render :update if @post.save
+    if @post.save
+      respond_to do |format|
+        format.json { render :update }
+      end
+    end
   end
 
   def destroy

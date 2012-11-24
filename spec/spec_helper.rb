@@ -7,6 +7,7 @@ Spork.prefork do
   require 'rspec/rails'
   require 'rspec/autorun'
   require 'capybara/rspec'
+  require 'capybara-screenshot/rspec'
   require 'database_cleaner'
 
   unless ENV['DRB']
@@ -31,6 +32,10 @@ Spork.prefork do
     # rspec-rails.
     config.infer_base_class_for_anonymous_controllers = false
 
+    config.include CommonSteps
+    config.include PostSteps
+    config.include SessionSteps
+
     # https://github.com/plataformatec/devise#test-helpers
     config.include Devise::TestHelpers, type: :controller
     
@@ -39,6 +44,8 @@ Spork.prefork do
     Warden.test_mode!
 
     DatabaseCleaner.strategy = :truncation
+
+    Capybara::Screenshot.autosave_on_failure = false
   end
 end
 
