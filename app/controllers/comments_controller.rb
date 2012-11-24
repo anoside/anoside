@@ -8,6 +8,12 @@ class CommentsController < InheritedResources::Base
     @comment.relative_id = @post.comments.count + 1
 
     if @comment.save
+      user = @post.user
+
+      if user.email.present? && user.preference.email_when_commented?
+        CommentNotificationWorker.perform_async(@post.id, @comment.id)
+      end
+
       render :create
     end
   end

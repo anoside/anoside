@@ -11,6 +11,11 @@ en:
     signout: Sign Out
     signup: Sign Up
     update: Update
+  notifications:
+    more_details: More details:
+    new_comment: New comment
+    you_got_a_new_comment: You got a new comment.
+    your_post: Your post
   posts:
     view_all_n_comments: 'View all %{comments_count} comments'
     add_tag_to_posts: Add tag
