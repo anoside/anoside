@@ -14,6 +14,7 @@ class PostsController < InheritedResources::Base
 
     @post.user_id = current_user.id if user_signed_in?
     @post.set_title!
+    @post.set_language!
 
     create! { root_path }
   end

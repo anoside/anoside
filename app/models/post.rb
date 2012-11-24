@@ -10,7 +10,9 @@ class Post < ActiveRecord::Base
   validates :body, length: { maximum: 500 }, presence: true
 
   acts_as_ordered_taggable
+
   enumerize :deleted_by, in: [:user, :admin]
+  enumerize :language, in: [:en, :ja, :other]
 
 
   # Overwrite Active Record's destroy method for soft deletion.
@@ -26,6 +28,18 @@ class Post < ActiveRecord::Base
 
   def set_title!
     self.title = body.rstrip.split(/\r?\n/).first.truncate(45)
+
+    self
+  end
+
+  def set_language!
+    code = case CLD.detect_language(body)[:code]
+      when 'en' then :en
+      when 'ja' then :ja
+      else :other
+      end
+
+    self.language = code
 
     self
   end
