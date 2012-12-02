@@ -3,6 +3,7 @@ class Post < ActiveRecord::Base
 
   attr_accessible :body, :deleted_at, :deleted_by, :title
 
+  belongs_to :language
   belongs_to :user
   has_many :comments
   has_many :recent_comments, class_name: 'Comment', order: 'created_at DESC', limit: 5
@@ -12,7 +13,6 @@ class Post < ActiveRecord::Base
   acts_as_ordered_taggable
 
   enumerize :deleted_by, in: [:user, :admin]
-  enumerize :language, in: [:en, :ja, :other]
 
 
   # Overwrite Active Record's destroy method for soft deletion.
@@ -34,12 +34,12 @@ class Post < ActiveRecord::Base
 
   def set_language!
     code = case CLD.detect_language(body)[:code]
-      when 'en' then :en
-      when 'ja' then :ja
-      else :other
+      when 'en' then 'en'
+      when 'ja' then 'ja'
+      else 'other'
       end
 
-    self.language = code
+    self.language = Language.find_by_code(code)
 
     self
   end
