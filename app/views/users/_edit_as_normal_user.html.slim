@@ -11,6 +11,7 @@ h2 = t('words.notification')
 
 = simple_form_for [current_user, @preference], url: user_preference_path do |f|
   = f.input :email_when_commented
+  = f.association :languages, as: :check_boxes, label_method: :code
   = f.submit t('words.save'), class: 'btn'
 
 h2 = t('words.delete_my_account')
