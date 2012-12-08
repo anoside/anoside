@@ -1,5 +1,5 @@
 = content_for :templates do
-  = render 'shared/templates/comments/comment', comment: { id: '{{id}}', relative_id: '{{relative_id}}', body: '{{body}}', created_at: '{{created_at}}' }
+  = render 'shared/templates/comments/comment', comment: { id: '{{id}}', relative_id: '{{relative_id}}', body: '{{body}}', created_at: '{{created_at}}' }, comment_user_color: '{{comment_user_color}}'
   = render 'shared/templates/posts/tag', tag: { name: '{{name}}' }
 
 
@@ -17,7 +17,7 @@ ul.posts
         = link_to t('posts.view_all_n_comments', comments_count: post.comments.count), post_path(post.id), target: '_blank'
       ul.comments
         - post.recent_comments.reverse_each do |comment|
-          = render 'comments/comment', comment: comment
+          = render 'comments/comment', comment: comment, comment_user_color: comment.comment_user_color.color.name
       - if user_signed_in?
         = simple_form_for [post, post.comments.new], remote: true do |f|
           = f.input 'body', label: false

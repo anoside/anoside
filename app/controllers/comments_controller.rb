@@ -6,6 +6,7 @@ class CommentsController < InheritedResources::Base
     @comment = @post.comments.new(params[:comment])
 
     @comment.relative_id = @post.comments.count + 1
+    @comment.build_comment_user_color(current_user)
 
     if @comment.save
       user = @post.user
