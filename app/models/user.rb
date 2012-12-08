@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :guest, :password, :password_confirmation,
+  attr_accessible :accept_language_id, :email, :guest, :password, :password_confirmation,
     :remember_me, :username
   attr_accessor :accept_language_id
 
