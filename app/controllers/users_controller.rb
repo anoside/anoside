@@ -6,9 +6,12 @@ class UsersController < Devise::RegistrationsController
   end
 
   def create_guest_user
-    guest_user = User.create_guest
+    guest_user = User.new_guest
+    guest_user.accept_language_id = session[:accept_language_id]
 
-    sign_in_and_redirect(guest_user)
+    if guest_user.save
+      sign_in_and_redirect(guest_user)
+    end
   end
 
   def update_to_normal_user
