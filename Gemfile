@@ -26,6 +26,9 @@ gem 'devise'
 gem 'exception_notification'
 gem 'sidekiq'
 
+# https://github.com/iain/http_accept_language/issues/22
+gem 'http_accept_language', github: 'DouweM/http_accept_language', branch: 'no-middleware-no-crash'
+
 
 group :development, :test do
   gem 'capistrano'
