@@ -1,9 +1,9 @@
 #wrapper {
   header {
     @include box-shadow(0 1px 10px 0 rgba(0,0,0,0.4));
-    @include linear-gradient(#367d69, #2f5d50);
+    @include linear-gradient(#ffbe72, #f6ad49);
 
-    border-bottom: 1px solid #16332b;
+    border-bottom: 1px solid #ee9835;
     height: 50px;
 
     .container {
