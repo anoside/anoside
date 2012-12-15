@@ -11,40 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121208172754) do
-
-  create_table "colors", :force => true do |t|
-    t.string   "name",       :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "colors", ["name"], :name => "index_colors_on_name", :unique => true
-
-  create_table "comment_user_colors", :force => true do |t|
-    t.integer  "color_id",   :null => false
-    t.integer  "post_id",    :null => false
-    t.integer  "user_id",    :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "comment_user_colors", ["color_id"], :name => "index_comment_user_colors_on_color_id"
-  add_index "comment_user_colors", ["post_id", "user_id"], :name => "index_comment_user_colors_on_post_id_and_user_id", :unique => true
-  add_index "comment_user_colors", ["post_id"], :name => "index_comment_user_colors_on_post_id"
-  add_index "comment_user_colors", ["user_id"], :name => "index_comment_user_colors_on_user_id"
+ActiveRecord::Schema.define(:version => 20121202095510) do
 
   create_table "comments", :force => true do |t|
-    t.integer  "relative_id",                          :null => false
-    t.integer  "user_id",               :default => 0, :null => false
-    t.integer  "post_id",                              :null => false
-    t.integer  "comment_user_color_id",                :null => false
-    t.text     "body",                                 :null => false
-    t.datetime "created_at",                           :null => false
-    t.datetime "updated_at",                           :null => false
+    t.integer  "relative_id",                :null => false
+    t.integer  "user_id",     :default => 0, :null => false
+    t.integer  "post_id",                    :null => false
+    t.text     "body",                       :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
-  add_index "comments", ["comment_user_color_id"], :name => "index_comments_on_comment_user_color_id"
   add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
   add_index "comments", ["user_id"], :name => "index_comments_on_author_id"
 
@@ -68,7 +45,7 @@ ActiveRecord::Schema.define(:version => 20121208172754) do
 
   create_table "posts", :force => true do |t|
     t.integer  "user_id",     :default => 0, :null => false
-    t.integer  "language_id", :default => 1, :null => false
+    t.integer  "language_id",                :null => false
     t.string   "title",                      :null => false
     t.text     "body",                       :null => false
     t.string   "deleted_by"
