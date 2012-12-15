@@ -24,6 +24,7 @@ gem 'slim-rails'
 gem 'cld'
 gem 'devise'
 gem 'exception_notification'
+gem 'rails_config'
 gem 'sidekiq'
 
 # https://github.com/iain/http_accept_language/issues/22
