@@ -61,6 +61,7 @@ group :development do
   gem 'guard-rspec'
   gem 'guard-spork'
   gem 'mailcatcher'
+  gem 'powder'
   gem 'quiet_assets'
   gem 'rb-fsevent', require: false # used in Guard
   gem 'thin'
