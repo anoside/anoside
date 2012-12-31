@@ -1,6 +1,5 @@
-#= require jquery
-#= require jquery_ujs
-#= require handlebars
+#= require components/jquery/jquery.min
+#= require components/angular/angular
 
 #= require base
 

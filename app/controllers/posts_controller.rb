@@ -1,29 +1,15 @@
 class PostsController < InheritedResources::Base
   before_filter :authenticate_user!, only: [:create, :update, :destroy]
 
-  def index
-    @post = Post.new
+  # def create
+  #   @post = Post.new(params[:post])
 
-    index! do
-      language_ids = if user_signed_in?
-        current_user.preference.languages.pluck('languages.id')
-      else
-        session[:accept_language_id]
-      end
+  #   @post.user_id = current_user.id if user_signed_in?
+  #   @post.set_title!
+  #   @post.set_language!
 
-      @posts = @posts.where(language_id: language_ids).order('created_at DESC')
-    end
-  end
-
-  def create
-    @post = Post.new(params[:post])
-
-    @post.user_id = current_user.id if user_signed_in?
-    @post.set_title!
-    @post.set_language!
-
-    create! { root_path }
-  end
+  #   create! { root_path }
+  # end
 
   def update
     @post = Post.find(params[:id])

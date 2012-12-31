@@ -8,6 +8,10 @@ Anoside::Application.routes.draw do
     put 'users/update_to_normal_user', as: 'update_to_normal_users'
   end
 
+  namespace :api do
+    resources :posts, only: [:index, :create]
+  end
+
   resources :posts, only: [:create, :destroy, :index, :update] do
     resources :comments, only: [:create]
   end
