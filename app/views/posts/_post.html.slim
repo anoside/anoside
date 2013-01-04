@@ -1,6 +1,6 @@
 .post
   / = post_body_tag(post)
-  | {{post.body}}
+  div ng-bind-html='postBodyTag(post)'
   .footer
     / .top
     /   span.date

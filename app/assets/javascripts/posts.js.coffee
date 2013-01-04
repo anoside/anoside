@@ -17,6 +17,14 @@ Anoside.PostsCtrl = ($scope, $http, postService) ->
 
   $scope.$on 'handleBroadcast', ->
     $scope.posts.unshift(postService.post)
+  
+  $scope.postBodyTag = (post) ->
+    bodyElm = $('<div class="body">')
+
+    unless _.isNull(post.deleted_at)
+      bodyElm.addClass('deleted')
+
+    bodyElm.html(post.body)[0].outerHTML
 
 
 Anoside.PostFormCtrl.$inject = ['$scope', '$http', 'postService']

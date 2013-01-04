@@ -1,6 +1,6 @@
-= content_for :templates do
-  = render 'shared/templates/comments/comment', comment: { id: '{{id}}', relative_id: '{{relative_id}}', body: '{{body}}', created_at: '{{created_at}}' }, comment_user_code: '{{comment_user_code}}'
-  = render 'shared/templates/posts/tag', tag: { name: '{{name}}' }
+/ = content_for :templates do
+/   = render 'shared/templates/comments/comment', comment: { id: '{{id}}', relative_id: '{{relative_id}}', body: '{{body}}', created_at: '{{created_at}}' }, comment_user_code: '{{comment_user_code}}'
+/   = render 'shared/templates/posts/tag', tag: { name: '{{name}}' }
 
 
 - if user_signed_in?
