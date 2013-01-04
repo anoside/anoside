@@ -42,7 +42,6 @@ group :assets do
   gem 'coffee-rails', '3.2.2'
   gem 'flutie', '1.3.3'
   gem 'font-awesome-sass-rails', '2.0.0.0'
-  gem 'handlebars_assets', '0.7.0'
   gem 'jquery-rails', '2.1.3'
   gem 'sass-rails', '3.2.5'
   gem 'uglifier', '1.3.0'
