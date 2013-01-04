@@ -9,13 +9,10 @@ gem 'inherited_resources', '1.3.1'
 
 # Model
 gem 'acts-as-taggable-on', '2.3.3'
-gem 'client_side_validations', '3.2.1'
 gem 'enumerize', '0.5.0'
 gem 'mysql2', '0.3.11'
-gem 'validates_email_format_of', '1.5.3'
 
 # View
-gem 'active_decorator', '0.3.3'
 gem 'jbuilder', '0.8.2'
 gem 'simple_form', '2.0.4'
 gem 'slim-rails', '1.0.3'
@@ -23,7 +20,6 @@ gem 'slim-rails', '1.0.3'
 # Others
 gem 'cld', '0.6.0'
 gem 'devise', '2.1.2'
-gem 'exception_notification', '3.0.0'
 gem 'rails_config', '0.3.1'
 gem 'sidekiq', '2.5.3'
 
@@ -32,15 +28,12 @@ gem 'http_accept_language', github: 'DouweM/http_accept_language', branch: 'no-m
 
 
 group :development, :test do
-  gem 'capistrano', '2.13.5'
-  gem 'capistrano-ext', '1.2.1'
   gem 'capybara', '1.1.3'
   gem 'capybara-webkit', '0.13.0'
   gem 'database_cleaner', '0.9.1'
   gem 'factory_girl_rails', '4.1.0'
   gem 'pry-rails', '0.2.2'
   gem 'rspec-rails', '2.12.0'
-  gem 'rvm-capistrano', '1.2.7'
   gem 'spork-rails', '3.2.0'
 end
 
@@ -53,7 +46,6 @@ group :assets do
   gem 'jquery-rails', '2.1.3'
   gem 'sass-rails', '3.2.5'
   gem 'uglifier', '1.3.0'
-  gem 'underscore-rails', '1.4.2.1'
 end
 
 group :development do
@@ -62,14 +54,9 @@ group :development do
   gem 'guard-rspec', '2.1.2'
   gem 'guard-spork', '1.2.3'
   gem 'mailcatcher', '0.5.10'
-  gem 'powder', '0.1.8'
   gem 'quiet_assets', '1.0.1'
   gem 'rb-fsevent', '0.9.2', require: false # used in Guard
   gem 'thin', '1.5.0'
-end
-
-group :production do
-  gem 'unicorn', '4.4.0'
 end
 
 group :test do
