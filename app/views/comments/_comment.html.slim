@@ -1,15 +1,14 @@
-li.comment
-  .left
-    .relative-id
-      = comment[:relative_id]
-  .right
-    .code
-      = comment_user_code
-    .body
-      = comment[:body]
-    .footer
-      span.date
-        - if comment[:created_at].instance_of?(ActiveSupport::TimeWithZone)
-          = time_ago_in_words(comment[:created_at])
-        - else
-          = comment[:created_at]
+.left
+  .relative-id
+    | {{comment.relative_id}}
+.right
+  .code
+    | {{comment.comment_user_code}}
+  .body
+    | {{comment.body}}
+  .footer
+    / span.date
+    /   - if comment[:created_at].instance_of?(ActiveSupport::TimeWithZone)
+    /     = time_ago_in_words(comment[:created_at])
+    /   - else
+    /     = comment[:created_at]

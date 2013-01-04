@@ -9,12 +9,12 @@ Anoside::Application.routes.draw do
   end
 
   namespace :api do
-    resources :posts, only: [:index, :create]
+    resources :posts, only: [:index, :create] do
+      resources :comments, only: [:index, :create]
+    end
   end
 
-  resources :posts, only: [:create, :destroy, :index, :update] do
-    resources :comments, only: [:create]
-  end
+  resources :posts, only: [:index]
 
   resource :user, only: [] do
     resource :preference, only: [:update]
