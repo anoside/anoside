@@ -8,6 +8,9 @@ Anoside.CommentsCtrl = ($scope, $http) ->
       $scope.$parent.post.comments = comments
       $scope.comment = ''
 
+  $scope.expand = ($event) ->
+    $($event.target).height(100)
+
 
 
 Anoside.CommentsCtrl.$inject = ['$scope', '$http']

@@ -5,10 +5,11 @@
 
 - if user_signed_in?
   div ng-controller='Anoside.PostFormCtrl'
-    form
-      input type='text' ng-model='post.body'
+    form id='new_post'
+      .input
+        textarea ng-model='post.body' press-enter-key='expand($event)'
       .form-actions
-        button ng-click='create(post)' submit
+        button.btn ng-click='create(post)' submit
 
 ul.posts ng-controller='Anoside.PostsCtrl'
   li ng-repeat='post in posts'
@@ -22,7 +23,7 @@ ul.posts ng-controller='Anoside.PostsCtrl'
       /   - post.recent_comments.reverse_each do |comment|
       /     = render 'comments/comment', comment: comment, comment_user_code: comment.comment_user_code.code
       - if user_signed_in?
-        form
-          input type='text' ng-model='comment.body'
+        form.new-comment
+          textarea ng-model='comment.body' press-enter-key='expand($event)'
           button.btn ng-click='create(comment, post.id)'
             = t('words.reply')

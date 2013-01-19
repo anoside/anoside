@@ -10,6 +10,9 @@ Anoside.PostFormCtrl = ($scope, $http, postService) ->
     $http.post('/api/posts.json', post).success (data) ->
       postService.prependPost(data)
 
+  $scope.expand = ($event) ->
+    $($event.target).height(140)
+
 
 Anoside.PostsCtrl = ($scope, $http, postService) ->
   $http.get('/api/posts.json').success (data) ->
