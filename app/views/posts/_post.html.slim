@@ -2,13 +2,12 @@
   / = post_body_tag(post)
   div ng-bind-html='postBodyTag(post)'
   .footer
-    / .top
-    /   span.date
-    /     = time_ago_in_words(post.created_at)
-    /   - if user_signed_in? && current_user.owns_post?(post)
-    /     span.delete
-    /       = link_to post_path(post.id), method: :delete, confirm: t('messages.are_you_sure') do
-    /         i.icon-trash
+    .top
+      span.date {{post.created_at}}
+      / - if user_signed_in? && current_user.owns_post?(post)
+      /   span.delete
+      /     = link_to post_path(post.id), method: :delete, confirm: t('messages.are_you_sure') do
+      /       i.icon-trash
     / .bottom
     /   .tags
     /     ul

@@ -20,8 +20,6 @@ ul.posts ng-controller='Anoside.PostsCtrl'
       ul.comments
         li.comment ng-repeat='comment in post.comments'
           = render 'comments/comment'
-      /   - post.recent_comments.reverse_each do |comment|
-      /     = render 'comments/comment', comment: comment, comment_user_code: comment.comment_user_code.code
       - if user_signed_in?
         form.new-comment
           textarea ng-model='comment.body' press-enter-key='expand($event)'
