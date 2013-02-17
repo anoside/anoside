@@ -18,7 +18,7 @@ gem 'simple_form', '2.0.4'
 gem 'slim-rails', '1.0.3'
 
 # Others
-gem 'cld', '0.6.0'
+gem 'cld', '0.7.0'
 gem 'devise', '2.1.2'
 gem 'rails_config', '0.3.1'
 gem 'sidekiq', '2.5.3'
