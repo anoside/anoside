@@ -11,17 +11,6 @@ class PostsController < InheritedResources::Base
   #   create! { root_path }
   # end
 
-  def update
-    @post = Post.find(params[:id])
-    @post.tag_list = params[:post][:tag_list]
-
-    if @post.save
-      respond_to do |format|
-        format.json { render :update }
-      end
-    end
-  end
-
   def destroy
     @post = Post.find(params[:id])
 

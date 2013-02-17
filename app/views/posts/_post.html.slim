@@ -13,10 +13,14 @@
         ul
           li ng-repeat='tag in post.tags'
             | {{tag.name}}
-    /     - if user_signed_in?
-    /       span.tag-addition-button.fake-link
-    /         = t('posts.add_tag_to_posts')
-    /       span.tag-addition-form
-    /         = simple_form_for post, remote: true do |f|
-    /           = f.input 'tag_list', label: false, hint: t('messages.separate_with_comma')
-    /           = f.submit t('words.save'), class: 'btn'
+        - if user_signed_in?
+          span ng-controller='Anoside.TagsFormCtrl'
+            span.tag-addition-button.fake-link ng-click='showForm()'
+              = t('posts.add_tag_to_posts')
+            span ng-show='showed'
+              form
+                .input
+                  input type='text' ng-model='tagList'
+                .form-actions
+                  button.btn ng-click='create()'
+                    = t('words.save')

@@ -7,3 +7,4 @@
 
 #= require comments
 #= require posts
+#= require tags
