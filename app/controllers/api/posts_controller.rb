@@ -18,4 +18,14 @@ class Api::PostsController < Api::ApplicationController
 
     @post.save
   end
+
+  def destroy
+    @post = Post.find(params[:id])
+
+    if current_user.owns_post?(@post)
+      if @post.destroy
+        render status: 200, nothing: true
+      end
+    end
+  end
 end

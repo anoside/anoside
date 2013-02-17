@@ -29,6 +29,16 @@ Anoside.PostsCtrl = ($scope, $http, postService) ->
 
     bodyElm.html(post.body)[0].outerHTML
 
+  $scope.isOwnPost = (post) ->
+    (Anoside.currentUser.id == post.user_id) && _.isNull(post.deleted_at)
+
+  $scope.deletePost = (post) ->
+    message = Anoside.i18n.messages.areYouSure
+ 
+    if confirm(message)
+      $http.delete("/api/posts/#{post.id}.json").success ->
+        location.href = '/'
+
 
 Anoside.PostFormCtrl.$inject = ['$scope', '$http', 'postService']
 Anoside.PostsCtrl.$inject = ['$scope', '$http', 'postService']

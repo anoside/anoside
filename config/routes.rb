@@ -9,7 +9,7 @@ Anoside::Application.routes.draw do
   end
 
   namespace :api do
-    resources :posts, only: [:index, :create] do
+    resources :posts, only: [:index, :create, :destroy] do
       resources :comments, only: [:index, :create]
       resources :tags, only: [:create]
     end

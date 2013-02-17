@@ -10,10 +10,4 @@ class PostsController < InheritedResources::Base
 
   #   create! { root_path }
   # end
-
-  def destroy
-    @post = Post.find(params[:id])
-
-    destroy! if current_user.owns_post?(@post)
-  end
 end

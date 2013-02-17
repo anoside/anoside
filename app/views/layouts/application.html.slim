@@ -38,3 +38,13 @@ html ng-app='anoside'
 
     
     = yield :templates
+
+    javascript:
+      Anoside.currentUser = {
+        id: #{current_user.id}
+      };
+      Anoside.i18n = {
+        messages: {
+          areYouSure: '#{t('messages.are_you_sure')}'
+        }
+      };
