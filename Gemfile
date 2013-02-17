@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '1.9.3'
 
-gem 'rails', '3.2.10'
+gem 'rails', '3.2.12'
 
 # Controller
 gem 'inherited_resources', '1.3.1'
@@ -17,7 +17,7 @@ gem 'jbuilder', '0.8.2'
 gem 'simple_form', '2.0.4'
 gem 'slim-rails', '1.0.3'
 
-# Others
+# Other
 gem 'cld', '0.7.0'
 gem 'devise', '2.1.2'
 gem 'rails_config', '0.3.1'
