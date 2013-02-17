@@ -9,4 +9,8 @@ json.array!(@posts) do |post|
     json.created_at time_ago_in_words(comment.created_at)
     json.(comment, :relative_id, :body)
   end
+
+  json.tags post.tags do |tag|
+    json.(tag, :name)
+  end
 end
