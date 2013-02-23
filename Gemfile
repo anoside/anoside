@@ -13,6 +13,7 @@ gem 'enumerize', '0.5.0'
 gem 'mysql2', '0.3.11'
 
 # View
+gem 'flutie', '2.0.0'
 gem 'jbuilder', '0.8.2'
 gem 'simple_form', '2.0.4'
 gem 'slim-rails', '1.0.3'
@@ -40,7 +41,6 @@ end
 group :assets do
   gem 'bourbon', '2.1.2'
   gem 'coffee-rails', '3.2.2'
-  gem 'flutie', '1.3.3'
   gem 'font-awesome-sass-rails', '2.0.0.0'
   gem 'jquery-rails', '2.1.3'
   gem 'sass-rails', '3.2.5'
