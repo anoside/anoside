@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121215144654) do
+ActiveRecord::Schema.define(:version => 20130223041559) do
 
   create_table "comment_user_codes", :force => true do |t|
     t.integer  "post_id",    :null => false
@@ -59,16 +59,18 @@ ActiveRecord::Schema.define(:version => 20121215144654) do
   add_index "languages_preferences", ["preference_id"], :name => "index_languages_preferences_on_preference_id"
 
   create_table "posts", :force => true do |t|
-    t.integer  "user_id",     :default => 0, :null => false
-    t.integer  "language_id", :default => 1, :null => false
-    t.string   "title",                      :null => false
-    t.text     "body",                       :null => false
+    t.integer  "user_id",        :default => 0, :null => false
+    t.integer  "language_id",    :default => 1, :null => false
+    t.string   "title",                         :null => false
+    t.text     "body",                          :null => false
     t.string   "deleted_by"
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
+    t.integer  "comments_count", :default => 0, :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.datetime "deleted_at"
   end
 
+  add_index "posts", ["comments_count"], :name => "index_posts_on_comments_count"
   add_index "posts", ["language_id"], :name => "index_posts_on_language_id"
   add_index "posts", ["user_id"], :name => "index_posts_on_author_id"
 

@@ -2,7 +2,7 @@ class Comment < ActiveRecord::Base
   attr_accessible :body
 
   belongs_to :comment_user_code
-  belongs_to :post
+  belongs_to :post, counter_cache: true
 
 
   def build_comment_user_code(user)
