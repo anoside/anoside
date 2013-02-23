@@ -34,7 +34,7 @@ group :development, :test do
 end
 
 group :assets do
-  gem 'bourbon', '2.1.2'
+  gem 'bourbon', '3.1.1'
   gem 'coffee-rails', '3.2.2'
   gem 'font-awesome-sass-rails', '2.0.0.0'
   gem 'jquery-rails', '2.1.3'
