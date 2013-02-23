@@ -4,9 +4,6 @@ ruby '1.9.3'
 
 gem 'rails', '3.2.12'
 
-# Controller
-gem 'inherited_resources', '1.3.1'
-
 # Model
 gem 'acts-as-taggable-on', '2.3.3'
 gem 'enumerize', '0.5.0'

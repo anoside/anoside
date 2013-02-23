@@ -1,4 +1,4 @@
-class PreferencesController < InheritedResources::Base
+class PreferencesController < ApplicationController
   before_filter :authenticate_user!, only: [:update]
 
   def update
