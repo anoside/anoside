@@ -33,6 +33,7 @@ RSpec.configure do |config|
   config.include CommonSteps
   config.include PostSteps
   config.include SessionSteps
+  config.include WaitSteps
 
   # https://github.com/plataformatec/devise#test-helpers
   config.include Devise::TestHelpers, type: :controller
