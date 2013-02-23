@@ -18,7 +18,7 @@
             span ng-show='showed'
               form
                 .input
-                  input type='text' ng-model='tagList'
+                  input#post_tag_list type='text' ng-model='tagList'
                 .form-actions
                   button.btn ng-click='create()'
                     = t('words.save')

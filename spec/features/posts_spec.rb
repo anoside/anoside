@@ -2,10 +2,11 @@ require 'spec_helper'
 
 describe 'posts' do
   before do
+    FactoryGirl.create(:language)
     FactoryGirl.create(:user, username: 'bojovs', password: 'svojob')
   end
 
-  describe '#index' do
+  describe '#index', js: true do
     before do
       FactoryGirl.create_list(:post, 3)
 
@@ -13,24 +14,24 @@ describe 'posts' do
     end
 
     it 'shows posts' do
-      posts_list.should have_content('body-1')
+      expect(posts_list).to have_content('body-1')
     end
   end
 
-  describe '#create' do
+  describe '#create', js: true do
     before do
       login
 
       fill_in 'post_body', with: 'hello world'
-      click_button 'Create Post'
+      click_button 'submit'
     end
 
     it 'creates a post' do
-      posts_list.should have_content('hello world')
+      expect(posts_list).to have_content('hello world')
     end
   end
 
-  describe '#update' do
+  describe '#update', js: true do
     before do
       @post = FactoryGirl.create(:post)
 
@@ -45,7 +46,7 @@ describe 'posts' do
       end
 
       it 'saves 2 tags' do
-        @post.tags.count.should == 2
+        expect { @post.tags.count == 2 }.to become_true
       end
     end
   end

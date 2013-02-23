@@ -2,7 +2,7 @@
   div ng-controller='Anoside.PostFormCtrl'
     form id='new_post'
       .input
-        textarea ng-model='post.body' press-enter-key='expand($event)'
+        textarea#post_body ng-model='post.body' press-enter-key='expand($event)'
       .form-actions
         button.btn ng-click='create(post)' submit
 
