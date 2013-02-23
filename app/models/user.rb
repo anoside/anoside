@@ -15,12 +15,6 @@ class User < ActiveRecord::Base
     LanguagesPreference.create(language_id: accept_language_id, preference_id: preference.id)
   end
 
-  def self.new_guest
-    username = "guest_#{SecureRandom.hex}"
-    password = SecureRandom.hex
-
-    User.new(username: username, password: password, guest: true)
-  end
   
   def owns_post?(post)
     return false if post && post.user_id == 0

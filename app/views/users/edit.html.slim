@@ -1,4 +1,19 @@
-- if current_user.guest?
-  = render 'edit_as_guest_user'
-- else
-  = render 'edit_as_normal_user'
+h2 = t('words.account_settings')
+
+= simple_form_for @user, url: registration_path(@user) do |f|
+  = f.input :email
+  = f.input :password, autocomplete: 'off'
+  = f.input :password_confirmation
+  = f.input :current_password
+  = f.submit "Update"
+
+h2 = t('words.notification')
+
+= simple_form_for [current_user, @preference], url: user_preference_path do |f|
+  = f.input :email_when_commented
+  = f.association :languages, as: :check_boxes, label_method: :code
+  = f.submit t('words.save'), class: 'btn'
+
+h2 = t('words.delete_my_account')
+
+= link_to t('words.delete_my_account'), registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete
