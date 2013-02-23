@@ -36,10 +36,6 @@
               margin-right: 5px;
             }
           }
-
-          .tag-addition-form {
-            display: none;
-          }
         }
       }
     }
@@ -47,7 +43,7 @@
 }
 
 @mixin comments-block {
-  ul.comments, form.new_comment {
+  ul.comments, form.new-comment {
     margin-left: 30px;
   }
 
@@ -82,13 +78,9 @@
     }
   }
 
-  form.new_comment {
+  form.new-comment {
     textarea {
       height: 40px;
-    }
-
-    input[type='submit'] {
-      display: none;
     }
   }
 }

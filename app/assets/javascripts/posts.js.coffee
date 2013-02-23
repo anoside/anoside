@@ -1,46 +1,44 @@
-class TagAdditionButton
-  constructor: (@$button) ->
-    @$button.on
-      click: =>
-        @showTagAdditionForm()
-        @hideTagsAndSelf()
-
-  showTagAdditionForm: ->
-    $tagAdditionForm = @$button.siblings('.tag-addition-form').children('form')
-
-    new TagAdditionForm($tagAdditionForm).show()
-
-  hideTagsAndSelf: ->
-    @$button.siblings('ul').hide()
-    @$button.hide()
-
-  showTagsAndSelf: (tags) ->
-    $tags = @$button.siblings('ul')
-
-    $tags.children().remove()
-    $tags.append(Anoside.render('#tag', tags))
-
-    $tags.show()
-    @$button.show()
+Anoside.module.factory 'postService', ($rootScope) ->
+  post: ''
+  prependPost: (post) ->
+    @post = post
+    $rootScope.$broadcast('handleBroadcast')
 
 
-class TagAdditionForm
-  constructor: (@$form) ->
-    @$form.on
-      'ajax:success': (event, data) =>
-        $tagAdditionButton = @$form.parent().siblings('.tag-addition-button')
+Anoside.PostFormCtrl = ($scope, $http, postService) ->
+  $scope.create = (post) ->
+    $http.post('/api/posts.json', post).success (data) ->
+      postService.prependPost(data)
 
-        @hide()
-        new TagAdditionButton($tagAdditionButton).showTagsAndSelf(data)
-
-  hide: ->
-    @$form.parent().hide()
-
-  show: ->
-    @$form.parent().show()
+  $scope.expand = ($event) ->
+    $($event.target).height(140)
 
 
-$ ->
-  if $('.posts-index').length or $('.posts-show').length
-    $('.post .tag-addition-button').each ->
-      new TagAdditionButton($(@))
+Anoside.PostsCtrl = ($scope, $http, postService) ->
+  $http.get('/api/posts.json').success (data) ->
+    $scope.posts = data
+
+  $scope.$on 'handleBroadcast', ->
+    $scope.posts.unshift(postService.post)
+  
+  $scope.postBodyTag = (post) ->
+    bodyElm = $('<div class="body">')
+
+    unless _.isNull(post.deleted_at)
+      bodyElm.addClass('deleted')
+
+    bodyElm.html(post.body)[0].outerHTML
+
+  $scope.isOwnPost = (post) ->
+    (Anoside.currentUser.id == post.user_id) && _.isNull(post.deleted_at)
+
+  $scope.deletePost = (post) ->
+    message = Anoside.i18n.messages.areYouSure
+ 
+    if confirm(message)
+      $http.delete("/api/posts/#{post.id}.json").success ->
+        location.href = '/'
+
+
+Anoside.PostFormCtrl.$inject = ['$scope', '$http', 'postService']
+Anoside.PostsCtrl.$inject = ['$scope', '$http', 'postService']

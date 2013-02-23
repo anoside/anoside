@@ -6,7 +6,6 @@ class Post < ActiveRecord::Base
   belongs_to :language
   belongs_to :user
   has_many :comments
-  has_many :recent_comments, class_name: 'Comment', order: 'created_at DESC', limit: 5
 
   validates :body, length: { maximum: 500 }, presence: true
 
@@ -42,9 +41,5 @@ class Post < ActiveRecord::Base
     self.language = Language.find_by_code(code)
 
     self
-  end
-
-  def has_unviewable_comments?
-    comments.count > 5
   end
 end

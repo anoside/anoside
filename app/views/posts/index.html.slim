@@ -1,24 +1,22 @@
-= content_for :templates do
-  = render 'shared/templates/comments/comment', comment: { id: '{{id}}', relative_id: '{{relative_id}}', body: '{{body}}', created_at: '{{created_at}}' }, comment_user_code: '{{comment_user_code}}'
-  = render 'shared/templates/posts/tag', tag: { name: '{{name}}' }
-
-
 - if user_signed_in?
-  = simple_form_for @post do |f|
-    = f.input :body, label: false
-    .form-actions
-      = f.submit class: 'btn'
+  div ng-controller='Anoside.PostFormCtrl'
+    form id='new_post'
+      .input
+        textarea ng-model='post.body' press-enter-key='expand($event)'
+      .form-actions
+        button.btn ng-click='create(post)' submit
 
-ul.posts
-  - @posts.each do |post|
-    li
-      = render 'posts/post', post: post
-      - if post.has_unviewable_comments?
-        = link_to t('posts.view_all_n_comments', comments_count: post.comments.count), post_path(post.id), target: '_blank'
+ul.posts ng-controller='Anoside.PostsCtrl'
+  li ng-repeat='post in posts'
+    = render 'posts/post'
+    a ng-href='/posts/{{post.id}}' ng-show='post.comments_count > 5' target='_blank'
+      | View all {{post.comments_count}} comments
+    div ng-controller='Anoside.CommentsCtrl'
       ul.comments
-        - post.recent_comments.reverse_each do |comment|
-          = render 'comments/comment', comment: comment, comment_user_code: comment.comment_user_code.code
+        li.comment ng-repeat='comment in post.comments'
+          = render 'comments/comment'
       - if user_signed_in?
-        = simple_form_for [post, post.comments.new], remote: true do |f|
-          = f.input 'body', label: false
-          = f.submit t('words.reply'), class: 'btn'
+        form.new-comment
+          textarea ng-model='comment.body' press-enter-key='expand($event)'
+          button.btn ng-click='create(comment, post.id)'
+            = t('words.reply')
