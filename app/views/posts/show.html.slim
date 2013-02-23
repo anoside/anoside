@@ -1,7 +1,5 @@
-= content_for :templates do
-  = render 'shared/templates/comments/comment', comment: { id: '{{id}}', relative_id: '{{relative_id}}', body: '{{body}}', created_at: '{{created_at}}' }
-
 = render 'posts/post', post: @post
+
 ul.comments
   - @post.comments.each do |comment|
     = render 'comments/comment', comment: comment
