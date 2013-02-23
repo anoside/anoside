@@ -35,7 +35,6 @@ group :development, :test do
   gem 'factory_girl_rails', '4.2.1'
   gem 'pry-rails', '0.2.2'
   gem 'rspec-rails', '2.12.2'
-  gem 'spork-rails', '3.2.0'
 end
 
 group :assets do
@@ -49,12 +48,8 @@ end
 
 group :development do
   gem 'awesome_print', '1.1.0'
-  gem 'growl', '1.0.3'
-  gem 'guard-rspec', '2.1.2'
-  gem 'guard-spork', '1.2.3'
   gem 'mailcatcher', '0.5.10'
   gem 'quiet_assets', '1.0.1'
-  gem 'rb-fsevent', '0.9.2', require: false # used in Guard
   gem 'thin', '1.5.0'
 end
 
