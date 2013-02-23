@@ -38,7 +38,7 @@ html ng-app='anoside'
 
     javascript:
       Anoside.currentUser = {
-        id: #{current_user.id}
+        id: #{current_user.present? ? current_user.id : 'null'}
       };
       Anoside.i18n = {
         messages: {
