@@ -5,7 +5,7 @@ class PreferencesController < InheritedResources::Base
     @preference = current_user.preference
     
     if @preference.update_attributes(params[:preference])
-      redirect_to :back
+      redirect_to edit_user_registration_path
     else
       render 'edit'
     end
