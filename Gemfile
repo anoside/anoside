@@ -29,12 +29,12 @@ gem 'http_accept_language', github: 'DouweM/http_accept_language', branch: 'no-m
 
 
 group :development, :test do
-  gem 'capybara', '1.1.3'
-  gem 'capybara-webkit', '0.13.0'
+  gem 'capybara', '2.0.2'
+  gem 'capybara-webkit', '0.14.2'
   gem 'database_cleaner', '0.9.1'
-  gem 'factory_girl_rails', '4.1.0'
+  gem 'factory_girl_rails', '4.2.1'
   gem 'pry-rails', '0.2.2'
-  gem 'rspec-rails', '2.12.0'
+  gem 'rspec-rails', '2.12.2'
   gem 'spork-rails', '3.2.0'
 end
 
@@ -59,7 +59,7 @@ group :development do
 end
 
 group :test do
-  gem 'capybara-screenshot', '0.3'
+  gem 'capybara-screenshot', '0.3.4'
   gem 'fuubar', '1.1.0'
   gem 'simplecov', '0.7.1', require: false
 end
