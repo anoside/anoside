@@ -48,6 +48,8 @@ end
 
 group :development do
   gem 'awesome_print', '1.1.0'
+  gem 'better_errors', '0.7.0'
+  gem 'binding_of_caller', '0.7.1' # using better_errors
   gem 'mailcatcher', '0.5.10'
   gem 'quiet_assets', '1.0.1'
   gem 'thin', '1.5.0'
