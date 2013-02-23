@@ -7,6 +7,7 @@ require 'rspec/autorun'
 require 'capybara/rspec'
 require 'capybara-screenshot/rspec'
 require 'database_cleaner'
+require 'capybara/poltergeist'
 
 unless ENV['DRB']
   require 'simplecov'
@@ -17,7 +18,7 @@ end
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
-Capybara.javascript_driver = :webkit
+Capybara.javascript_driver = :poltergeist
 
 RSpec.configure do |config|
   config.expect_with :rspec do |c|
