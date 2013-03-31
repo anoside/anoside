@@ -29,8 +29,10 @@ group :development, :test do
 end
 
 group :assets do
+  gem 'backbone-on-rails', '1.0.0.0'
   gem 'bourbon', '3.1.1'
   gem 'font-awesome-sass-rails', '2.0.0.0'
+  gem 'marionette-rails', '1.0.1'
   gem 'sass-rails', '3.2.5'
   gem 'uglifier', '1.3.0'
 end
