@@ -1,24 +1,24 @@
 .post
-  div ng-bind-html='postBodyTag(post)'
-  .footer
-    .top
-      span.date {{post.created_at}}
-      - if user_signed_in?
-        span.delete ng-show='isOwnPost(post)'
-          i.icon-trash.fake-link ng-click='deletePost(post)'
-    .bottom
-      .tags
-        ul
-          li ng-repeat='tag in post.tags'
-            | {{tag.name}}
-        - if user_signed_in?
-          span ng-controller='Anoside.TagsFormCtrl'
-            span.tag-addition-button.fake-link ng-click='showForm()'
-              = t('posts.add_tag_to_posts')
-            span ng-show='showed'
-              form
-                .input
-                  input#post_tag_list type='text' ng-model='tagList'
-                .form-actions
-                  button.btn ng-click='create()'
-                    = t('words.save')
+  / div ng-bind-html='postBodyTag(post)'
+  / .footer
+  /   .top
+  /     span.date {{post.created_at}}
+  /     - if user_signed_in?
+  /       span.delete ng-show='isOwnPost(post)'
+  /         i.icon-trash.fake-link ng-click='deletePost(post)'
+  /   .bottom
+  /     .tags
+  /       ul
+  /         li ng-repeat='tag in post.tags'
+  /           | {{tag.name}}
+  /       - if user_signed_in?
+  /         span ng-controller='Anoside.TagsFormCtrl'
+  /           span.tag-addition-button.fake-link ng-click='showForm()'
+  /             = t('posts.add_tag_to_posts')
+  /           span ng-show='showed'
+  /             form
+  /               .input
+  /                 input#post_tag_list type='text' ng-model='tagList'
+  /               .form-actions
+  /                 button.btn ng-click='create()'
+  /                   = t('words.save')

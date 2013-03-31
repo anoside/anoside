@@ -1,11 +1,13 @@
-//= require components/jquery/jquery.min
+//= require jquery
 //= require jquery_ujs
-//= require components/angular/angular
-//= require angular-sanitize.min
-//= require components/underscore/underscore-min
+//= require underscore
+//= require backbone
+//= require backbone.marionette
 
-//= require base
+//= require anoside
 
-//= require comments
-//= require posts
-//= require tags
+//= require_tree ../templates
+//= require_tree ./models
+//= require_tree ./collections
+//= require_tree ./views
+//= require router
