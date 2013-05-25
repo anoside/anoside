@@ -4,25 +4,18 @@ ruby '2.0.0'
 
 gem 'rails', '3.2.13'
 
-# Asset
-gem 'jquery-rails', '2.1.3'
-
-# Model
 gem 'acts-as-taggable-on', '2.3.3'
-gem 'enumerize', '0.5.0'
-gem 'mysql2', '0.3.11'
-
-# View
-gem 'flutie', '2.0.0'
-gem 'jbuilder', '0.8.2'
-gem 'simple_form', '2.0.4'
-gem 'slim-rails', '1.0.3'
-
-# Other
 gem 'cld', '0.7.0'
 gem 'devise', '2.1.2'
+gem 'enumerize', '0.5.0'
+gem 'flutie', '2.0.0'
+gem 'jbuilder', '0.8.2'
+gem 'jquery-rails', '2.1.3'
+gem 'mysql2', '0.3.11'
 gem 'rails_config', '0.3.1'
 gem 'sidekiq', '2.5.3'
+gem 'simple_form', '2.0.4'
+gem 'slim-rails', '1.0.3'
 
 # https://github.com/iain/http_accept_language/issues/22
 gem 'http_accept_language', github: 'DouweM/http_accept_language', branch: 'no-middleware-no-crash'
