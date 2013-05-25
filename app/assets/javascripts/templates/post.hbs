@@ -1,0 +1,36 @@
+<div class="post">
+  {{{body}}}
+  <div class="footer">
+    <div class="top">
+      <span class="date">{{created_at}}</span>
+      {{#if user_signed_in}}
+        <span class="delete">
+          <i class="icon-trash fake-link">
+        </span>
+      {{/if}}
+    </div>
+    <div class="bottom">
+      <div class="tags">
+        <ul>
+          <li>
+            {{tag.name}}
+          </li>
+        </ul>
+        {{#if user_signed_in}}
+          <span class="tag-addition-button.fake-link">
+            = t('posts.add_tag_to_posts')
+          </span>
+          <form>
+            <div class="input">
+              <input id="post_tag_list" type="text">
+            <div class="form-actions">
+              <button class="btn">
+                = t('words.save')
+              </button>
+            </div>
+          </form>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</div>
