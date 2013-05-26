@@ -1,10 +1,9 @@
 - if user_signed_in?
-  div ng-controller='Anoside.PostFormCtrl'
-    form id='new_post'
+    form.new-post
       .input
-        textarea#post_body ng-model='post.body' press-enter-key='expand($event)'
+        textarea.body
       .form-actions
-        button.btn ng-click='create(post)' submit
+        button.btn Submit
 
 ul.posts
   / li ng-repeat='post in posts'

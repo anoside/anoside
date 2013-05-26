@@ -9,25 +9,3 @@ Anoside.Views.Post = Backbone.View.extend
   render: ->
     @$el.html(@template(@model.toJSON()))
     @
-
-Anoside.Views.PostsList = Backbone.View.extend
-  el: 'ul.posts'
-
-  initialize: ->
-    @collection = new Anoside.Collections.Posts()
-    @collection.fetch()
-
-    @listenTo(@collection, 'add', @append)
-    @listenTo(@collection, 'reset', @render)
-
-  render: ->
-    @collection.each (post) ->
-      @append(post)
-    , @
-    @
-
-  append: (post) ->
-    postView = new Anoside.Views.Post
-      model: post
-
-    @$el.append(postView.render().$el)

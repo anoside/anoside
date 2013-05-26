@@ -1,8 +1,8 @@
 <div class="post">
-  {{{body}}}
+  {{{simpleFormat body}}}
   <div class="footer">
     <div class="top">
-      <span class="date">{{created_at}}</span>
+      <span class="date">{{timeAgoInWords created_at}}</span>
       {{#if user_signed_in}}
         <span class="delete">
           <i class="icon-trash fake-link">

@@ -3,6 +3,8 @@ Anoside.Router = Backbone.Router.extend
     '': 'index'
 
   index: ->
-    new Anoside.Views.PostsList()
+    new Anoside.Views.Posts()
+    new Anoside.Views.PostForm()
+
 
 new Anoside.Router()
