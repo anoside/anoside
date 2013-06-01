@@ -6,13 +6,6 @@ Anoside.Views.Posts = Backbone.View.extend
     @collection.fetch()
 
     @listenTo(@collection, 'add', @prepend)
-    @listenTo(@collection, 'reset', @render)
-
-  render: ->
-    @collection.each (post) ->
-      @prepend(post)
-    , @
-    @
 
   prepend: (post) ->
     postView = new Anoside.Views.Post

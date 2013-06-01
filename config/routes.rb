@@ -4,8 +4,9 @@ Anoside::Application.routes.draw do
     path_names: { sign_in: 'signin', sign_out: 'signout', sign_up: 'signup' }
 
   namespace :api do
+    resources :comments, only: [:index]
     resources :posts, only: [:index, :create, :destroy] do
-      resources :comments, only: [:index, :create]
+      resources :comments, only: [:create]
       resources :tags, only: [:create]
     end
   end

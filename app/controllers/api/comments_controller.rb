@@ -1,4 +1,14 @@
 class Api::CommentsController < Api::ApplicationController
+  def index
+    @comments = if params.include?(:ids)
+      ids = params[:ids].split(',').map(&:strip)
+
+      Comment.where(id: ids)
+    else
+      Comment.scoped
+    end
+  end
+
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.new(params[:comment])
