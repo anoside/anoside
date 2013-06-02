@@ -1,4 +1,4 @@
-window.Anoside =
+_.extend Anoside,
   Models: {}
   Collections: {}
   Views: {}

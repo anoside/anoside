@@ -5,7 +5,6 @@ html ng-app='anoside'
     title
       = page_title(separator: ' | ')
     = stylesheet_link_tag 'application', media: 'all'
-    = javascript_include_tag 'application'
     = csrf_meta_tags
 
   body class="#{body_class}"
@@ -33,15 +32,17 @@ html ng-app='anoside'
           small
             | COPYRIGHT © 2012 ANOSIDE ALL RIGHTS RESERVED.
 
-    
-    = yield :templates
-
     javascript:
-      Anoside.currentUser = {
-        id: #{current_user.present? ? current_user.id : 'null'}
-      };
-      Anoside.i18n = {
-        messages: {
-          areYouSure: '#{t('messages.are_you_sure')}'
+      window.Anoside = {
+        currentUser: {
+          id: #{current_user.present? ? current_user.id : 'null'}
+        },
+
+        i18n: {
+          messages: {
+            areYouSure: '#{t('messages.are_you_sure')}'
+          }
         }
       };
+
+    = javascript_include_tag 'application'
