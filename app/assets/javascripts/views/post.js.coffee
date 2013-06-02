@@ -11,6 +11,8 @@ Anoside.Views.Post = Backbone.View.extend
 
     unless @model.isNew()
       comments = new Anoside.Collections.Comments()
+
       new Anoside.Views.Comments(collection: comments, parentEl: @el, postModel: @model)
+      new Anoside.Views.CommentForm(collection: comments, parentEl: @el, postModel: @model)
 
     @

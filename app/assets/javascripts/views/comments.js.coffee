@@ -9,10 +9,10 @@ Anoside.Views.Comments = Backbone.View.extend
     unless _.isEmpty(commentIds)
       @collection.fetch(data: { ids: commentIds })
 
-    @listenTo(@collection, 'add', @prepend)
+    @listenTo(@collection, 'add', @append)
 
-  prepend: (comment) ->
+  append: (comment) ->
     commentView = new Anoside.Views.Comment
       model: comment
 
-    @$parentEl.find('.comments').prepend(commentView.render().$el)
+    @$parentEl.find('.comments').append(commentView.render().$el)
