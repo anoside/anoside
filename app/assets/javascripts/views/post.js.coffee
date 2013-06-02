@@ -9,7 +9,8 @@ Anoside.Views.Post = Backbone.View.extend
   render: ->
     @$el.html(@template(@model.toJSON()))
 
-    collection = new Anoside.Collections.Comments()
-    new Anoside.Views.Comments(collection: collection, parentEl: @el, postModel: @model)
+    unless @model.isNew()
+      comments = new Anoside.Collections.Comments()
+      new Anoside.Views.Comments(collection: comments, parentEl: @el, postModel: @model)
 
     @
