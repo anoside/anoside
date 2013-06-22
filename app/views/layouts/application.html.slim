@@ -20,13 +20,36 @@ html ng-app='anoside'
               - else
                 li = link_to t('words.signup'), new_user_registration_path
                 li = link_to t('words.signin'), new_user_session_path
-      .container
-        #contents
-          - if params[:action] == 'index'
-            #dashboard
-              = render 'dashboard'
+      #contents
+        .container
+          #nav
+            ul.sections
+              li.section
+                = link_to '' do
+                  i.icon-home
+                  | Timeline
+              li.section.selected
+                = link_to do
+                  i.icon-user
+                  | Self
+              li.section
+                = link_to ''
+                i.icon-thumbs-up
+                | Likes
+              li.section
+                = link_to ''
+                i.icon-thumbs-down
+                | Dislikes
+              li.section
+                h2 Following Tags
+                ul.tags
+                  - 10.times.each do
+                    li.tag
+                      = link_to '' do
+                        i.icon-tag
+                        | Tag
           #main
-            = yield
+              = yield
       footer
         p.copyright
           small

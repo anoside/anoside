@@ -1,10 +1,12 @@
 #wrapper {
   header {
-    @include box-shadow(0 0 5px 0 rgba(0,0,0,0.4));
-    @include linear-gradient(#ee8334, #ff8924);
-
-    border-bottom: 1px solid #ee9835;
-    height: 50px;
+    background-color: $anoside;
+    height: $header-height;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1000;
 
     .container {
       @include display-box;
@@ -15,7 +17,7 @@
       }
 
       h1, nav li {
-        line-height: 50px;
+        line-height: $header-height;
       }
 
       h1 {
@@ -41,18 +43,64 @@
     }
   }
 
-  .container {
-    #contents {
+  #contents {
+    .container {
       @include display-box;
 
-      margin-top: 20px;
+      padding-top: $header-height;
 
       body.posts-index & {
-        #dashboard {
+        #nav {
+          color: #e9eeef;
+          height: 100%;
+          position: fixed;
           width: 400px;
+
+          h2 {
+            color: $anoside-dark;
+            font-size: 15px;
+          }
+
+          ul {
+            @include padding-start(0);
+
+            list-style: none;
+
+            li {
+              padding: 10px 0;
+
+              a {
+                color: $white-dark;
+                text-decoration: none;
+              }
+
+              i {
+                margin-right: 7px;
+              }
+            }
+          }
+
+          ul.sections {
+            border-right: solid 1px $gray-dark;
+            height: 100%;
+            margin: 0;
+            overflow-y: scroll;
+            padding-top: 30px;
+            width: 300px;
+
+            li.section {
+              &.selected {
+                i {
+                  color: #ff0000;
+                }
+              }
+            }
+          }
         }
 
         #main {
+          left: 400px;
+          position: relative;
           width: 520px;
         }
       }

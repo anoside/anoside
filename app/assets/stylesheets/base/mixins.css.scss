@@ -1,9 +1,12 @@
+@mixin padding-start($length) {
+  -moz-padding-start: $length;
+  -webkit-padding-start: $length;
+}
+
 @mixin post-block {
   .post {
-    background-color: #f8fbf8;
-    border: solid 1px $gray {
-      radius: 5px;
-    }
+    background-color: $white;
+    border: solid 1px $gray;
 
     .body {
       padding: 15px 10px;
