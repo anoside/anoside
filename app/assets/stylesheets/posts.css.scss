@@ -17,6 +17,8 @@
   }
 
   ul.posts {
+    @include padding-start(0);
+
     clear: both;
     list-style: none;
 

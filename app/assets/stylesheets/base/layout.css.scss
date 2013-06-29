@@ -22,12 +22,10 @@
 
       h1 {
         margin: 0;
-        padding-left: 10px;
         width: 150px;
       }
 
       nav {
-        padding-right: 10px;
         width: 850px;
 
         ul {
@@ -100,8 +98,9 @@
 
         #main {
           left: 400px;
+          padding-top: 30px;
           position: relative;
-          width: 520px;
+          width: 600px;
         }
       }
 

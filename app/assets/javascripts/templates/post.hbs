@@ -1,7 +1,15 @@
 <div class="post">
-  {{{simpleFormat body}}}
+  <div class="body">
+    {{{simpleFormat body}}}
+  </div>
   <div class="footer">
     <div class="top">
+      <span class="like">
+        <i class="icon-thumbs-up"></i>10
+      </span>
+      <span class="dislike">
+        <i class="icon-thumbs-down"></i>20
+      </span>
       <span class="date">{{timeAgoInWords created_at}}</span>
       {{#ifIsUserSignedIn}}
         <span class="delete">
@@ -11,6 +19,7 @@
     </div>
     <div class="bottom">
       <div class="tags">
+        <i class="icon-tags"></i>
         <ul>
           <li>
             {{tag.name}}
