@@ -11,34 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130223050308) do
-
-  create_table "comment_user_codes", :force => true do |t|
-    t.integer  "post_id",    :null => false
-    t.integer  "user_id",    :null => false
-    t.string   "code",       :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "comment_user_codes", ["code"], :name => "index_comment_user_codes_on_code", :unique => true
-  add_index "comment_user_codes", ["post_id", "user_id"], :name => "index_comment_user_codes_on_post_id_and_user_id", :unique => true
-  add_index "comment_user_codes", ["post_id"], :name => "index_comment_user_codes_on_post_id"
-  add_index "comment_user_codes", ["user_id"], :name => "index_comment_user_codes_on_user_id"
+ActiveRecord::Schema.define(:version => 20130629085646) do
 
   create_table "comments", :force => true do |t|
-    t.integer  "relative_id",                         :null => false
-    t.integer  "user_id",              :default => 0, :null => false
-    t.integer  "post_id",                             :null => false
-    t.integer  "comment_user_code_id",                :null => false
-    t.text     "body",                                :null => false
-    t.datetime "created_at",                          :null => false
-    t.datetime "updated_at",                          :null => false
+    t.integer  "relative_id",                 :null => false
+    t.integer  "viewpoint_id", :default => 0, :null => false
+    t.integer  "post_id",                     :null => false
+    t.text     "body",                        :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
   end
 
-  add_index "comments", ["comment_user_code_id"], :name => "index_comments_on_comment_user_code_id"
   add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
-  add_index "comments", ["user_id"], :name => "index_comments_on_author_id"
+  add_index "comments", ["viewpoint_id"], :name => "index_comments_on_viewpoint_id"
 
   create_table "languages", :force => true do |t|
     t.string   "code",       :null => false
@@ -59,7 +44,6 @@ ActiveRecord::Schema.define(:version => 20130223050308) do
   add_index "languages_preferences", ["preference_id"], :name => "index_languages_preferences_on_preference_id"
 
   create_table "posts", :force => true do |t|
-    t.integer  "user_id",        :default => 0, :null => false
     t.integer  "language_id",    :default => 1, :null => false
     t.string   "title",                         :null => false
     t.text     "body",                          :null => false
@@ -72,7 +56,6 @@ ActiveRecord::Schema.define(:version => 20130223050308) do
 
   add_index "posts", ["comments_count"], :name => "index_posts_on_comments_count"
   add_index "posts", ["language_id"], :name => "index_posts_on_language_id"
-  add_index "posts", ["user_id"], :name => "index_posts_on_author_id"
 
   create_table "preferences", :force => true do |t|
     t.integer  "user_id",                                 :null => false
@@ -120,5 +103,19 @@ ActiveRecord::Schema.define(:version => 20130223050308) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["username"], :name => "index_users_on_username", :unique => true
+
+  create_table "viewpoints", :force => true do |t|
+    t.integer  "user_id",                       :null => false
+    t.integer  "post_id",                       :null => false
+    t.string   "code",                          :null => false
+    t.boolean  "original",   :default => false, :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
+  add_index "viewpoints", ["code"], :name => "index_viewpoints_on_code", :unique => true
+  add_index "viewpoints", ["post_id"], :name => "index_viewpoints_on_post_id"
+  add_index "viewpoints", ["user_id", "post_id"], :name => "index_viewpoints_on_user_id_and_post_id", :unique => true
+  add_index "viewpoints", ["user_id"], :name => "index_viewpoints_on_user_id"
 
 end

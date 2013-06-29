@@ -4,8 +4,8 @@ class Post < ActiveRecord::Base
   attr_accessible :body, :deleted_at, :deleted_by, :title
 
   belongs_to :language
-  belongs_to :user
   has_many :comments
+  has_one :viewpoint, conditions: { original: true }
 
   validates :body, length: { maximum: 500 }, presence: true
 

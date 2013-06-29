@@ -1,6 +1,6 @@
 json.posts @posts do |post|
   json.id post.id
-  json.user_id post.user_id
+  json.viewpoint_code post.viewpoint.code
   json.body post_body(post)
   json.comments_count post.comments_count
   json.deleted_at post.deleted_at

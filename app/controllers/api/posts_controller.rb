@@ -12,11 +12,12 @@ class Api::PostsController < Api::ApplicationController
   def create
     @post = Post.new(params[:post])
 
-    @post.user_id = current_user.id if user_signed_in?
     @post.set_title!
     @post.set_language!
 
-    @post.save
+    if @post.save
+      current_user.make_viewpoint(@post, original: true)
+    end
   end
 
   def destroy
