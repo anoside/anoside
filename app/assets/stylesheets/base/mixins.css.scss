@@ -1,3 +1,8 @@
+@mixin margin-before($size) {
+  -moz-margin-before: $size;
+  -webkit-margin-before: $size;
+}
+
 @mixin padding-start($length) {
   -moz-padding-start: $length;
   -webkit-padding-start: $length;
@@ -8,48 +13,61 @@
     background-color: $white;
     border: solid 1px $gray;
 
-    .body {
-      line-height: 20px;
-      padding: 0 10px 10px;
+    .top {
+      padding: 10px;
 
-      p {
-        margin-bottom: 0;
+      .header {
+        color: $gray-dark;
+        font-size: 10px;
+        text-align: right;
+
+        .viewpoint-code {
+          margin-right: 10px;
+        }
       }
 
-      &.deleted {
-        color: #ff0000;
+      .body {
+        line-height: 20px;
+        margin-bottom: 15px;
+
+        p {
+          @include margin-before(0);
+        }
+
+        &.deleted {
+          color: #ff0000;
+        }
+      }
+
+      .like-dislike {
+        font-size: 10px;
+
+        .like, .dislike {
+          border: solid 1px $gray;
+          padding: 5px;
+        }
+
+        .like {
+          margin-right: 6px;
+        }
       }
     }
 
-    > .footer {
-      background-color: #e6e6e6;
-      border: {
-        radius: 0 0 3px 3px;
-        bottom: solid 1px $gray;
-      }
-      font-size: 10px;
-      padding: 5px 10px 10px;
+    .bottom {
+      > .footer {
+        background-color: #e6e6e6;
+        border: {
+          radius: 0 0 3px 3px;
+          bottom: solid 1px $gray;
+        }
+        font-size: 10px;
+        padding: 10px;
 
-      i {
-        color: $anoside-dark;
-        font-size: 12px;
-      }
-
-      .top {
-        margin-bottom: 5px;
-
-        .dislike {
-          i {
-            margin-right: 2px;
-          }
+        i {
+          color: $anoside-dark;
+          font-size: 12px;
         }
 
-        .date {
-          margin-left: 10px;
-        }
-      }
-
-      .bottom {
         .tags {
           ul {
             @include padding-start(0);

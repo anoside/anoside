@@ -1,24 +1,28 @@
 <div class="post">
-  <p>{{viewpoint_code}}</p>
-  <div class="body">
-    {{{simpleFormat body}}}
-  </div>
-  <div class="footer">
-    <div class="top">
+  <div class="top">
+    <div class="header">
+      <span class="viewpoint-code">{{viewpoint_code}}</span>
+      <span class="date">{{timeAgoInWords created_at}}</span>
+    </div>
+    <div class="body">
+      {{{simpleFormat body}}}
+    </div>
+    <div class="like-dislike">
       <span class="like">
         <i class="icon-thumbs-up"></i>10
       </span>
       <span class="dislike">
         <i class="icon-thumbs-down"></i>20
       </span>
-      <span class="date">{{timeAgoInWords created_at}}</span>
-      {{#ifIsUserSignedIn}}
-        <span class="delete">
-          <i class="icon-trash fake-link"></i>
-        </span>
-      {{/ifIsUserSignedIn}}
     </div>
-    <div class="bottom">
+    {{#ifIsUserSignedIn}}
+      <div class="delete">
+        <i class="icon-trash fake-link"></i>
+      </div>
+    {{/ifIsUserSignedIn}}
+  </div>
+  <div class="bottom">
+    <div class="footer">
       <div class="tags">
         <i class="icon-tags"></i>
         <ul>
