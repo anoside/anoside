@@ -1,6 +1,4 @@
 Anoside.Views.Tags = Backbone.View.extend
-  el: 'ul.tags'
-
   initialize: (options) ->
     @$parentEl = $(options.parentEl)
     tagIds = options.postModel.attributes.links.tags.join(',')
@@ -10,8 +8,17 @@ Anoside.Views.Tags = Backbone.View.extend
 
     @listenTo(@collection, 'add', @append)
 
-  append: (tag) ->
-    tagView = new Anoside.Views.Tag
-      model: tag
+  append: (tagModel) ->
+    $tagList = @$parentEl.find('.tags ul')
 
-    @$parentEl.find('.tags ul').append(tagView.render().$el)
+    if tagModel.isNew()
+      _.each tagModel.attributes.tags, (tag) ->
+        tagView = new Anoside.Views.Tag
+          model: new Anoside.Models.Tag(name: tag.name)
+
+        $tagList.append(tagView.render().$el)
+    else
+      tagView = new Anoside.Views.Tag
+        model: tagModel
+
+      $tagList.append(tagView.render().$el)

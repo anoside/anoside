@@ -15,6 +15,6 @@ Anoside.Views.TagForm = Backbone.View.extend
     e.preventDefault()
 
     tag = @postModel.tags.set(@params())
-    @collection.create(tag)
+    @collection.create(tag, wait: true)
 
     @$body.val('')
