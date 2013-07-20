@@ -16,6 +16,7 @@ Anoside.Views.CommentForm = Backbone.View.extend
     e.preventDefault()
 
     comment = @postModel.comments.set(@params())
+    @collection.url = "/api/posts/#{@postModel.id}/comments"
     @collection.create(comment)
 
     @$body.val('')
