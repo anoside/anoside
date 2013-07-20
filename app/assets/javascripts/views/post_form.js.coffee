@@ -15,6 +15,6 @@ Anoside.Views.PostForm = Backbone.View.extend
     e.preventDefault()
 
     post = new Anoside.Models.Post(@params())
-    @collection.create(post)
+    @collection.create(post, wait: true)
 
     @$body.val('')

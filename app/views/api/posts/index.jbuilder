@@ -8,9 +8,6 @@ json.posts @posts do |post|
 
   json.links do
     json.comments post.comments.pluck(:id)
-  end
-
-  json.tags post.tags do |tag|
-    json.(tag, :name)
+    json.tags post.tags.pluck(:id)
   end
 end

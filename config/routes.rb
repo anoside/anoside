@@ -9,6 +9,7 @@ Anoside::Application.routes.draw do
       resources :comments, only: [:create]
       resources :tags, only: [:create]
     end
+    resources :tags, only: [:index]
   end
 
   resources :posts, only: [:index]

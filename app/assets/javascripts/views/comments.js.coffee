@@ -1,6 +1,5 @@
 Anoside.Views.Comments = Backbone.View.extend
   el: 'ul.comments'
-  collection: Anoside.comments
 
   initialize: (options) ->
     @$parentEl = $(options.parentEl)

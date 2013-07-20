@@ -9,6 +9,12 @@ Anoside.Views.Post = Backbone.View.extend
   render: ->
     @$el.html(@template(@model.toJSON()))
 
+    tags = new Anoside.Collections.Tags()
+
+    new Anoside.Views.Tags(collection: tags, parentEl: @el, postModel: @model)
+    new Anoside.Views.TagAdditionButton(@$el)
+    new Anoside.Views.TagForm(collection: tags, postModel: @model, $postView: @$el)
+
     unless @model.isNew()
       comments = new Anoside.Collections.Comments()
 
