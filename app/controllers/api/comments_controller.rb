@@ -14,7 +14,7 @@ class Api::CommentsController < Api::ApplicationController
     @comment = @post.comments.new(params[:comment])
     viewpoint = current_user.make_viewpoint(@post)
 
-    @comment.relative_id = @post.comments.count + 1
+    @comment.number = @post.comments.count + 1
     @comment.viewpoint = viewpoint
 
     if @comment.save

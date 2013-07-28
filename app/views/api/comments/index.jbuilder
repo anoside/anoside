@@ -1,5 +1,5 @@
 json.comments @comments do |comment|
-  json.(comment, :id, :relative_id, :body, :created_at)
+  json.(comment, :id, :number, :body, :created_at)
   json.viewpoint_code comment.viewpoint.code
 
   json.links do
