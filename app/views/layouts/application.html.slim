@@ -14,9 +14,14 @@ html
         .navbar-header
           = link_to 'Anoside', root_path, class: 'navbar-brand'
         .collapse.navbar-collapse.navbar-ex1-collapse
-          / - if user_signed_in?
-          /   = link_to signout_users_path, class: 'navbar-text navbar-link pull-right' do
-          /     | Signout
+          - if user_signed_in?
+            = link_to signout_users_path, class: 'navbar-text navbar-link pull-right' do
+              | Signout
+          - else
+            = link_to new_user_registration_path, class: 'navbar-text navbar-link pull-right' do
+              | Signup
+            = link_to new_user_session_path, class: 'navbar-text navbar-link pull-right' do
+              | Signin
     .container
       - flash.each do |name, msg|
         = content_tag :div, msg, class: "alert alert-#{name}"

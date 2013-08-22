@@ -12,4 +12,6 @@
  *= require _font-awesome
  *= require bootstrap.min
  *= require bootstrap-theme.min
+ *
+ *= require base
  */
