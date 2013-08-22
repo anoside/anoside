@@ -1,6 +1,0 @@
-= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = f.input :username
-  = f.input :password
-  = f.input :accept_language_id, as: :hidden, input_html: { value: session[:accept_language_id] }
-
-  = f.button :submit, t('words.signup')

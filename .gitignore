@@ -3,9 +3,5 @@
 /.bundle
 
 /log/*.log
-/config/settings.local.yml
-/config/settings/*.local.yml
-/coverage
 /tmp
 /vendor/bundle
-
