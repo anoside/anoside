@@ -17,7 +17,6 @@ gem 'mysql2'
 gem 'rails_config'
 gem 'sass-rails'
 gem 'sidekiq'
-gem 'simple_form'
 gem 'turbolinks'
 
 # https://github.com/iain/http_accept_language/issues/22

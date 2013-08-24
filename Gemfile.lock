@@ -149,7 +149,6 @@ GEM
       json
       redis (>= 3.0)
       redis-namespace
-    simple_form (1.4.1)
     sinatra (1.4.3)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -216,7 +215,6 @@ DEPENDENCIES
   rails_config
   sass-rails
   sidekiq
-  simple_form
   thin
   turbolinks
   uglifier
