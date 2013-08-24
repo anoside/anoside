@@ -15,7 +15,7 @@ html
           = link_to 'Anoside', root_path, class: 'navbar-brand'
         .collapse.navbar-collapse.navbar-ex1-collapse
           - if user_signed_in?
-            = link_to signout_users_path, class: 'navbar-text navbar-link pull-right' do
+            = link_to destroy_user_session_path, class: 'navbar-text navbar-link pull-right', method: 'delete' do
               | Signout
           - else
             = link_to new_user_registration_path, class: 'navbar-text navbar-link pull-right' do
@@ -27,3 +27,7 @@ html
         = content_tag :div, msg, class: "alert alert-#{name}"
 
       = yield
+
+      footer
+        hr
+        p.text-center © 2013 Anoside
