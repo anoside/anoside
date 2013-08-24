@@ -11,7 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130822114936) do
+ActiveRecord::Schema.define(version: 20130824134234) do
+
+  create_table "languages", force: true do |t|
+    t.string   "code",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "languages", ["code"], name: "index_languages_on_code", unique: true, using: :btree
+
+  create_table "languages_preferences", force: true do |t|
+    t.integer  "language_id",   null: false
+    t.integer  "preference_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "languages_preferences", ["language_id"], name: "index_languages_preferences_on_language_id", using: :btree
+  add_index "languages_preferences", ["preference_id"], name: "index_languages_preferences_on_preference_id", using: :btree
+
+  create_table "preferences", force: true do |t|
+    t.integer  "user_id",                              null: false
+    t.boolean  "email_when_commented", default: false, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "preferences", ["user_id"], name: "index_preferences_on_user_id", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "username",               default: "", null: false
