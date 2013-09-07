@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(version: 20130824134234) do
   add_index "languages_preferences", ["preference_id"], name: "index_languages_preferences_on_preference_id", using: :btree
 
   create_table "preferences", force: true do |t|
-    t.integer  "user_id",                              null: false
-    t.boolean  "email_when_commented", default: false, null: false
+    t.integer  "user_id",                             null: false
+    t.boolean  "email_when_commented", default: true, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -13,6 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require angular.min
 //= require bootstrap.min
-//= require_tree .
+//= require handlebars
+//= require ember
+//= require ember-states
+//= require ember-data
+//= require_self
+//= require anoside
+
+// for more details see: http://emberjs.com/guides/application/
+Anoside = Ember.Application.create();
