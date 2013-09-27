@@ -4,44 +4,49 @@
     <meta charset="utf-8">
     <%= csrf_meta_tags %>
     <title>Anoside</title>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
   </head>
   <body class="#{body_class}">
-    <nav class="navbar navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <%= link_to 'Anoside', root_path, class: 'navbar-brand' %>
-        </div>
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-          <% if user_signed_in? %>
-            <%= link_to destroy_user_session_path, class: 'navbar-text navbar-link pull-right', method: 'delete' do %>
-            Signout
-            <% end %>
-          <% else %>
-            <%= link_to new_user_registration_path, class: 'navbar-text navbar-link pull-right' do %>
-              Signup
-            <% end %>
-            <%= link_to new_user_session_path, class: 'navbar-text navbar-link pull-right' do %>
-              Signin
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-    </nav>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <nav class="navbar navbar-default" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <%= link_to 'Anoside', root_path, class: 'navbar-brand' %>
+            </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+              <% if user_signed_in? %>
+                <%= link_to destroy_user_session_path, class: 'navbar-text navbar-link pull-right', method: 'delete' do %>
+                Signout
+                <% end %>
+              <% else %>
+                <%= link_to new_user_registration_path, class: 'navbar-text navbar-link pull-right' do %>
+                  Signup
+                <% end %>
+                <%= link_to new_user_session_path, class: 'navbar-text navbar-link pull-right' do %>
+                  Signin
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </nav>
 
-    <div class="container">
-      <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, class: "alert alert-#{name}" %>
-      <% end %>
-      <%= yield %>
+        <div class="container">
+          <% flash.each do |name, msg| %>
+            <%= content_tag :div, msg, class: "alert alert-#{name}" %>
+          <% end %>
+          <%= yield %>
+        </div>
+     
+        <footer>
+          <hr>
+          <p class="text-center">
+            © 2013 Anoside
+          </p>
+        </footer>
+      </div>
     </div>
- 
-    <footer>
-      <hr>
-      <p class="text-center">
-        © 2013 Anoside
-      </p>
-    </footer>
   </body>
 </html>

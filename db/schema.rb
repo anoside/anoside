@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130824134234) do
+ActiveRecord::Schema.define(version: 20130920134234) do
 
   create_table "languages", force: true do |t|
     t.string   "code",       null: false
@@ -30,6 +30,20 @@ ActiveRecord::Schema.define(version: 20130824134234) do
 
   add_index "languages_preferences", ["language_id"], name: "index_languages_preferences_on_language_id", using: :btree
   add_index "languages_preferences", ["preference_id"], name: "index_languages_preferences_on_preference_id", using: :btree
+
+  create_table "posts", force: true do |t|
+    t.integer  "language_id",    default: 1, null: false
+    t.string   "title",                      null: false
+    t.text     "body",                       null: false
+    t.string   "deleted_by"
+    t.integer  "comments_count", default: 0, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "deleted_at"
+  end
+
+  add_index "posts", ["comments_count"], name: "index_posts_on_comments_count", using: :btree
+  add_index "posts", ["language_id"], name: "index_posts_on_language_id", using: :btree
 
   create_table "preferences", force: true do |t|
     t.integer  "user_id",                             null: false
