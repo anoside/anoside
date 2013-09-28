@@ -2,8 +2,8 @@ class Post < ActiveRecord::Base
   extend Enumerize
 
   belongs_to :language
-  belongs_to :user
   has_many :comments
+  has_one :viewpoint, conditions: { original: true }
 
   validates :body, length: { maximum: 500 }, presence: true
 
@@ -41,3 +41,4 @@ class Post < ActiveRecord::Base
     self
   end
 end
+

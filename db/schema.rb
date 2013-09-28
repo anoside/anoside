@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130920134234) do
+ActiveRecord::Schema.define(version: 20130928135217) do
 
   create_table "languages", force: true do |t|
     t.string   "code",       null: false
@@ -73,5 +73,19 @@ ActiveRecord::Schema.define(version: 20130920134234) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
+
+  create_table "viewpoints", force: true do |t|
+    t.integer  "user_id",                    null: false
+    t.integer  "post_id",                    null: false
+    t.string   "code",                       null: false
+    t.boolean  "original",   default: false, null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "viewpoints", ["code"], name: "index_viewpoints_on_code", unique: true, using: :btree
+  add_index "viewpoints", ["post_id"], name: "index_viewpoints_on_post_id", using: :btree
+  add_index "viewpoints", ["user_id", "post_id"], name: "index_viewpoints_on_user_id_and_post_id", unique: true, using: :btree
+  add_index "viewpoints", ["user_id"], name: "index_viewpoints_on_user_id", using: :btree
 
 end

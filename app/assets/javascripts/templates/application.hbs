@@ -1,1 +1,25 @@
-{{outlet}}
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          {{#link-to 'index' classNames=[navbar-brand]}}Anoside{{/link-to}}
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          {{#link-to 'index' classNames=[navbar-text navbar-link pull-right]}}Signout{{/link-to}}
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      {{outlet}}
+    </div>
+ 
+    <footer>
+      <hr>
+      <p class="text-center">
+        © 2013 Anoside
+      </p>
+    </footer>
+  </div>
+</div>

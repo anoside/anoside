@@ -8,4 +8,23 @@ class Api::PostsController < Api::ApplicationController
 
     @posts = Post.where(language_id: language_ids).order('created_at DESC')
   end
+
+  def create
+    @post = Post.new(post_params)
+
+    @post.set_title!
+    @post.set_language!
+
+    if @post.save
+      current_user.make_viewpoint(@post, original: true)
+    end
+
+    render json: @post
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:body)
+  end
 end
