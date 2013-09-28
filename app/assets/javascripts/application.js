@@ -14,9 +14,9 @@
 //= require jquery_ujs
 //= require bootstrap.min
 //= require handlebars
-//= require ember
-//= require ember-states
-//= require ember-data
+//= require ember/ember
+//= require ember/ember-states
+//= require ember/ember-data
 //= require_self
 //= require anoside
 
