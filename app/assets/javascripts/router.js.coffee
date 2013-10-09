@@ -3,4 +3,3 @@ Anoside.Router.reopen
 
 Anoside.Router.map ->
   @resource('posts')
-

@@ -1,2 +1,4 @@
 Anoside.Post = DS.Model.extend
-  body: DS.attr('string')
+  viewpoint: DS.belongsTo('viewpoint')
+  body: DS.attr()
+  created_at: DS.attr('date')

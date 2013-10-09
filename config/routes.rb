@@ -4,6 +4,7 @@ Anoside::Application.routes.draw do
 
   namespace :api do
     resources :posts, only: [:index, :create]
+    resources :viewpoints, only: [:show]
   end
 
   root to: 'pages#index'

@@ -7,4 +7,65 @@
   <button class="btn btn-primary pull-right" {{action 'createPost'}}>Submit</button>
   <div class="clearfix"></div>
   <hr>
+  <div class="posts">
+    {{#each}}
+      <div class="post">
+        <div class="top">
+          <div class="header">
+            <span class="viewpoint-code">{{viewpoint.code}}</span>
+            <span class="date">{{timeAgoInWords created_at}}</span>
+          </div>
+          <div class="body">
+            {{simpleFormat body}}
+          </div>
+          <div class="like-dislike">
+            <span class="like">
+              <i class="icon-thumbs-up"></i>10
+            </span>
+            <span class="dislike">
+              <i class="icon-thumbs-down"></i>20
+            </span>
+          </div>
+{{!--           {{#ifIsUserSignedIn}}
+            <div class="delete">
+              <i class="icon-trash fake-link"></i>
+            </div>
+          {{/ifIsUserSignedIn}}
+ --}}        </div>
+        <div class="bottom">
+          <div class="footer">
+            <div class="tags">
+              <i class="icon-tags js-tag-addition-button"></i>
+              <ul>
+                <li>
+                  {{!-- {{tag.name}} --}}
+                </li>
+              </ul>
+{{!--               {{#ifIsUserSignedIn}}
+                <span class="js-tag-addition-button fake-link">
+                  Add tag
+                </span>
+                <form>
+                  <div class="input">
+                    <input id="post_tag_list" type="text">
+                  <div class="form-actions">
+                    <button class="btn">
+                      Save
+                    </button>
+                  </div>
+                </form>
+              {{/ifIsUserSignedIn}}
+ --}}            </div>
+          </div>
+        </div>
+      </div>
+
+      <ul class="comments"></ul>
+
+      <form class="new-comment">
+        <textarea class="comment-body"></textarea>
+        <button>Reply</button>
+      </form>
+    {{/each}}
+  </div>
 </div>

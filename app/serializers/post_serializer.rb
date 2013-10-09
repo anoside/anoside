@@ -1,3 +1,4 @@
 class PostSerializer < ActiveModel::Serializer
-  attributes :id, :user_id, :body, :comments_count
+  has_one :viewpoint, embed: :id, key: :viewpoint
+  attributes :body, :comments_count, :created_at, :id
 end

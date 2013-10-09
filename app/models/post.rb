@@ -3,7 +3,7 @@ class Post < ActiveRecord::Base
 
   belongs_to :language
   has_many :comments
-  has_one :viewpoint, conditions: { original: true }
+  has_one :viewpoint, -> { where original: true }
 
   validates :body, length: { maximum: 500 }, presence: true
 

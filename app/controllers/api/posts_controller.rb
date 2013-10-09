@@ -7,6 +7,8 @@ class Api::PostsController < Api::ApplicationController
     end
 
     @posts = Post.where(language_id: language_ids).order('created_at DESC')
+
+    render json: @posts
   end
 
   def create
