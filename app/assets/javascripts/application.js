@@ -14,12 +14,4 @@
 //= require jquery_ujs
 //= require bootstrap.min
 //= require moment.min
-//= require handlebars
-//= require ember/ember
-//= require ember/ember-states
-//= require ember/ember-data
 //= require_self
-//= require anoside
-
-// for more details see: http://emberjs.com/guides/application/
-Anoside = Ember.Application.create();
