@@ -1,0 +1,65 @@
+<div class="top">
+  <div class="header">
+    <span class="viewpoint-code">{{post.viewpoint_code}}</span>
+    <span class="date" time-ago="{{post.created_at}}"></span>
+  </div>
+  <div class="body" ng-bind-html="postBodyTag(post)"></div>
+  <div class="like-dislike">
+    <span class="like">
+      <i class="icon-thumbs-up"></i>10
+    </span>
+    <span class="dislike">
+      <i class="icon-thumbs-down"></i>20
+    </span>
+  </div>
+  <% if user_signed_in? %>
+    <span class="delete" ng-show="post.own">
+      <i class="icon-trash fake-link" ng-click="deletePost(post)"></i>
+    </span>
+  <% end %>
+</div>
+
+<div class="bottom">
+  <div class="footer">
+    <div class="tags">
+      <ul>
+        <li ng-repeat="tag in post.tags">
+          {{tag.name}}
+        </li>
+      <% if user_signed_in? %>
+        <span ng-controller="Anoside.TagsFormCtrl">
+          <span class="tag-addition-button fake-link" ng-click="showForm()">
+            <%= t('posts.add_tag_to_posts') %>
+          <span ng-show="showed">
+            <form>
+              <div class="input">
+                <input type="text" ng-model="tagList">
+              </div>
+              <div class="form-actions">
+                <button class="btn" ng-click="create()">
+                  <%= t('words.save') %>
+                </button>
+              </div>
+            </form>
+          </span>
+        </span>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+<div ng-controller="Anoside.CommentsCtrl">
+  <ul class="comments">
+    <li class="comment" ng-repeat="comment in post.comments">
+      <%= render 'comments/comment' %>
+    </li>
+  </ul>
+
+  <% if user_signed_in? %>
+    <form class="new-comment">
+      <textarea class="form-control" rows="1" ng-model="comment.body" press-enter-key="expand($event)"></textarea>
+      <button class="btn" ng-click="create(comment, post.id)"><%= t('words.reply') %></button>
+    </form>
+  <% end %>
+</div>

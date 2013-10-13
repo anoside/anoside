@@ -12,6 +12,14 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require underscore-min
+//= require angular.min
+//= require angular-sanitize.min
+//= require angular-resource.min
 //= require bootstrap.min
 //= require moment.min
 //= require_self
+//= require anoside
+//= require_tree ./directives
+//= require_tree ./services
+//= require_tree ./controllers

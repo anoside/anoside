@@ -77,4 +77,8 @@ Anoside::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  # Prevents to break some of JavaScript (ex: Angular.js) code due to renaming
+  # https://shellycloud.com/blog/2013/10/how-to-integrate-angularjs-with-rails-4
+  config.assets.js_compressor = Uglifier.new(mangle: false)
 end

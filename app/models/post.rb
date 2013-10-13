@@ -41,4 +41,3 @@ class Post < ActiveRecord::Base
     self
   end
 end
-

@@ -14,10 +14,8 @@ class User < ActiveRecord::Base
   end
 
 
-  def owns_post?(post)
-    return false if post && post.user_id == 0
-
-    self == post.user
+  def own_post?(post)
+    !post.deleted_at? && self == post.viewpoint.user
   end
 
   def make_viewpoint(post, original: false)

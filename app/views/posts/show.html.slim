@@ -1,0 +1,8 @@
+= render 'posts/post', post: @post
+
+ul.comments
+  - @post.comments.each do |comment|
+    = render 'comments/comment', comment: comment
+= simple_form_for [@post, @post.comments.new], remote: true do |f|
+  = f.input 'body', label: false
+  = f.submit t('words.reply'), class: 'btn'

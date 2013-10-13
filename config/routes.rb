@@ -7,5 +7,5 @@ Anoside::Application.routes.draw do
     resources :viewpoints, only: [:show]
   end
 
-  root to: 'pages#index'
+  root to: 'posts#index'
 end

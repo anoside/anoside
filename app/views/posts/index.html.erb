@@ -1,0 +1,28 @@
+<% if user_signed_in? %>
+  <form role="form" ng-controller="Anoside.PostFormCtrl">
+    <div class="form-group">
+      <textarea class="form-control" rows="2" ng-model="post.body" press-enter-key="expand($event)"></textarea>
+    </div>
+    <button class="btn btn-primary pull-right" ng-click="create(post)">Submit</button>
+  </form>
+  <div class="clearfix"></div>
+  <hr>
+
+  <div class="posts" ng-controller="Anoside.PostsCtrl">
+    <div class="post" ng-repeat="post in posts">
+      <%= render 'posts/post' %>
+      <hr>
+    </div>
+ </div>
+<% else %>
+  <div class="jumbotron">
+    <div class="container">
+      <h1>Whereabouts of another.</h1>
+      <p>Anoside is a microblogging service that enables its users to send posts anonymously.</p>
+      <p>
+        <%= link_to 'Signup', new_user_registration_path, class: 'btn btn-primary btn-lg' %>
+        <%= link_to 'Signin', new_user_session_path, class: 'navbar-text navbar-link pull-right' %>
+      </p>
+    </div>
+  </div>
+<% end %>
