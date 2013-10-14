@@ -20,6 +20,16 @@ class Api::PostsController < Api::ApplicationController
     end
   end
 
+  def destroy
+    post = Post.find(params[:id])
+
+    if current_user.own_post?(post)
+      if post.destroy
+        render status: 200, nothing: true
+      end
+    end
+  end
+
   private
 
   def post_params

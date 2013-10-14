@@ -15,7 +15,7 @@ Anoside.PostsCtrl = ($scope, $http, postService) ->
 
   $scope.deletePost = (post) ->
     if confirm('Are you sure?')
-      $http.delete("/api/posts/#{post.id}.json").success ->
+      $http.delete("/api/posts/#{post.id}").success ->
         location.href = '/'
 
 

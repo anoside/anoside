@@ -3,7 +3,7 @@ Anoside::Application.routes.draw do
              path_names: { sign_in: 'signin', sign_out: 'signout', sign_up: 'signup' }
 
   namespace :api do
-    resources :posts, only: [:index, :create] do
+    resources :posts, only: [:index, :create, :destroy] do
       resources :comments, only: [:index, :create]
     end
     resources :viewpoints, only: [:show]
