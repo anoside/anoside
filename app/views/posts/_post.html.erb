@@ -21,13 +21,13 @@
 
 <div class="bottom">
   <div class="footer">
-    <div class="tags">
+    <div class="tags" ng-controller="Anoside.TagsCtrl">
       <ul>
-        <li ng-repeat="tag in post.tags">
+        <li ng-repeat="tag in tags">
           {{tag.name}}
         </li>
       <% if user_signed_in? %>
-        <span ng-controller="Anoside.TagsFormCtrl">
+        <span ng-controller="Anoside.TagFormCtrl">
           <span class="tag-addition-button fake-link" ng-click="showForm()">
             <%= t('posts.add_tag_to_posts') %>
           <span ng-show="showed">
