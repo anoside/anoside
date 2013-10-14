@@ -1,17 +1,15 @@
 <div class="left">
-  <div class="relative-id">
-    {{comment.relative_id}}
+  <div class="number">
+    {{comment.number}}
   </div>
 <div class="right">
-  <div class="code">
-    {{comment.comment_user_code}}
+  <div class="viewpoint-code">
+    {{comment.viewpoint_code}}
   </div>
   <div class="body">
     {{comment.body}}
   </div>
   <div class="footer">
-    <span class="date">
-      {{comment.created_at}}
-    </span>
+    <span class="date" time-ago="{{comment.created_at}}"></span>
   </div>
 </div>

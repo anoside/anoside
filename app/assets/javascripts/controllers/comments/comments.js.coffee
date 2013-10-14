@@ -1,15 +1,9 @@
 Anoside.CommentsCtrl = ($scope, $http) ->
-  $scope.create = (comment, postId) ->
-    $http.post("/api/posts/#{postId}/comments", comment).success (data) ->
-      comments = $scope.$parent.post.comments
-      comments.shift()
-      comments.push(data)
+  post = $scope.$parent.post
 
-      $scope.$parent.post.comments = comments
-      $scope.comment = ''
-
-  $scope.expand = ($event) ->
-    $($event.target).height(100)
+  $http.get("/api/posts/#{post.id}/comments").success (data) ->
+    comments = data.comments.reverse()
+    $scope.comments = comments.slice(0, 5).reverse()
 
 
 Anoside.CommentsCtrl.$inject = ['$scope', '$http']

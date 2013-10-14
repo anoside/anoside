@@ -48,16 +48,15 @@
   </div>
 </div>
 
-
 <div ng-controller="Anoside.CommentsCtrl">
   <ul class="comments">
-    <li class="comment" ng-repeat="comment in post.comments">
+    <li class="comment" ng-repeat="comment in comments">
       <%= render 'comments/comment' %>
     </li>
   </ul>
 
   <% if user_signed_in? %>
-    <form class="new-comment">
+    <form class="new-comment" ng-controller="Anoside.CommentFormCtrl">
       <textarea class="form-control" rows="1" ng-model="comment.body" press-enter-key="expand($event)"></textarea>
       <button class="btn" ng-click="create(comment, post.id)"><%= t('words.reply') %></button>
     </form>
