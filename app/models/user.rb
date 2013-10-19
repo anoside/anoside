@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   attr_accessor :accept_language_id
 
-  has_one :preference
+  has_many :likes, dependent: :destroy
+  has_one  :preference, dependent: :destroy
 
   validates :password, presence: true
   validates :username, format: { with: /\A[A-Za-z0-9_]+\z/ }, presence: true, uniqueness: true
@@ -29,6 +30,11 @@ class User < ActiveRecord::Base
     end
 
     viewpoint
+  end
+
+  def liked?(likable)
+    like = likes.where(likable_id: likable.id, likable_type: likable.class.name)
+    like.present?
   end
 end
 

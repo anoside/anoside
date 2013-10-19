@@ -4,12 +4,12 @@
     <span class="date" time-ago="{{post.created_at}}"></span>
   </div>
   <div class="body" ng-bind-html="postBodyTag(post)"></div>
-  <div class="like-dislike">
-    <span class="like">
-      <i class="icon-thumbs-up"></i>10
+  <div class="like-dislike" ng-controller="Anoside.LikesCtrl">
+    <span class="like" ng-click="toggleLike()" ng-class="{liked: post.liked}">
+      <i class="icon-thumbs-up"></i>{{post.likes_count}}
     </span>
-    <span class="dislike">
-      <i class="icon-thumbs-down"></i>20
+    <span class="dislike" ng-click="dislike">
+      <i class="icon-thumbs-down"></i>{{post.dislikes_count}}
     </span>
   </div>
   <% if user_signed_in? %>

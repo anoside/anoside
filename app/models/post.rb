@@ -2,8 +2,9 @@ class Post < ActiveRecord::Base
   extend Enumerize
 
   belongs_to :language
-  has_many :comments
-  has_one :viewpoint, -> { where original: true }
+  has_many   :comments
+  has_many   :likes, as: :likable
+  has_one    :viewpoint, -> { where original: true }
 
   validates :body, length: { maximum: 500 }, presence: true
 
