@@ -4,6 +4,7 @@ class Post < ActiveRecord::Base
   belongs_to :language
   has_many   :comments
   has_many   :likes, as: :likable
+  has_many   :dislikes, as: :dislikable
   has_one    :viewpoint, -> { where original: true }
 
   validates :body, length: { maximum: 500 }, presence: true

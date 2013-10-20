@@ -4,6 +4,7 @@ Anoside::Application.routes.draw do
 
   namespace :api do
     resources :posts,      only: [:index, :create, :destroy] do
+      resource  :dislike,  only: [:create, :destroy]
       resource  :like,     only: [:create, :destroy]
       resources :comments, only: [:index, :create]
       resources :tags,     only: [:index, :create]

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131019162344) do
+ActiveRecord::Schema.define(version: 20131021201107) do
 
   create_table "comments", force: true do |t|
     t.integer  "viewpoint_id", default: 0, null: false
@@ -24,6 +24,18 @@ ActiveRecord::Schema.define(version: 20131019162344) do
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
   add_index "comments", ["viewpoint_id"], name: "index_comments_on_viewpoint_id", using: :btree
+
+  create_table "dislikes", force: true do |t|
+    t.integer  "user_id",         null: false
+    t.integer  "dislikable_id",   null: false
+    t.string   "dislikable_type", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "dislikes", ["dislikable_id", "dislikable_type"], name: "index_dislikes_on_dislikable_id_and_dislikable_type", using: :btree
+  add_index "dislikes", ["user_id", "dislikable_id", "dislikable_type"], name: "index_dislikes_on_user_id_and_dislikable_id_and_dislikable_type", unique: true, using: :btree
+  add_index "dislikes", ["user_id"], name: "index_dislikes_on_user_id", using: :btree
 
   create_table "languages", force: true do |t|
     t.string   "code",       null: false
@@ -62,6 +74,7 @@ ActiveRecord::Schema.define(version: 20131019162344) do
     t.string   "deleted_by"
     t.integer  "comments_count", default: 0, null: false
     t.integer  "likes_count",    default: 0
+    t.integer  "dislikes_count", default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "deleted_at"

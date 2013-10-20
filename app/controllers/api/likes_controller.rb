@@ -3,7 +3,7 @@ class Api::LikesController < Api::ApplicationController
     post = Post.find(params[:post_id])
     like = Like.new(user: current_user, likable: post)
 
-    like.save unless current_user.liked?(post)
+    like.save if !current_user.liked?(post) && !current_user.disliked?(post)
 
     render status: 200, nothing: true
   end

@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   attr_accessor :accept_language_id
 
   has_many :likes, dependent: :destroy
+  has_many :dislikes, dependent: :destroy
   has_one  :preference, dependent: :destroy
 
   validates :password, presence: true
@@ -33,8 +34,10 @@ class User < ActiveRecord::Base
   end
 
   def liked?(likable)
-    like = likes.where(likable_id: likable.id, likable_type: likable.class.name)
-    like.present?
+    likes.where(likable: likable).present?
+  end
+
+  def disliked?(dislikable)
+    dislikes.where(dislikable: dislikable).present?
   end
 end
-

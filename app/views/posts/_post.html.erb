@@ -8,7 +8,7 @@
     <span class="like" ng-click="toggleLike()" ng-class="{liked: post.liked}">
       <i class="icon-thumbs-up"></i>{{post.likes_count}}
     </span>
-    <span class="dislike" ng-click="dislike">
+    <span class="dislike" ng-click="toggleDislike()" ng-class="{disliked: post.disliked}">
       <i class="icon-thumbs-down"></i>{{post.dislikes_count}}
     </span>
   </div>
