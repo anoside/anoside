@@ -9,6 +9,10 @@ class Api::PostsController < Api::ApplicationController
     @posts = Post.where(language_id: language_ids).order('created_at DESC')
   end
 
+  def show
+    @post = Post.find(params[:id])
+  end
+
   def create
     @post = Post.new(post_params)
 

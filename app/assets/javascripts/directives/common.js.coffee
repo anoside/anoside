@@ -5,3 +5,11 @@ Anoside.angular.directive 'pressEnterKey', ($parse) ->
         fn = $parse(attr.pressEnterKey)
         scope.$apply ->
           fn(scope, $event: event)
+
+
+Anoside.angular.directive 'resourceBody', ->
+  (scope, elm) ->
+    resource = if _.has(scope, 'post') then scope.post else scope.comment
+
+    elm.addClass('deleted') unless _.isNull(resource.deleted_at)
+    elm.html(resource.body)

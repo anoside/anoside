@@ -1,9 +1,11 @@
 <div class="top">
   <div class="header">
     <span class="viewpoint-code">{{post.viewpoint_code}}</span>
-    <span class="date" time-ago="{{post.created_at}}"></span>
+    <a ng-href="/posts/{{post.id}}">
+      <span class="date" time-ago="{{post.created_at}}"></span>
+    </a>
   </div>
-  <div class="body" ng-bind-html="postBodyTag(post)"></div>
+  <div class="body" resource-body></div>
   <div class="like-dislike" ng-controller="Anoside.LikesCtrl">
     <span class="like" ng-click="toggleLike()" ng-class="{liked: post.liked}">
       <i class="icon-thumbs-up"></i>{{post.likes_count}}
