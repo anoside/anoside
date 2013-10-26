@@ -12,4 +12,8 @@ class Api::TagsController < Api::ApplicationController
       @tags = post.tags
     end
   end
+
+  def show
+    @tag = Tag.find_by(name: params[:id])
+  end
 end

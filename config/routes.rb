@@ -6,13 +6,16 @@ Anoside::Application.routes.draw do
     resources :posts,      only: [:create, :destroy, :index, :show] do
       resource  :dislike,  only: [:create, :destroy]
       resource  :like,     only: [:create, :destroy]
-      resources :comments, only: [:index, :create]
-      resources :tags,     only: [:index, :create]
+      resources :comments, only: [:create, :index]
+      resources :tags,     only: [:create, :index]
     end
+
+    resources :tags,       only: [:show]
     resources :viewpoints, only: [:show]
   end
 
   resources :posts, only: [:show]
+  resources :tags,  only: [:show]
 
   root to: 'posts#index'
 end

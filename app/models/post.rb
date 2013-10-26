@@ -9,6 +9,16 @@ class Post < ActiveRecord::Base
 
   validates :body, length: { maximum: 500 }, presence: true
 
+  scope :filter, -> params {
+    scope = self
+
+    if params[:tag].present?
+      scope = scope.joins(:tags).where('tags.name' => params[:tag])
+    end
+
+    scope
+  }
+
   acts_as_ordered_taggable
 
   enumerize :deleted_by, in: [:user, :admin]

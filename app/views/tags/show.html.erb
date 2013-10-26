@@ -1,0 +1,9 @@
+<div class="tag" ng-controller="Anoside.TagCtrl" data-tag-name="<%= params[:id] %>">
+  <h1>{{tag.name}}</h1>
+  <hr>
+  <div class="posts" ng-controller="Anoside.TagPostsCtrl">
+    <div ng-repeat="post in posts">
+      <%= render 'posts/post' %>
+    </div>
+  </div>
+</div>

@@ -1,3 +1,3 @@
 json.tags tags do |tag|
-  json.name tag.name
+  json.partial! 'tag', tag: tag
 end
