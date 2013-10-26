@@ -1,5 +1,13 @@
 <div class="tag" ng-controller="Anoside.TagCtrl" data-tag-name="<%= params[:id] %>">
-  <h1>{{tag.name}}</h1>
+  <div class="header">
+    <div class="pull-left">
+      <h1>{{tag.name}}</h1>
+    </div>
+    <div class="pull-right">
+      <button type="button" class="btn" ng-class="{'btn-primary': !tag.followed, 'btn-success': tag.followed}" ng-click="toggleFollow()">{{tag.followed ? 'Following' : 'Follow'}}</button>
+    </div>
+    <div class="clearfix"></div>
+  </div>
   <hr>
   <div class="posts" ng-controller="Anoside.TagPostsCtrl">
     <div ng-repeat="post in posts">

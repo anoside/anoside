@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131021201107) do
+ActiveRecord::Schema.define(version: 20131026122100) do
 
   create_table "comments", force: true do |t|
     t.integer  "viewpoint_id", default: 0, null: false
@@ -36,6 +36,17 @@ ActiveRecord::Schema.define(version: 20131021201107) do
   add_index "dislikes", ["dislikable_id", "dislikable_type"], name: "index_dislikes_on_dislikable_id_and_dislikable_type", using: :btree
   add_index "dislikes", ["user_id", "dislikable_id", "dislikable_type"], name: "index_dislikes_on_user_id_and_dislikable_id_and_dislikable_type", unique: true, using: :btree
   add_index "dislikes", ["user_id"], name: "index_dislikes_on_user_id", using: :btree
+
+  create_table "follows", force: true do |t|
+    t.integer  "tag_id",     null: false
+    t.integer  "user_id",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "follows", ["tag_id", "user_id"], name: "index_follows_on_tag_id_and_user_id", unique: true, using: :btree
+  add_index "follows", ["tag_id"], name: "index_follows_on_tag_id", using: :btree
+  add_index "follows", ["user_id"], name: "index_follows_on_user_id", using: :btree
 
   create_table "languages", force: true do |t|
     t.string   "code",       null: false

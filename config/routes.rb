@@ -10,7 +10,10 @@ Anoside::Application.routes.draw do
       resources :tags,     only: [:create, :index]
     end
 
-    resources :tags,       only: [:show]
+    resources :tags,       only: [:show] do
+      resource :follow,    only: [:create, :destroy]
+    end
+
     resources :viewpoints, only: [:show]
   end
 

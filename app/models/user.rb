@@ -1,8 +1,10 @@
 class User < ActiveRecord::Base
   attr_accessor :accept_language_id
 
-  has_many :likes, dependent: :destroy
-  has_many :dislikes, dependent: :destroy
+  has_many :dislikes,   dependent: :destroy
+  has_many :follows,    dependent: :destroy
+  has_many :likes,      dependent: :destroy
+  has_many :tags,       through: :follows
   has_one  :preference, dependent: :destroy
 
   validates :password, presence: true
@@ -39,5 +41,17 @@ class User < ActiveRecord::Base
 
   def disliked?(dislikable)
     dislikes.where(dislikable: dislikable).present?
+  end
+
+  def followed?(tag)
+    !!tags.include?(tag)
+  end
+
+  def follow(tag)
+    tags << tag unless followed?(tag)
+  end
+
+  def unfollow(tag)
+    tags.delete(tag) if followed?(tag)
   end
 end
