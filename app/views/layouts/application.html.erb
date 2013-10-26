@@ -8,24 +8,63 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
-  <body class="#{body_class}">
-    <div class="row">
-      <div class="col-sm-6 col-sm-offset-3">
-        <nav class="navbar navbar-default" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <%= link_to 'Anoside', root_path %>
-            </div>
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-              <%= link_to t('words.signout'), destroy_user_session_path, class: 'navbar-text navbar-link pull-right', method: 'delete' %>
-            </div>
-          </div>
-        </nav>
-
-        <div class="container">
-          <%= yield %>
+  <body class="<%= body_class %>">
+    <div class="wrapper">
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+          <%= link_to 'Anoside', root_path, class: 'navbar-brand' %>
         </div>
-     
+      </nav>
+
+      <div class="col-lg-8 col-md-8 col-sm-10 col-xs-12 col-lg-offset-2 col-md-offset-2 col-sm-offset-1 wrapper">
+        <div class="container">
+          <nav class="menu">
+            <ul>
+              <li>
+                <%= link_to root_path do %>
+                  <i class="icon-home"></i>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to '#' do %>
+                  <i class="icon-tags"></i>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to '#' do %>
+                  <i class="icon-thumbs-up"></i>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to '#' do %>
+                  <i class="icon-thumbs-down"></i>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to '#' do %>
+                  <i class="icon-user"></i>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to '#' do %>
+                  <i class="icon-gear"></i>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to destroy_user_session_path, method: 'delete' do %>
+                  <i class="icon-power-off"></i>
+                <% end %>
+              </li>
+            </ul>
+          </nav>
+
+          <div class="container">
+            <article class="col-lg-11 col-md-10 col-sm-10 col-xs-9">
+              <%= yield %>
+            </article>
+          </div>
+        </div>
+        
         <footer>
           <hr>
           <p class="text-center">

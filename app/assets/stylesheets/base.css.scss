@@ -1,6 +1,72 @@
 body {
-  > .container {
-    padding-top: 70px;
+  > .wrapper {
+    &.col-xs-12 {
+      padding: {
+        left: 0;
+        right: 0;
+      }
+    }
+
+    > .wrapper {
+      padding: {
+        left: 0;
+        right: 0;
+      }
+
+      > .container {
+        padding: {
+          left: 0;
+          right: 0;
+        }
+
+        nav.menu {
+          float: left;
+          margin-left: 15px;
+          width: 50px;
+
+          ul {
+            -webkit-padding-start: 0;
+            background-color: #eeeeee;
+            border-right: 1px solid #eeeeee;
+            list-style-type: none;
+            margin-bottom: 0;
+
+            li {
+              border-bottom: 1px solid #ffffff;
+              font-size: 20px;
+              text-align: center;
+
+              a {
+                display: inline-block;
+                padding: 10px 0;
+              }
+            }
+          }
+        }
+
+        .container {
+          padding: {
+            left: 0;
+            right: 0;
+          }
+
+          article {
+            padding-right: 0;
+          }
+        }
+      }
+    }
   }
 }
 
+@media (min-width: 768px) {
+  article.col-sm-10 {
+    width: 88.333333333333333%;
+  }
+}
+
+@media (min-width: 1200px) {
+  article.col-lg-11 {
+    width: 91.66666666666666%;
+  }
+}
