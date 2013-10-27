@@ -14,11 +14,18 @@ Anoside::Application.routes.draw do
       resource :follow,    only: [:create, :destroy]
     end
 
+    resource :user,        only: [] do
+      resources :tags,     only: [:index], controller: 'user_tags'
+    end
+
     resources :viewpoints, only: [:show]
   end
 
-  resources :posts, only: [:show]
-  resources :tags,  only: [:show]
+  resources :posts,  only: [:show]
+  resources :tags,   only: [:show]
+  resource  :user,   only: [] do
+    resources :tags, only: [:index], controller: 'user_tags'
+  end
 
   root to: 'posts#index'
 end

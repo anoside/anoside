@@ -1,0 +1,22 @@
+body.user_tags-index {
+  article {
+    ul.tags {
+      -moz-padding-start: 0;
+      -webkit-padding-start: 0;
+      list-style-type: none;
+      margin-bottom: 0;
+
+      li {
+        a {
+          display: block;
+          padding: 20px 0;
+        }
+
+        hr {
+          margin-top: 0;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

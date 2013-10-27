@@ -1,0 +1,12 @@
+<div ng-controller="Anoside.UserTagsCtrl">
+  <ul class="tags">
+    <li ng-repeat="tag in tags">
+      <a ng-href="/tags/{{tag.name}}">
+        <div class="name pull-left">{{tag.name}}</div>
+        <div class="pull-right"><i class="icon-chevron-right"></i></div>
+        <div class="clearfix"></div>
+      </a>
+      <hr>
+    </li>
+  </ul>
+</div>
