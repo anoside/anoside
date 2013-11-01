@@ -156,6 +156,7 @@ GEM
       eventmachine (~> 1.0.0)
       thin (~> 1.5.0)
     slop (3.4.6)
+    spring (0.9.0)
     sprockets (2.10.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -212,5 +213,6 @@ DEPENDENCIES
   rails_config
   sass-rails
   sidekiq
+  spring
   thin
   uglifier
