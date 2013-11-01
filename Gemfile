@@ -17,6 +17,7 @@ gem 'mysql2'
 gem 'rails_config'
 gem 'sass-rails'
 gem 'sidekiq'
+gem 'slim'
 
 # https://github.com/iain/http_accept_language/issues/22
 gem 'http_accept_language', github: 'DouweM/http_accept_language', branch: 'no-middleware-no-crash'
