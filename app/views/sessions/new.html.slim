@@ -1,0 +1,17 @@
+h2 Sign in
+
+= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  .form-group
+    .col-lg-3
+      label.sr-only for='username' Username
+      = f.text_field :username, id: 'username', class: 'form-control', placeholder: 'Username', autofocus: true
+  .form-group
+    .col-lg-3
+      label.sr-only for='password' Password
+      = f.password_field :password, id: 'password', class: 'form-control', placeholder: 'Password'
+
+  - if devise_mapping.rememberable?
+    = f.check_box :remember_me %> <%= f.label :remember_me
+
+  = f.submit 'Sign in'
+

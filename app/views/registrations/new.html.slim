@@ -1,0 +1,16 @@
+h2 Sign up
+
+= form_for resource, as: resource_name, url: registration_path(resource_name), class: 'form-inline', role: 'form' do |f|
+  = devise_error_messages!
+
+  .form-group
+    .col-lg-3
+      label.sr-only for='username' Username
+      = f.text_field :username, id: 'username', class: 'form-control', placeholder: 'Username', autofocus: true
+  .form-group
+    .col-lg-3
+      label.sr-only for='password' Password
+      = f.password_field :password, id: 'password', class: 'form-control', placeholder: 'Password'
+  = hidden_field_tag 'user[accept_language_id]', session[:accept_language_id]
+
+  = f.submit class: 'btn btn-primary'

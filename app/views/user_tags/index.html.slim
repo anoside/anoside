@@ -1,0 +1,11 @@
+div ng-controller='Anoside.UserTagsCtrl'
+  ul.tags
+    li ng-repeat='tag in tags'
+      a ng-href='/tags/{{tag.name}}'
+        .name.pull-left
+          | {{tag.name}}
+        .pull-right
+          i.icon-chevron-right
+        .clearfix
+
+      hr

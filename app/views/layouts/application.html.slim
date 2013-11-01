@@ -1,0 +1,48 @@
+doctype html
+html lang='en-us' ng-app='anoside'
+  head
+    meta charset='utf-8'
+    = csrf_meta_tags
+    title Anoside
+    meta name='viewport' content='width=device-width, initial-scale=1.0'
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_include_tag 'application'
+  body class="#{body_class}"
+    nav.navbar.navbar-default role='navigation'
+      .navbar-header
+        = link_to 'Anoside', root_path, class: 'navbar-brand'
+
+    .wrapper
+      nav.menu
+        ul
+          li
+            = link_to root_path do
+              i.icon-home
+          li
+            = link_to user_tags_path do
+              i.icon-tags
+          li
+            = link_to '#' do
+              i.icon-thumbs-up
+          li
+            = link_to '#' do
+              i.icon-thumbs-down
+          li
+            = link_to '#' do
+              i.icon-user
+          li
+            = link_to '#' do
+              i.icon-gear
+          li
+            = link_to destroy_user_session_path, method: 'delete' do
+              i.icon-power-off
+
+      article.col-sm-10.col-xs-9
+        = yield
+
+    .clearfix
+
+    footer
+      hr
+      p.text-center
+        | © 2013 Anoside

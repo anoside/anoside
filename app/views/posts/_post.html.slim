@@ -1,0 +1,47 @@
+.top
+  .header
+    span.viewpoint-code
+      | {{post.viewpoint_code}}
+    a ng-href='/posts/{{post.id}}'
+      span.date time-ago='{{post.created_at}}'
+  .body(resource-body)
+  .like-dislike ng-controller='Anoside.LikesCtrl'
+    span.like ng-click='toggleLike()' ng-class='{liked: post.liked}'
+      i.icon-thumbs-up
+        | {{post.likes_count}}
+    span.dislike ng-click='toggleDislike()' ng-class='{disliked: post.disliked}'
+      i.icon-thumbs-down
+        | {{post.dislikes_count}}
+  - if user_signed_in?
+    span.delete ng-show='post.own'
+      i.icon-trash.fake-link ng-click='deletePost(post)'
+
+.bottom
+  .footer
+    .tags ng-controller='Anoside.PostTagsCtrl'
+      ul
+        li ng-repeat='tag in tags'
+          a ng-href='/tags/{{tag.name}}'
+            | {{tag.name}}
+      - if user_signed_in?
+        span ng-controller='Anoside.TagFormCtrl'
+          span.tag-addition-button.fake-link ng-click='showForm()'
+            = t('posts.add_tag_to_posts')
+          span ng-show='showed'
+            form
+              .input
+                input type='text' ng-model='tagList'
+              .form-actions
+                button.btn ng-click='create()'
+                  = t('words.save')
+
+div ng-controller='Anoside.CommentsCtrl'
+  ul.comments
+    li.comment ng-repeat='comment in comments'
+      = render 'comments/comment'
+
+  - if user_signed_in?
+    form.new-comment ng-controller='Anoside.CommentFormCtrl'
+      textarea.form-control rows='1' ng-model='comment.body' press-enter-key='expand($event)'
+      button.btn ng-click='create(comment, post.id)'
+        = t('words.reply')

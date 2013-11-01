@@ -1,0 +1,21 @@
+- if user_signed_in?
+  form role='form' ng-controller='Anoside.PostFormCtrl'
+    .form-group
+      textarea.form-control rows='2' ng-model='post.body' press-enter-key='expand($event)'
+    button.btn.btn-primary.pull-right ng-click='create(post)' Submit
+  .clearfix
+
+  hr
+
+  .posts ng-controller='Anoside.PostsCtrl'
+    .post ng-repeat='post in posts'
+      = render 'posts/post'
+      hr
+- else
+  .jumbotron
+    .container
+      h1 Whereabouts of another.
+      p Anoside is a microblogging service that enables its users to send posts anonymously.
+      p
+        = link_to 'Signup', new_user_registration_path, class: 'btn btn-primary btn-lg'
+        = link_to 'Signin', new_user_session_path, class: 'navbar-text navbar-link pull-right'
