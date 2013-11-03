@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131026122100) do
+ActiveRecord::Schema.define(version: 20131103200722) do
 
   create_table "comments", force: true do |t|
     t.integer  "viewpoint_id", default: 0, null: false
@@ -38,8 +38,8 @@ ActiveRecord::Schema.define(version: 20131026122100) do
   add_index "dislikes", ["user_id"], name: "index_dislikes_on_user_id", using: :btree
 
   create_table "follows", force: true do |t|
-    t.integer  "tag_id",     null: false
     t.integer  "user_id",    null: false
+    t.integer  "tag_id",     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -56,15 +56,15 @@ ActiveRecord::Schema.define(version: 20131026122100) do
 
   add_index "languages", ["code"], name: "index_languages_on_code", unique: true, using: :btree
 
-  create_table "languages_preferences", force: true do |t|
-    t.integer  "language_id",   null: false
-    t.integer  "preference_id", null: false
+  create_table "languages_settings", force: true do |t|
+    t.integer  "language_id", null: false
+    t.integer  "setting_id",  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "languages_preferences", ["language_id"], name: "index_languages_preferences_on_language_id", using: :btree
-  add_index "languages_preferences", ["preference_id"], name: "index_languages_preferences_on_preference_id", using: :btree
+  add_index "languages_settings", ["language_id"], name: "index_languages_settings_on_language_id", using: :btree
+  add_index "languages_settings", ["setting_id"], name: "index_languages_settings_on_setting_id", using: :btree
 
   create_table "likes", force: true do |t|
     t.integer  "user_id",      null: false
@@ -94,14 +94,16 @@ ActiveRecord::Schema.define(version: 20131026122100) do
   add_index "posts", ["comments_count"], name: "index_posts_on_comments_count", using: :btree
   add_index "posts", ["language_id"], name: "index_posts_on_language_id", using: :btree
 
-  create_table "preferences", force: true do |t|
+  create_table "settings", force: true do |t|
     t.integer  "user_id",                             null: false
+    t.string   "email"
     t.boolean  "email_when_commented", default: true, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "preferences", ["user_id"], name: "index_preferences_on_user_id", unique: true, using: :btree
+  add_index "settings", ["email"], name: "index_settings_on_email", unique: true, using: :btree
+  add_index "settings", ["user_id"], name: "index_settings_on_user_id", unique: true, using: :btree
 
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"
@@ -122,7 +124,6 @@ ActiveRecord::Schema.define(version: 20131026122100) do
 
   create_table "users", force: true do |t|
     t.string   "username",               default: "", null: false
-    t.string   "email"
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.integer  "sign_in_count",          default: 0
@@ -136,7 +137,6 @@ ActiveRecord::Schema.define(version: 20131026122100) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 

@@ -15,7 +15,7 @@ class Api::CommentsController < Api::ApplicationController
     if @comment.save
       # user = @post.viewpoint.user
  
-      # if user.email.present? && user.preference.email_when_commented?
+      # if user.setting.email.present? && user.setting.email_when_commented?
       #   CommentNotificationWorker.perform_async(@post.id, @comment.id)
       # end
     end

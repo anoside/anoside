@@ -25,6 +25,7 @@ Anoside::Application.routes.draw do
   end
 
   resources :posts,      only: [:show]
+  resource  :setting,    only: [:edit, :update]
   resources :tags,       only: [:show]
   resource  :user,       only: [:show] do
     resources :dislikes, only: [:index], controller: 'user_dislikes'

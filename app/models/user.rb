@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_many :follows,    dependent: :destroy
   has_many :likes,      dependent: :destroy
   has_many :tags,       through: :follows
-  has_one  :preference, dependent: :destroy
+  has_one  :setting,    dependent: :destroy
 
   validates :password, presence: true
   validates :username, format: { with: /\A[A-Za-z0-9_]+\z/ }, presence: true, uniqueness: true
@@ -13,8 +13,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :rememberable, :trackable
 
   after_create do
-    preference = Preference.create(user_id: self.id)
-    LanguagesPreference.create(language_id: accept_language_id, preference_id: preference.id)
+    setting = Setting.create(user_id: self.id)
+    LanguagesSetting.create(language_id: accept_language_id, setting_id: setting.id)
   end
 
 
