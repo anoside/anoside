@@ -2,7 +2,7 @@
   .header
     .pull-left
       h1.h2
-        | {{tag.name}}
+        | \#{{tag.name}}
     .follow.pull-right
       button.btn type='button' ng-class="{'btn-primary': !tag.followed, 'btn-success': tag.followed}" ng-click='toggleFollow()' {{tag.followed ? 'Following' : 'Follow'}}
     .clearfix

@@ -1,7 +1,7 @@
 Anoside.TagCtrl = ($scope, $http) ->
   tagName = $('.tag').data('tag-name')
 
-  $scope.$parent.title = tagName
+  $scope.$parent.title = "\##{tagName}"
 
   $http.get("/api/tags/#{tagName}").success (data) ->
     $scope.tag = data
