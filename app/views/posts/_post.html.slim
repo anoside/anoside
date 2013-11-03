@@ -2,46 +2,43 @@
   .header
     span.viewpoint-code
       | {{post.viewpoint_code}}
-    a ng-href='/posts/{{post.id}}'
+    a.pull-right ng-href='/posts/{{post.id}}'
       span.date time-ago='{{post.created_at}}'
   .body(resource-body)
+  ul.tags ng-controller='Anoside.PostTagsCtrl'
+    li ng-repeat='tag in tags'
+      a ng-href='/tags/{{tag.name}}'
+        | \#{{tag.name}}
+    - if user_signed_in?
+      span ng-controller='Anoside.TagFormCtrl'
+        i.icon-tag.btn.btn-link ng-click='showForm()'
+        span ng-show='showed'
+          form class='form' role='form'
+            .form-group
+              input.form-control.input-sm type='text' placeholder='Tag1, Tag2' ng-model='tagList'
+            button.create.btn.btn-default ng-click='create()'
+              = t('words.save')
+            button.cancel.btn.btn-link ng-click='hideForm()' ng-show='showed' = t('words.cancel')
+
+.bottom.container
   .like-dislike ng-controller='Anoside.LikesCtrl'
-    span.like ng-click='toggleLike()' ng-class='{liked: post.liked}'
+    .like.col-xs-4.col-sm-4.col-md-4 ng-click='toggleLike()' ng-class='{liked: post.liked}'
       i.icon-thumbs-up
-        | {{post.likes_count}}
-    span.dislike ng-click='toggleDislike()' ng-class='{disliked: post.disliked}'
+      | {{post.likes_count}}
+    .dislike.col-xs-4.col-sm-4.col-md-4 ng-click='toggleDislike()' ng-class='{disliked: post.disliked}'
       i.icon-thumbs-down
-        | {{post.dislikes_count}}
-  - if user_signed_in?
-    span.delete ng-show='post.own'
-      i.icon-trash.fake-link ng-click='deletePost(post)'
+      | {{post.dislikes_count}}
+  .comment.col-xs-4.col-sm-4.col-md-4
+    i.icon-comments
+    | {{post.comments_count}}
 
-.bottom
-  .footer
-    .tags ng-controller='Anoside.PostTagsCtrl'
-      ul
-        li ng-repeat='tag in tags'
-          a ng-href='/tags/{{tag.name}}'
-            | {{tag.name}}
-      - if user_signed_in?
-        span ng-controller='Anoside.TagFormCtrl'
-          span.tag-addition-button.fake-link ng-click='showForm()'
-            = t('posts.add_tag_to_posts')
-          span ng-show='showed'
-            form
-              .input
-                input type='text' ng-model='tagList'
-              .form-actions
-                button.btn ng-click='create()'
-                  = t('words.save')
+  / span ng-controller='Anoside.CommentsCtrl'
+  /   ul.comments
+  /     li.comment ng-repeat='comment in comments'
+  /       = render 'comments/comment'
 
-div ng-controller='Anoside.CommentsCtrl'
-  ul.comments
-    li.comment ng-repeat='comment in comments'
-      = render 'comments/comment'
-
-  - if user_signed_in?
-    form.new-comment ng-controller='Anoside.CommentFormCtrl'
-      textarea.form-control rows='1' ng-model='comment.body' press-enter-key='expand($event)'
-      button.btn ng-click='create(comment, post.id)'
-        = t('words.reply')
+  /   - if user_signed_in?
+  /     form.new-comment ng-controller='Anoside.CommentFormCtrl'
+  /       textarea.form-control rows='1' ng-model='comment.body' press-enter-key='expand($event)'
+  /       button.btn ng-click='create(comment, post.id)'
+  /         = t('words.reply')

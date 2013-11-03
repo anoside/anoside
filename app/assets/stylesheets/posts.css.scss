@@ -1,0 +1,58 @@
+.posts {
+  &.posts-index {
+    article {
+      form {
+        .cancel {
+          margin-right: 10px;
+        }
+      }
+      .posts {
+        .post {
+          .top {
+            .body {
+              margin: 10px 0;
+            }
+
+            ul.tags {
+              -moz-padding-start: 0;
+              -webkit-padding-start: 0;
+              list-style-type: none;
+
+              li {
+                display: inline;
+                margin-right: 7px;
+              }
+
+              form {
+                .form-group {
+                  margin-bottom: 5px;
+                }
+              }
+            }
+          }
+
+          .bottom {
+            background-color: #eeeeee;
+            padding: 5px 10px;
+
+            .like, .dislike, .comment {
+              color: #b7b7b7;
+              cursor: pointer;
+              text-align: center;
+
+              i {
+                margin-right: 5px;
+              }
+            }
+
+            .like-dislike {
+              .liked, .disliked {
+                color: #428bca;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

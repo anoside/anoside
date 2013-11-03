@@ -1,4 +1,11 @@
 Anoside.PostFormCtrl = ($scope, $http, postService) ->
+  $scope.focus = ->
+    $scope.formFocused = true
+  
+  $scope.unforcus = ->
+    $scope.formFocused = false
+    $scope.post.body = ''
+
   $scope.create = (post) ->
     $http.post('/api/posts', post).success (data) ->
       postService.prependPost(data)

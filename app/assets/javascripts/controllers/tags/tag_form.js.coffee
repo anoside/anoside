@@ -4,6 +4,9 @@ Anoside.TagFormCtrl = ($scope, $http) ->
     $scope.tagList = _.pluck(tags, 'name').join(', ')
     $scope.showed = true
 
+  $scope.hideForm = ->
+    $scope.showed = false
+
   $scope.create = ->
     postId = $scope.$parent.post.id
 
