@@ -62,4 +62,8 @@ class User < ActiveRecord::Base
   def dislike_posts
     Post.joins(:dislikes).where(dislikes: { user_id: id })
   end
+
+  def posts
+    Post.joins(:viewpoint).where(viewpoints: { user_id: id })
+  end
 end

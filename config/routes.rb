@@ -17,6 +17,7 @@ Anoside::Application.routes.draw do
     resource :user,        only: [] do
       resources :dislikes, only: [:index], controller: 'user_dislikes'
       resources :likes,    only: [:index], controller: 'user_likes'
+      resources :posts,    only: [:index], controller: 'user_posts'
       resources :tags,     only: [:index], controller: 'user_tags'
     end
 
@@ -25,7 +26,7 @@ Anoside::Application.routes.draw do
 
   resources :posts,      only: [:show]
   resources :tags,       only: [:show]
-  resource  :user,       only: [] do
+  resource  :user,       only: [:show] do
     resources :dislikes, only: [:index], controller: 'user_dislikes'
     resources :likes,    only: [:index], controller: 'user_likes'
     resources :tags,     only: [:index], controller: 'user_tags'

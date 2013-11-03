@@ -1,0 +1,5 @@
+body.users-show {
+  article {
+    @include post;
+  }
+}
