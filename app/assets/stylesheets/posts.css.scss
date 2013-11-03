@@ -6,6 +6,11 @@
           margin-right: 10px;
         }
       }
+
+      hr.separate {
+        margin-bottom: 10px;
+      }
+
       .posts {
         @include post;
       }

@@ -1,10 +1,11 @@
 .top
   .header
-    span.viewpoint-code
-      | ID: {{post.viewpoint_code}}
     a.pull-right ng-href='/posts/{{post.id}}'
       span.date time-ago='{{post.created_at}}'
+  .clearfix
   .body(resource-body)
+
+.bottom
   ul.tags ng-controller='Anoside.PostTagsCtrl'
     li ng-repeat='tag in tags'
       a ng-href='/tags/{{tag.name}}'
@@ -19,15 +20,17 @@
             button.create.btn.btn-default ng-click='create()'
               = t('words.save')
             button.cancel.btn.btn-link ng-click='hideForm()' ng-show='showed' = t('words.cancel')
-
-.bottom.container
-  .like-dislike ng-controller='Anoside.LikesCtrl'
-    .like.col-xs-4.col-sm-4.col-md-4 ng-click='toggleLike()' ng-class='{liked: post.liked}'
-      i.icon-thumbs-up
-      | {{post.likes_count}}
-    .dislike.col-xs-4.col-sm-4.col-md-4 ng-click='toggleDislike()' ng-class='{disliked: post.disliked}'
-      i.icon-thumbs-down
-      | {{post.dislikes_count}}
-  a.comment.col-xs-4.col-sm-4.col-md-4 ng-href='/posts/{{post.id}}'
-    i.icon-comments
-    | {{post.comments_count}}
+  span.viewpoint-code
+    | ID: {{post.viewpoint_code}}
+  .container.col-xs-8.col-sm-4.col-md-4.pull-right
+    span.like-dislike ng-controller='Anoside.LikesCtrl'
+      span.like ng-click='toggleLike()' ng-class='{liked: post.liked}'
+        i.icon-thumbs-up
+        | {{post.likes_count}}
+      span.dislike ng-click='toggleDislike()' ng-class='{disliked: post.disliked}'
+        i.icon-thumbs-down
+        | {{post.dislikes_count}}
+    a.comment ng-href='/posts/{{post.id}}'
+      i.icon-comments
+      | {{post.comments_count}}
+  .clearfix
