@@ -1,0 +1,10 @@
+.header
+  h1.h2
+    | Likes
+
+hr
+
+.posts ng-controller='Anoside.UserLikesCtrl'
+  .post ng-repeat='post in posts'
+    = render 'posts/post'
+    hr

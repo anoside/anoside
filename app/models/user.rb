@@ -54,4 +54,8 @@ class User < ActiveRecord::Base
   def unfollow(tag)
     tags.delete(tag) if followed?(tag)
   end
+
+  def like_posts
+    Post.joins(:likes).where(likes: { user_id: id })
+  end
 end
