@@ -58,4 +58,8 @@ class User < ActiveRecord::Base
   def like_posts
     Post.joins(:likes).where(likes: { user_id: id })
   end
+
+  def dislike_posts
+    Post.joins(:dislikes).where(dislikes: { user_id: id })
+  end
 end
