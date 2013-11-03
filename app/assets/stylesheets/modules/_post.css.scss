@@ -1,0 +1,63 @@
+@mixin post {
+  .post {
+    .top {
+      .header {
+        font-size: 12px;
+
+        .viewpoint-code {
+          color: #b7b7b7;
+        }
+      }
+
+      .body {
+        margin: 10px 0 20px 0;
+      }
+
+      ul.tags {
+        -moz-padding-start: 0;
+        -webkit-padding-start: 0;
+        list-style-type: none;
+
+        li {
+          display: inline;
+          margin-right: 7px;
+        }
+
+        i.btn {
+          padding: 0;
+        }
+
+        form {
+          .form-group {
+            margin-bottom: 5px;
+          }
+        }
+      }
+    }
+
+    .bottom {
+      background-color: #eeeeee;
+      padding: 5px 10px;
+
+      .like, .dislike, .comment {
+        color: #b7b7b7;
+        cursor: pointer;
+        text-align: center;
+
+        i {
+          margin-right: 5px;
+        }
+      }
+
+      .like-dislike {
+        .liked, .disliked {
+          color: #428bca;
+        }
+      }
+
+      .comment {
+        text-decoration: none;
+      }
+    }
+  }
+}

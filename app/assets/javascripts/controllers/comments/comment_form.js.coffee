@@ -1,7 +1,6 @@
 Anoside.CommentFormCtrl = ($scope, $http) ->
   $scope.create = (comment, postId) ->
     $http.post("/api/posts/#{postId}/comments", comment).success (data) ->
-      $scope.$parent.comments.shift()
       $scope.$parent.comments.push(data)
       $scope.comment = ''
 

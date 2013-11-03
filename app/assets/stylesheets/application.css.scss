@@ -6,6 +6,9 @@
 @import 'bootstrap.min';
 @import 'bootstrap-theme.min';
 
+@import 'modules/_post';
+
 @import 'base';
 @import 'posts';
+@import 'tags';
 @import 'user_tags';

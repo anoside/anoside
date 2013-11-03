@@ -7,50 +7,34 @@
         }
       }
       .posts {
-        .post {
-          .top {
-            .body {
-              margin: 10px 0;
-            }
+        @include post;
+      }
+    }
+  }
 
-            ul.tags {
-              -moz-padding-start: 0;
-              -webkit-padding-start: 0;
-              list-style-type: none;
+  &.posts-show {
+    article {
+      @include post;
 
-              li {
-                display: inline;
-                margin-right: 7px;
-              }
+      ul.comments {
+        -moz-padding-start: 0;
+        -webkit-padding-start: 0;
+        list-style-type: none;
 
-              form {
-                .form-group {
-                  margin-bottom: 5px;
-                }
-              }
-            }
+        .header {
+          font-size: 12px;
+
+          .number {
+            margin-right: 10px;
           }
 
-          .bottom {
-            background-color: #eeeeee;
-            padding: 5px 10px;
-
-            .like, .dislike, .comment {
-              color: #b7b7b7;
-              cursor: pointer;
-              text-align: center;
-
-              i {
-                margin-right: 5px;
-              }
-            }
-
-            .like-dislike {
-              .liked, .disliked {
-                color: #428bca;
-              }
-            }
+          .viewpoint-code {
+            color: #b7b7b7;
           }
+        }
+
+        .body {
+          margin: 10px 0;
         }
       }
     }

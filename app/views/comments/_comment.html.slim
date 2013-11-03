@@ -1,10 +1,11 @@
-.left
-  .number
+.header
+  span.number
     | {{comment.number}}
-.right
-  .viewpoint-code
-    | {{comment.viewpoint_code}}
-  .body
-    | {{comment.body}}
-  .footer
+  span.viewpoint-code
+    | ID: {{comment.viewpoint_code}}
+  .pull-right
     span.date time-ago='{{comment.created_at}}'
+.body
+  | {{comment.body}}
+
+hr

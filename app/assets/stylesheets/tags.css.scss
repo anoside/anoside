@@ -1,0 +1,17 @@
+.tags {
+  &.tags-show {
+    .tag {
+      > .header {
+        height: 70px;
+
+        .follow {
+          line-height: 70px;
+        }
+      }
+    }
+
+    .posts {
+      @include post;
+    }
+  }
+}

@@ -1,7 +1,7 @@
 .top
   .header
     span.viewpoint-code
-      | {{post.viewpoint_code}}
+      | ID: {{post.viewpoint_code}}
     a.pull-right ng-href='/posts/{{post.id}}'
       span.date time-ago='{{post.created_at}}'
   .body(resource-body)
@@ -28,17 +28,6 @@
     .dislike.col-xs-4.col-sm-4.col-md-4 ng-click='toggleDislike()' ng-class='{disliked: post.disliked}'
       i.icon-thumbs-down
       | {{post.dislikes_count}}
-  .comment.col-xs-4.col-sm-4.col-md-4
+  a.comment.col-xs-4.col-sm-4.col-md-4 ng-href='/posts/{{post.id}}'
     i.icon-comments
     | {{post.comments_count}}
-
-  / span ng-controller='Anoside.CommentsCtrl'
-  /   ul.comments
-  /     li.comment ng-repeat='comment in comments'
-  /       = render 'comments/comment'
-
-  /   - if user_signed_in?
-  /     form.new-comment ng-controller='Anoside.CommentFormCtrl'
-  /       textarea.form-control rows='1' ng-model='comment.body' press-enter-key='expand($event)'
-  /       button.btn ng-click='create(comment, post.id)'
-  /         = t('words.reply')
