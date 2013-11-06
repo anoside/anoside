@@ -23,6 +23,8 @@ class Post < ActiveRecord::Base
 
   enumerize :deleted_by, in: [:user, :admin]
 
+  before_save :pick_tags
+
 
   # Overwrite Active Record's destroy method for soft deletion.
   # I can't use rails3_acts_as_paranoid gem because acts-as-taggable-on gem
@@ -51,5 +53,11 @@ class Post < ActiveRecord::Base
     self.language = Language.find_by_code(code)
 
     self
+  end
+
+  private
+
+  def pick_tags
+    self.tag_list = body.scan(/\#[[:alnum:]]+/).map { |tag_name| tag_name.delete('#') }
   end
 end

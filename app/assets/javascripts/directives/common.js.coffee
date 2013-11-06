@@ -10,6 +10,7 @@ Anoside.angular.directive 'pressEnterKey', ($parse) ->
 Anoside.angular.directive 'resourceBody', ->
   (scope, elm) ->
     resource = if _.has(scope, 'post') then scope.post else scope.comment
+    body = resource.body.replace(/\#([a-zA-Z0-9ぁ-龥]+)/g, '<a href="/tags/$1">#$1</a>')
 
     elm.addClass('deleted') unless _.isNull(resource.deleted_at)
-    elm.html(resource.body)
+    elm.html(body)
