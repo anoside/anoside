@@ -23,7 +23,7 @@ class Post < ActiveRecord::Base
 
   enumerize :deleted_by, in: [:user, :admin]
 
-  before_save :pick_tags
+  before_create :pick_tags
 
 
   # Overwrite Active Record's destroy method for soft deletion.
