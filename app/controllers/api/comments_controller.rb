@@ -8,16 +8,16 @@ class Api::CommentsController < Api::ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.new(comment_params)
     viewpoint = current_user.make_viewpoint(@post)
- 
+
     @comment.number = @post.comments.count + 1
     @comment.viewpoint = viewpoint
  
     if @comment.save
-      # user = @post.viewpoint.user
+      post_user = @post.viewpoint.user
  
-      # if user.setting.email.present? && user.setting.email_when_commented?
-      #   CommentNotificationWorker.perform_async(@post.id, @comment.id)
-      # end
+      if post_user.recieve_when_commented?(@comment)
+        NotificationMailer.delay.comment_on_post(@comment.id)
+      end
     end
   end
 

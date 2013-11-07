@@ -66,4 +66,10 @@ class User < ActiveRecord::Base
   def posts
     Post.joins(:viewpoint).where(viewpoints: { user_id: id })
   end
+
+  def recieve_when_commented?(comment)
+    comment.viewpoint.user != comment.post.viewpoint.user &&
+    setting.email.present? &&
+    setting.email_when_commented?
+  end
 end
