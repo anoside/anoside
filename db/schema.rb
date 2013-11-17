@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131117141050) do
+ActiveRecord::Schema.define(version: 20131117141957) do
 
   create_table "comments", force: true do |t|
     t.integer  "viewpoint_id", default: 0, null: false
@@ -116,10 +116,13 @@ ActiveRecord::Schema.define(version: 20131117141050) do
   add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
 
   create_table "tags", force: true do |t|
-    t.string  "name"
-    t.integer "posts_count", default: 0, null: false
+    t.string   "name",                    null: false
+    t.integer  "posts_count", default: 0, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
   add_index "tags", ["posts_count"], name: "index_tags_on_posts_count", using: :btree
 
   create_table "users", force: true do |t|
