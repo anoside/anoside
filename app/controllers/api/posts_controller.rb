@@ -6,7 +6,10 @@ class Api::PostsController < Api::ApplicationController
       session[:accept_language_id]
     end
 
-    @posts = Post.where(language_id: language_ids).filter(params).order('created_at DESC')
+    @posts = Post.where(language_id: language_ids)
+                 .filter(params)
+                 .order('created_at DESC')
+                 .page(params[:page])
   end
 
   def show

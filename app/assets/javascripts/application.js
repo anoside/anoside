@@ -16,6 +16,7 @@
 //= require angular.min
 //= require angular-sanitize.min
 //= require angular-resource.min
+//= require ng-infinite-scroll.min
 //= require bootstrap.min
 //= require moment.min
 //= require_self

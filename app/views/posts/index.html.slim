@@ -9,9 +9,10 @@
   hr.separate
 
   .posts ng-controller='Anoside.PostsCtrl'
-    .post ng-repeat='post in posts'
-      = render 'posts/post'
-      hr
+    div infinite-scroll='addMorePosts()' infinite-scroll-disabled='disabled'
+      .post ng-repeat='post in posts'
+        = render 'posts/post'
+        hr
 - else
   .jumbotron
     .container

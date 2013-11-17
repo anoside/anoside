@@ -1,4 +1,7 @@
 Anoside.PostsCtrl = ($scope, $http, postService) ->
+  page = 1
+  $scope.disabled = false
+
   $http.get('/api/posts').success (data) ->
     $scope.posts = data.posts
 
@@ -9,6 +12,17 @@ Anoside.PostsCtrl = ($scope, $http, postService) ->
     if confirm('Are you sure?')
       $http.delete("/api/posts/#{post.id}").success ->
         location.href = '/'
+
+  $scope.addMorePosts = ->
+    $scope.disabled = true
+    page += 1
+
+    $http.get("/api/posts?page=#{page}").success (data) ->
+      if data.posts.length > 0
+        $scope.disabled = false
+        $scope.posts = $scope.posts.concat(data.posts)
+      else
+        $scope.disabled = true
 
 
 Anoside.PostsCtrl.$inject = ['$scope', '$http', 'postService']
