@@ -3,8 +3,10 @@ class Post < ActiveRecord::Base
 
   belongs_to :language
   has_many   :comments
-  has_many   :likes, as: :likable
-  has_many   :dislikes, as: :dislikable
+  has_many   :likes,     as: :likable
+  has_many   :dislikes,  as: :dislikable
+  has_many   :taggings
+  has_many   :tags,      through: :taggings
   has_one    :viewpoint, -> { where original: true }
 
   validates :body, length: { maximum: 300 }, presence: true
@@ -19,16 +21,12 @@ class Post < ActiveRecord::Base
     scope
   }
 
-  acts_as_ordered_taggable
-
   enumerize :deleted_by, in: [:user, :admin]
 
   before_create :pick_tags
 
 
   # Overwrite Active Record's destroy method for soft deletion.
-  # I can't use rails3_acts_as_paranoid gem because acts-as-taggable-on gem
-  # removes dependent tags forcefully.
   def destroy
     update_attributes(deleted_by: :user, deleted_at: Time.now)
   end
@@ -55,9 +53,19 @@ class Post < ActiveRecord::Base
     self
   end
 
+  def tag_list=(tags)
+    tag_list = case tags.class.name
+      when 'Array'  then tags
+      when 'String' then tags.split(',')
+      end
+    tag_list = tag_list.map { |tag| tag.strip.delete('#') }
+
+    self.tags = tag_list.map { |tag| Tag.where(name: tag).first_or_create }
+  end
+
   private
 
   def pick_tags
-    self.tag_list = body.scan(/\#[[:alnum:]]+/).map { |tag_name| tag_name.delete('#') }
+    self.tag_list = body.scan(/\#[[:alnum:]]+/)
   end
 end
