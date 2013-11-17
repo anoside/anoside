@@ -1,5 +1,6 @@
 Anoside::Application.routes.draw do
-  devise_for :users, controllers: { registrations: 'registrations', sessions: 'sessions' },
+  devise_for :users,
+             controllers: { registrations: 'registrations', sessions: 'sessions' },
              path_names: { sign_in: 'signin', sign_out: 'signout', sign_up: 'signup' }
 
   namespace :api do
@@ -32,6 +33,8 @@ Anoside::Application.routes.draw do
     resources :likes,    only: [:index], controller: 'user_likes'
     resources :tags,     only: [:index], controller: 'user_tags'
   end
+
+  get 'explore' => 'explorers#index'
 
   root to: 'posts#index'
 end

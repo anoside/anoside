@@ -33,4 +33,7 @@ Anoside::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+
+  # http://www.railsonmaui.com/blog/2013/08/06/migrating-from-capybara-webkit-to-poltergeist-phantomjs/
+  config.integration_test_render_dir = Rails.root.join('spec', 'render')
 end

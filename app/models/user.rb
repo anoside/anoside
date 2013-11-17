@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
 
   after_create do
     setting = Setting.create(user_id: self.id)
-    LanguagesSetting.create(language_id: accept_language_id, setting_id: setting.id)
+    LanguagesSetting.create!(language_id: accept_language_id, setting_id: setting.id)
   end
 
 

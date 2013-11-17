@@ -7,7 +7,7 @@ class Post < ActiveRecord::Base
   has_many   :dislikes, as: :dislikable
   has_one    :viewpoint, -> { where original: true }
 
-  validates :body, length: { maximum: 500 }, presence: true
+  validates :body, length: { maximum: 300 }, presence: true
 
   scope :filter, -> params {
     scope = self
