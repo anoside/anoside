@@ -1,5 +1,5 @@
 Anoside.PostFormCtrl = ($scope, $http, postService) ->
-  $scope.bodyCount = 500
+  $scope.bodyCount = 300
   $scope.countOver = false
 
   $scope.focus = ->
@@ -11,7 +11,7 @@ Anoside.PostFormCtrl = ($scope, $http, postService) ->
     $scope.countDownBody()
 
   $scope.countDownBody = ($event) ->
-    $scope.bodyCount = 500 - $scope.post.body.length
+    $scope.bodyCount = 300 - $scope.post.body.length
     $scope.countOver = $scope.bodyCount < 0
 
   $scope.create = (post) ->

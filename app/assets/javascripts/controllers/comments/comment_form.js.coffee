@@ -1,9 +1,9 @@
 Anoside.CommentFormCtrl = ($scope, $http) ->
-  $scope.bodyCount = 500
+  $scope.bodyCount = 300
   $scope.countOver = false
 
   $scope.countDownBody = ($event) ->
-    $scope.bodyCount = 500 - $scope.comment.body.length
+    $scope.bodyCount = 300 - $scope.comment.body.length
     $scope.countOver = $scope.bodyCount < 0
 
   $scope.create = (comment, postId) ->
