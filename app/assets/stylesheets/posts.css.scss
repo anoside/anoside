@@ -2,6 +2,14 @@
   &.posts-index {
     article {
       form {
+        .body-count {
+          color: #b7b7b7;
+
+          &.count-over {
+            color: #ff0000;
+          }
+        }
+
         .cancel {
           margin-right: 10px;
         }
@@ -40,6 +48,16 @@
 
         .body {
           margin: 10px 0;
+        }
+      }
+
+      form {
+        .body-count {
+          color: #b7b7b7;
+
+          &.count-over {
+            color: #ff0000;
+          }
         }
       }
     }

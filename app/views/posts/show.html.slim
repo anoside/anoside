@@ -11,6 +11,9 @@
       - if user_signed_in?
         form role='form' ng-controller='Anoside.CommentFormCtrl'
           .form-group
-            textarea.form-control rows='3' ng-model='comment.body' press-enter-key='expand($event)'
-          button.btn.btn-primary.pull-right ng-click='create(comment, post.id)'
-            = t('words.submit')
+            textarea.form-control rows='3' ng-model='comment.body' press-enter-key='expand($event)' ng-keyup='countDownBody()'
+          .pull-left
+            .body-count ng-class='{"count-over": countOver}' {{bodyCount}}
+          .pull-right
+            button.btn.btn-primary ng-click='create(comment, post.id)' ng-disabled='!comment.body || countOver'
+              = t('words.submit')
