@@ -16,4 +16,8 @@ class Api::TagsController < Api::ApplicationController
   def show
     @tag = Tag.find_by(name: params[:id])
   end
+
+  def popular
+    @tags = Tag.order(posts_count: :desc).limit(50)
+  end
 end

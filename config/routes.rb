@@ -4,6 +4,12 @@ Anoside::Application.routes.draw do
              path_names: { sign_in: 'signin', sign_out: 'signout', sign_up: 'signup' }
 
   namespace :api do
+    resource :discovery, only: [] do
+      resources :tags, only: [] do
+        get :popular, on: :collection
+      end
+    end
+
     resources :posts,      only: [:create, :destroy, :index, :show] do
       resource  :dislike,  only: [:create, :destroy]
       resource  :like,     only: [:create, :destroy]
@@ -11,7 +17,7 @@ Anoside::Application.routes.draw do
       resources :tags,     only: [:create, :index]
     end
 
-    resources :tags,       only: [:show] do
+    resources :tags,       only: [:popular, :show] do
       resource :follow,    only: [:create, :destroy]
     end
 
@@ -25,6 +31,7 @@ Anoside::Application.routes.draw do
     resources :viewpoints, only: [:show]
   end
 
+  resource  :discovery,  only: [:show]
   resources :posts,      only: [:show]
   resource  :setting,    only: [:edit, :update]
   resources :tags,       only: [:show]
@@ -33,8 +40,6 @@ Anoside::Application.routes.draw do
     resources :likes,    only: [:index], controller: 'user_likes'
     resources :tags,     only: [:index], controller: 'user_tags'
   end
-
-  get 'explore' => 'explorers#index'
 
   root to: 'posts#index'
 end

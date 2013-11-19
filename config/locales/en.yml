@@ -1,4 +1,6 @@
 en:
+  words:
+    discover: Discover
   notifications:
     comment_on_post:
       title: You have a new comment
