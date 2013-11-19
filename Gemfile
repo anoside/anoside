@@ -38,6 +38,9 @@ end
 
 group :development, :test do
   gem 'awesome_print'
+  gem 'hirb'
+  gem 'hirb-unicode'
+  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'rspec-rails'
 end
