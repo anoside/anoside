@@ -40,33 +40,7 @@
       }
 
       .container {
-        padding: 5px 0;
-        text-align: right;
-
-        .like, .dislike, .comment {
-          color: #b7b7b7;
-          cursor: pointer;
-          margin-left: 15px;
-          padding: {
-            left: 0;
-            right: 0;
-          }
-          text-align: center;
-
-          i {
-            margin-right: 5px;
-          }
-        }
-
-        .like-dislike {
-          .liked, .disliked {
-            color: #428bca;
-          }
-        }
-
-        .comment {
-          text-decoration: none;
-        }
+        @include resource-actions-list;
       }
     }
 

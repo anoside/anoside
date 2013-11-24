@@ -4,6 +4,13 @@ Anoside::Application.routes.draw do
              path_names: { sign_in: 'signin', sign_out: 'signout', sign_up: 'signup' }
 
   namespace :api do
+    resources :comments, only: [] do
+      delete :dislike, to: 'dislikes#comment_destroy'
+      delete :like,    to: 'likes#comment_destroy'
+      post   :dislike, to: 'dislikes#comment_create'
+      post   :like,    to: 'likes#comment_create'
+    end
+
     resource :discovery, only: [] do
       resources :tags, only: [] do
         get :popular, on: :collection
@@ -11,10 +18,13 @@ Anoside::Application.routes.draw do
     end
 
     resources :posts,      only: [:create, :destroy, :index, :show] do
-      resource  :dislike,  only: [:create, :destroy]
-      resource  :like,     only: [:create, :destroy]
       resources :comments, only: [:create, :index]
       resources :tags,     only: [:create, :index]
+
+      delete :dislike, to: 'dislikes#post_destroy'
+      delete :like,    to: 'likes#post_destroy'
+      post   :dislike, to: 'dislikes#post_create'
+      post   :like,    to: 'likes#post_create'
     end
 
     resources :tags,       only: [:popular, :show] do

@@ -1,43 +1,52 @@
-Anoside.LikesCtrl = ($scope, $http, postService) ->
-  post = $scope.$parent.post
+Anoside.LikesCtrl = ($scope, $http) ->
+  @resource = @resourceName = null
+
+  $scope.setResource = (resourceName) ->
+    @resourceName = resourceName
+
+    @resource = if resourceName == 'posts'
+      $scope.$parent.post
+    else if resourceName == 'comments'
+      $scope.$parent.comment
 
   $scope.toggleLike = ->
-    if post.disliked
-      destroyDislike()
+    if @resource.disliked
+      $scope._destroyDislike()
 
-    if post.liked
-      destroyLike()
+    if @resource.liked
+      $scope._destroyLike()
     else
-      createLike()
+      $scope._createLike()
 
   $scope.toggleDislike = ->
-    if post.liked
-      destroyLike()
+    if @resource.liked
+      $scope._destroyLike()
 
-    if post.disliked
+    if @resource.disliked
+      $scope._destroyDislike()
     else
-      createDislike()
+      $scope._createDislike()
 
 
-  createLike = ->
-    $http.post("/api/posts/#{post.id}/like").success (data) ->
-      post.likes_count += 1
-      post.liked = true
+  $scope._createLike = ->
+    $http.post("/api/#{@resourceName}/#{@resource.id}/like").success (data) =>
+      @resource.likes_count += 1
+      @resource.liked = true
 
-  destroyLike = ->
-    $http.delete("/api/posts/#{post.id}/like").success (data) ->
-      post.likes_count += -1
-      post.liked = false
+  $scope._destroyLike = ->
+    $http.delete("/api/#{@resourceName}/#{@resource.id}/like").success (data) =>
+      @resource.likes_count += -1
+      @resource.liked = false
 
-  createDislike = ->
-    $http.post("/api/posts/#{post.id}/dislike").success (data) ->
-      post.dislikes_count += 1
-      post.disliked = true
+  $scope._createDislike = ->
+    $http.post("/api/#{@resourceName}/#{@resource.id}/dislike").success (data) =>
+      @resource.dislikes_count += 1
+      @resource.disliked = true
 
-  destroyDislike = ->
-    $http.delete("/api/posts/#{post.id}/dislike").success (data) ->
-      post.dislikes_count += -1
-      post.disliked = false
+  $scope._destroyDislike = ->
+    $http.delete("/api/#{@resourceName}/#{@resource.id}/dislike").success (data) =>
+      @resource.dislikes_count += -1
+      @resource.disliked = false
 
 
 Anoside.LikesCtrl.$inject = ['$scope', '$http']

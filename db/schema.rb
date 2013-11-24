@@ -11,17 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131117141957) do
+ActiveRecord::Schema.define(version: 20131124044655) do
 
   create_table "comments", force: true do |t|
-    t.integer  "viewpoint_id", default: 0, null: false
-    t.integer  "post_id",                  null: false
-    t.integer  "number",                   null: false
-    t.text     "body",                     null: false
+    t.integer  "viewpoint_id",   default: 0, null: false
+    t.integer  "post_id",                    null: false
+    t.integer  "number",                     null: false
+    t.text     "body",                       null: false
+    t.integer  "likes_count",    default: 0, null: false
+    t.integer  "dislikes_count", default: 0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "comments", ["dislikes_count"], name: "index_comments_on_dislikes_count", using: :btree
+  add_index "comments", ["likes_count"], name: "index_comments_on_likes_count", using: :btree
   add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
   add_index "comments", ["viewpoint_id"], name: "index_comments_on_viewpoint_id", using: :btree
 
@@ -92,7 +96,9 @@ ActiveRecord::Schema.define(version: 20131117141957) do
   end
 
   add_index "posts", ["comments_count"], name: "index_posts_on_comments_count", using: :btree
+  add_index "posts", ["dislikes_count"], name: "index_posts_on_dislikes_count", using: :btree
   add_index "posts", ["language_id"], name: "index_posts_on_language_id", using: :btree
+  add_index "posts", ["likes_count"], name: "index_posts_on_likes_count", using: :btree
 
   create_table "settings", force: true do |t|
     t.integer  "user_id",                             null: false

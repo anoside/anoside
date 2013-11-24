@@ -40,14 +40,23 @@
           .number {
             margin-right: 10px;
           }
-
-          .viewpoint-code {
-            color: #b7b7b7;
-          }
         }
 
         .body {
           margin: 10px 0;
+        }
+
+        .footer {
+          font-size: 12px;
+
+          .viewpoint-code {
+            color: #b7b7b7;
+            line-height: 30px;
+          }
+
+          .container {
+            @include resource-actions-list;
+          }
         }
       }
 
