@@ -1,8 +1,35 @@
 ja:
+  devise:
+    sessions:
+      user:
+        signed_in: ''
+        signed_out: ''
+  posts:
+    index:
+      signed_in:
+        tag_example: 火星, ヴェネツィア (カンマ区切り)
+      signed_out:
+        catch_copy: 気にせず、話そう。
+        description: Anosideは、匿名でつぶやきが投稿できるソーシャルネットワークです。
+  registrations:
+    new:
+      button: 登録する
   titles:
-    popular_tags: 人気のタグ
-  words:
     discover: 見つける
+    following_tags: フォローしているタグ
+    home: ホーム
+    me: 自分の投稿
+    popular_tags: 人気のタグ
+    posts_i_dislike: 嫌いな投稿
+    posts_i_like: 好きな投稿
+    settings: 設定
+  words:
+    cancel: キャンセル
+    save: 保存
+    sign_in: ログイン
+    sign_out: ログアウト
+    sign_up: ユーザ登録
+    submit: 投稿
   notifications:
     comment_on_post:
       title: あなたの投稿に新しいコメントが付きました

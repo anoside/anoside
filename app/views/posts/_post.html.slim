@@ -16,7 +16,7 @@
         span ng-show='showed'
           form class='form' role='form'
             .form-group
-              input.form-control.input-sm type='text' name='post[tag_list]' placeholder='Tag1, Tag2' ng-model='tagList'
+              input.form-control.input-sm type='text' name='post[tag_list]' placeholder="#{t('posts.index.signed_in.tag_example')}" ng-model='tagList'
             button.create.btn.btn-default ng-click='create()'
               = t('words.save')
             button.cancel.btn.btn-link ng-click='hideForm()' ng-show='showed' = t('words.cancel')

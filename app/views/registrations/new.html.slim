@@ -1,4 +1,4 @@
-h2 Sign up
+h2 = t('words.sign_up')
 
 = form_for resource, as: resource_name, url: registration_path(resource_name), class: 'form-inline', role: 'form' do |f|
   = devise_error_messages!
@@ -13,4 +13,4 @@ h2 Sign up
       = f.password_field :password, id: 'password', class: 'form-control', placeholder: 'Password'
   = hidden_field_tag 'user[accept_language_id]', session[:accept_language_id]
 
-  = f.submit class: 'btn btn-primary'
+  = f.button t('registrations.new.button'), class: 'btn btn-primary'
