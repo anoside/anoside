@@ -9,12 +9,17 @@ html lang='en-us' ng-app='anoside'
     = javascript_include_tag 'application'
   body class="#{body_class}" ng-controller='Anoside.ApplicationCtrl'
     nav.navbar.navbar-default role='navigation'
-      .dropdown.text-center
-        a.dropdown-toggle href='#' data-toggle='dropdown'
-          span.title
-            | {{title}}
-          i.icon-caret-down
-        = render 'menu'
+      - if user_signed_in?
+        .dropdown.text-center
+          a.dropdown-toggle href='#' data-toggle='dropdown'
+            span.title
+              | {{title}}
+            i.icon-caret-down
+          = render 'menu'
+      - else
+        .text-center
+          .default-title
+            = link_to 'Anoside', root_path
 
     .wrapper
       article.col-xs-12.col-sm-6.col-md-6.col-sm-offset-3.col-md-offset-3
