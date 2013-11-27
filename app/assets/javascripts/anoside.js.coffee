@@ -1,6 +1,6 @@
 window.Anoside = {}
 
-Anoside.angular = angular.module('anoside', ['ngResource', 'ngSanitize', 'infinite-scroll'])
+Anoside.angular = angular.module('anoside', ['ngResource', 'ngSanitize', 'infinite-scroll', 'pascalprecht.translate'])
 
 # Making it work with CSRF protection
 # https://shellycloud.com/blog/2013/10/how-to-integrate-angularjs-with-rails-4

@@ -1,37 +1,33 @@
-.header
-  h1.h2
-    | Settings
-hr
+.setting ng-controller='Anoside.SettingsCtrl'
+  = form_for @setting, role: 'form' do |f|
+    - if @setting.errors.any?
+      .panel.panel-danger
+        .panel-heading
+          h3.panel-title
+            = t('words.error')
+        ul.panel-body
+          - @setting.errors.full_messages.each do |msg|
+            li = msg
 
-= form_for @setting, role: 'form' do |f|
-  - if @setting.errors.any?
-    .panel.panel-danger
-      .panel-heading
-        h3.panel-title
-          = t('words.error')
-      ul.panel-body
-        - @setting.errors.full_messages.each do |msg|
-          li = msg
+    h3.text-muted
+      = t('settings.edit.general')
+    .form-group class=('has-error' if @setting.errors[:email].present?)
+      = f.label :email
+      = f.text_field :email, class: 'form-control'
 
-  h3.text-muted
-    = t('words.general')
-  .form-group class=('has-error' if @setting.errors[:email].present?)
-    = f.label :email
-    = f.text_field :email, class: 'form-control'
+    hr
 
-  hr
+    h3.text-muted
+      = t('settings.edit.notification')
+    small.text-muted
+      | ※ 通知を受け取るにはメールアドレスの登録が必要です。
 
-  h3.text-muted
-    = t('words.notification')
-  small.text-muted
-    | ※ 通知を受け取るにはメールアドレスの登録が必要です。
+    .checkbox
+      label
+        = f.check_box :email_when_commented
+        = t('activerecord.attributes.setting.email_when_commented')
 
-  .checkbox
-    label
-      = f.check_box :email_when_commented
-      = t('activerecord.attributes.setting.email_when_commented')
+    hr
 
-  hr
-
-  .form-group
-    = f.submit class: 'btn btn-primary'
+    .form-group
+      = f.button t('words.save'), class: 'btn btn-primary'

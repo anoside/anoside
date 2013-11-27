@@ -16,11 +16,13 @@
 //= require angular.min
 //= require angular-sanitize.min
 //= require angular-resource.min
+//= require angular-translate.min
 //= require ng-infinite-scroll.min
 //= require bootstrap.min
-//= require moment.min
+//= require moment-with-langs.min
 //= require_self
 //= require anoside
+//= require_tree ./config
 //= require_tree ./directives
 //= require_tree ./services
 //= require_tree ./controllers

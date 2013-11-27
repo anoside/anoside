@@ -1,9 +1,16 @@
 ja:
+  activerecord:
+    attributes:
+      setting:
+        email: メールアドレス
+        email_when_commented: 自分の投稿にコメントがあった場合にメール通知する
   devise:
     sessions:
       user:
         signed_in: ''
         signed_out: ''
+  messages:
+    settings_have_been_saved: 設定を更新しました
   posts:
     index:
       signed_in:
@@ -14,6 +21,14 @@ ja:
   registrations:
     new:
       button: 登録する
+  settings:
+    edit:
+      general: 一般
+      notification: 通知
+  tags:
+    show:
+      follow: フォローする
+      following: フォロー中
   titles:
     discover: 見つける
     following_tags: フォローしているタグ
@@ -25,11 +40,11 @@ ja:
     settings: 設定
   words:
     cancel: キャンセル
-    save: 保存
+    save: 保存する
     sign_in: ログイン
     sign_out: ログアウト
     sign_up: ユーザ登録
-    submit: 投稿
+    submit: 投稿する
   notifications:
     comment_on_post:
       title: あなたの投稿に新しいコメントが付きました
