@@ -2,9 +2,9 @@
  *= require_self
  */
 
+@import 'bootstrap-variables';
+@import 'bootstrap';
 @import 'font-awesome';
-@import 'bootstrap.min';
-@import 'bootstrap-theme.min';
 
 @import 'modules/_post';
 @import 'modules/_resource_actions_list';

@@ -6,6 +6,9 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  has_mobile_fu false
+
+
   protected
 
   def configure_permitted_parameters
@@ -13,6 +16,10 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def public_layout
+    user_signed_in? ? 'application' : 'public'
+  end
 
   def set_accept_language_id
     if session[:accept_language].blank? && !user_signed_in?

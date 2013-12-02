@@ -1,71 +1,105 @@
 .posts {
-  &.posts-index {
-    article {
-      form {
-        .body-count {
-          color: #b7b7b7;
+  &.not-signed-in {
+    &.posts-index {
+      article {
+        .section-action-links {
+          &.bottom {
+            padding-top: 10px;
+          }
 
-          &.count-over {
-            color: #ff0000;
+          margin-top: 20px;
+
+          p.sign-in {
+            margin-top: 15px;
           }
         }
 
-        .cancel {
-          margin-right: 10px;
+        .section-feature {
+          h4 {
+            margin-bottom: 20px;
+          }
+
+          img {
+            margin-bottom: 10px;
+          }
+
+          .action {
+            padding-top: 5px;
+          }
         }
-      }
-
-      hr.separate {
-        margin-bottom: 10px;
-      }
-
-      .posts {
-        @include post;
       }
     }
   }
 
-  &.posts-show {
-    article {
-      @include post;
+  &.signed-in {
+    &.posts-index {
+      article {
+        form {
+          .body-count {
+            color: #b7b7b7;
 
-      ul.comments {
-        -moz-padding-start: 0;
-        -webkit-padding-start: 0;
-        list-style-type: none;
+            &.count-over {
+              color: #ff0000;
+            }
+          }
 
-        .header {
-          font-size: 12px;
-
-          .number {
+          .cancel {
             margin-right: 10px;
           }
         }
 
-        .body {
-          margin: 10px 0;
+        hr.separate {
+          margin-bottom: 10px;
         }
 
-        .footer {
-          font-size: 12px;
-
-          .viewpoint-code {
-            color: #b7b7b7;
-            line-height: 30px;
-          }
-
-          .container {
-            @include resource-actions-list;
-          }
+        .posts {
+          @include post;
         }
       }
+    }
 
-      form {
-        .body-count {
-          color: #b7b7b7;
+    &.posts-show {
+      article {
+        @include post;
 
-          &.count-over {
-            color: #ff0000;
+        ul.comments {
+          -moz-padding-start: 0;
+          -webkit-padding-start: 0;
+          list-style-type: none;
+
+          .header {
+            font-size: 12px;
+
+            .number {
+              margin-right: 10px;
+            }
+          }
+
+          .body {
+            margin: 10px 0;
+          }
+
+          .footer {
+            font-size: 12px;
+
+            .viewpoint-code {
+              color: #b7b7b7;
+              line-height: 30px;
+            }
+
+            .container {
+              @include resource-actions-list;
+            }
+          }
+        }
+
+        form {
+          .body-count {
+            color: #b7b7b7;
+
+            &.count-over {
+              color: #ff0000;
+            }
           }
         }
       }

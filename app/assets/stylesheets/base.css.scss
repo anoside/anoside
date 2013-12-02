@@ -1,13 +1,11 @@
 body {
+  padding-top: 70px;
+
   .navbar {
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     background-image: none;
     box-shadow: none;
-
-    &.navbar-default {
-      background-color: #fea200;
-    }
 
     .dropdown {
       line-height: 20px;

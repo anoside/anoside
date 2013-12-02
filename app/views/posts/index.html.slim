@@ -17,10 +17,4 @@
         = render 'posts/post'
         hr
 - else
-  .jumbotron
-    .container
-      h1 = t('posts.index.signed_out.catch_copy')
-      p = t('posts.index.signed_out.description')
-      p
-        = link_to t('words.sign_up'), new_user_registration_path, class: 'btn btn-primary btn-lg'
-        = link_to t('words.sign_in'), new_user_session_path, class: 'navbar-text navbar-link pull-right'
+  = render 'index_not_signed_in'

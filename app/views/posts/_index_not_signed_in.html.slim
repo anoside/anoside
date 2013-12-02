@@ -1,0 +1,71 @@
+.section-jumbotron
+  .container
+    .row
+      .col-xs-12.col-sm-6.col-md-6.col-sm-offset-3.col-md-offset-3
+        h1.h3 = t('posts.index.signed_out.catch_copy')
+        p = t('posts.index.signed_out.description')
+
+.section-action-links
+  .container
+    .row
+      .col-xs-12.col-sm-6.col-md-6.col-sm-offset-3.col-md-offset-3
+        p.sign-up.text-center
+          = link_to t('words.sign_up'), new_user_registration_path, class: 'btn btn-primary btn-lg'
+        p.sign-in.text-center
+          = link_to t('words.sign_in'), new_user_session_path
+
+hr
+
+.section-feature
+  .container
+    .row
+      .col-xs-12.col-sm-6.col-md-6.col-sm-offset-3.col-md-offset-3
+        .text-center
+          h4 匿名でつぶやく
+          = image_tag 'http://placehold.it/550x300', size: '550x300', alt: ''
+        p Anosideでは、タイムライン上につぶやいた人の名前やアバター画像が表示されません。誰がつぶやいたのか見えないようになっています。
+        p つぶやく内容は自由です。他のサービスで発言しているような話から、人には言えない趣味嗜好の話まで、気にせずつぶやくことができます。
+        p.action.text-right
+          = link_to '' do
+            i.fa.fa-angle-right
+            |  タイムラインの様子を見る
+
+  hr
+
+  .container
+    .row
+      .col-xs-12.col-sm-6.col-md-6.col-sm-offset-3.col-md-offset-3
+        .text-center
+          h4 つぶやきにタグを付ける
+          = image_tag 'http://placehold.it/550x300', size: '550x300', alt: ''
+        p つぶやきにタグを付けて、話題ごとに分類することができます。自分のつぶやきだけでなく、他の人のつぶやきにも自由にタグ付けできます。
+        p タグをフォローすることもできます。そのため、その話題 (タグ) を求めている人に、つぶやきを簡単に拡散することができます。
+        p.action.text-right
+          = link_to '' do
+            i.fa.fa-angle-right
+            |  人気のタグを見る
+
+  hr
+
+  .container
+    .row
+      .col-xs-12.col-sm-6.col-md-6.col-sm-offset-3.col-md-offset-3
+        .text-center
+          h4 つぶやきに反応する
+          = image_tag 'http://placehold.it/550x300', size: '550x300', alt: ''
+        p つぶやきの内容が良かったものには "Like" を、良くなかったものには "Dislike" をすることができます。
+        p 具体的に反応を返したいときは、コメントを書くこともできます。"いいね!" より "ワロタwww" 派の方は、こちらが利用できます。
+        p.action.text-right
+          = link_to '' do
+            i.fa.fa-angle-right
+            |  人気のつぶやきを見る
+
+hr
+
+.section-action-links.bottom
+  .container
+    .row
+      .col-xs-12.col-sm-6.col-md-6.col-sm-offset-3.col-md-offset-3
+        p.sign-up.text-center
+          = link_to t('words.sign_up'), new_user_registration_path, class: 'btn btn-primary btn-lg'
+

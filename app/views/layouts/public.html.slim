@@ -1,5 +1,5 @@
 doctype html
-html lang='en-us' ng-app='anoside'
+html lang='en-us'
   head
     meta charset='utf-8'
     = csrf_meta_tags
@@ -7,14 +7,12 @@ html lang='en-us' ng-app='anoside'
     meta name='viewport' content='width=device-width, initial-scale=1.0 user-scalable=no'
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_include_tag 'application'
-  body class="signed-in #{body_class}" ng-controller='Anoside.ApplicationCtrl'
+  body class="not-signed-in #{body_class}"
     = render 'navbar'
 
-    .wrapper
-      article.col-xs-12.col-sm-6.col-md-6.col-sm-offset-3.col-md-offset-3
-        = render 'flash'
-        = yield
+    article
+      = yield
 
     .clearfix
 
-    = render 'footer'
+    = render 'footer'  
