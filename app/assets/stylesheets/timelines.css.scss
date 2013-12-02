@@ -1,0 +1,7 @@
+.timelines {
+  &.timelines-show {
+    .posts {
+      @include post;
+    }
+  }
+}

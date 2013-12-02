@@ -17,10 +17,6 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def public_layout
-    user_signed_in? ? 'application' : 'public'
-  end
-
   def set_accept_language_id
     if session[:accept_language].blank? && !user_signed_in?
       language_codes = Language.pluck(:code)

@@ -9,13 +9,13 @@
 .footer
   span.viewpoint-code
     | ID: {{comment.viewpoint_code}}
-  .container.col-xs-6.col-sm-4.col-md-4.pull-right
+  .container.col-xs-6.col-sm-4.col-md-4.col-lg-4.pull-right
     span.like-dislike ng-controller='Anoside.LikesCtrl' ng-init='setResource("comments")'
       span.like ng-click='toggleLike()' ng-class='{liked: comment.liked}'
-        i.icon-thumbs-up
+        i.fa.fa-thumbs-up
         | {{comment.likes_count}}
       span.dislike ng-click='toggleDislike()' ng-class='{disliked: comment.disliked}'
-        i.icon-thumbs-down
+        i.fa.fa-thumbs-down
         | {{comment.dislikes_count}}
   .clearfix
 hr

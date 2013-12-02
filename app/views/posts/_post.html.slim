@@ -22,15 +22,15 @@
             button.cancel.btn.btn-link ng-click='hideForm()' ng-show='showed' = t('words.cancel')
   span.viewpoint-code
     | ID: {{post.viewpoint_code}}
-  .container.col-xs-6.col-sm-4.col-md-4.pull-right
+  .container.col-xs-6.col-sm-4.col-md-4.col-lg-4.pull-right
     span.like-dislike ng-controller='Anoside.LikesCtrl' ng-init='setResource("posts")'
       span.like ng-click='toggleLike()' ng-class='{liked: post.liked}'
-        i.icon-thumbs-up
+        i.fa.fa-thumbs-up
         | {{post.likes_count}}
       span.dislike ng-click='toggleDislike()' ng-class='{disliked: post.disliked}'
-        i.icon-thumbs-down
+        i.fa.fa-thumbs-down
         | {{post.dislikes_count}}
     a.comment ng-href='/posts/{{post.id}}'
-      i.icon-comments
+      i.fa.fa-comments
       | {{post.comments_count}}
   .clearfix

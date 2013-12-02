@@ -1,0 +1,14 @@
+.h3
+  = t('titles.timeline')
+
+hr
+
+.text-center
+  p.small.text-muted
+    | アカウントを作成してログインをすると、<br>
+    | つぶやくことができます。
+  = link_to t('words.sign_up'), new_user_registration_path, class: 'btn btn-primary'
+
+hr
+
+= render 'posts/posts'

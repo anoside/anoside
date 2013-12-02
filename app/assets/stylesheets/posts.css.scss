@@ -57,49 +57,49 @@
         }
       }
     }
+  }
 
-    &.posts-show {
-      article {
-        @include post;
+  &.posts-show {
+    article {
+      @include post;
 
-        ul.comments {
-          -moz-padding-start: 0;
-          -webkit-padding-start: 0;
-          list-style-type: none;
+      ul.comments {
+        -moz-padding-start: 0;
+        -webkit-padding-start: 0;
+        list-style-type: none;
 
-          .header {
-            font-size: 12px;
+        .header {
+          font-size: 12px;
 
-            .number {
-              margin-right: 10px;
-            }
-          }
-
-          .body {
-            margin: 10px 0;
-          }
-
-          .footer {
-            font-size: 12px;
-
-            .viewpoint-code {
-              color: #b7b7b7;
-              line-height: 30px;
-            }
-
-            .container {
-              @include resource-actions-list;
-            }
+          .number {
+            margin-right: 10px;
           }
         }
 
-        form {
-          .body-count {
-            color: #b7b7b7;
+        .body {
+          margin: 10px 0;
+        }
 
-            &.count-over {
-              color: #ff0000;
-            }
+        .footer {
+          font-size: 12px;
+
+          .viewpoint-code {
+            color: #b7b7b7;
+            line-height: 30px;
+          }
+
+          .container {
+            @include resource-actions-list;
+          }
+        }
+      }
+
+      form {
+        .body-count {
+          color: #b7b7b7;
+
+          &.count-over {
+            color: #ff0000;
           }
         }
       }
