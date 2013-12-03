@@ -18,6 +18,6 @@ class Api::TagsController < Api::ApplicationController
   end
 
   def popular
-    @tags = Tag.order(posts_count: :desc).limit(50)
+    @tags = Tag.order(posts_count: :desc).limit(10)
   end
 end
