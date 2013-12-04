@@ -1,4 +1,6 @@
 nav.navbar.navbar-default.navbar-fixed-top role='navigation'
+  a.back.pull-left ng-href='{{backUrl}}' ng-show='backUrl'
+    i.fa.fa-chevron-left
   - if user_signed_in?
     .dropdown.text-center
       a.dropdown-toggle href='#' data-toggle='dropdown'
@@ -9,4 +11,5 @@ nav.navbar.navbar-default.navbar-fixed-top role='navigation'
   - else
     .text-center
       .default-title
-        = link_to 'Anoside', root_path
+        = link_to root_path do
+          | {{title}}

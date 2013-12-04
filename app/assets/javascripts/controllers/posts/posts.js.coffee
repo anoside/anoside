@@ -1,4 +1,6 @@
-Anoside.PostsCtrl = ($scope, $http, postService) ->
+Anoside.PostsCtrl = ($scope, $http, postService, $translate) ->
+  $scope.$parent.title = $translate('titles.timeline')
+  $scope.$parent.backUrl = '/' if location.pathname == '/timeline'
   page = 1
   $scope.disabled = false
 
@@ -25,4 +27,4 @@ Anoside.PostsCtrl = ($scope, $http, postService) ->
         $scope.disabled = true
 
 
-Anoside.PostsCtrl.$inject = ['$scope', '$http', 'postService']
+Anoside.PostsCtrl.$inject = ['$scope', '$http', 'postService', '$translate']
