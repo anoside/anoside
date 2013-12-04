@@ -30,10 +30,11 @@ ja:
       follow: フォローする
       following: フォロー中
   titles:
-    discover: 見つける
+    discovery: 見つける
     following_tags: フォローしているタグ
     home: ホーム
     me: 自分の投稿
+    popular_posts: 人気のつぶやき
     popular_tags: 人気のタグ
     posts_i_dislike: 嫌いな投稿
     posts_i_like: 好きな投稿

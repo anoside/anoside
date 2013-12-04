@@ -1,0 +1,11 @@
+= render 'discovery/header'
+
+div ng-controller='Anoside.DiscoveryCtrl'
+  .list-group
+    a.list-group-item ng-href='/tags/{{tag.name}}' ng-repeat='tag in tags'
+      .name.pull-left
+        | \#{{tag.name}}
+      .pull-right
+        i.fa.fa-chevron-right
+      .clearfix
+    hr

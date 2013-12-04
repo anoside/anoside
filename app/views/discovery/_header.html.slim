@@ -1,0 +1,9 @@
+.h3 = t('titles.discovery')
+
+hr
+
+ul.nav.nav-pills
+  li class="#{'active' if current_page?(discovery_tags_path) || current_page?(discovery_root_path)}"
+    = link_to t('titles.popular_tags'), discovery_tags_path
+  li class="#{'active' if current_page?(discovery_posts_path)}"
+    = link_to t('titles.popular_posts'), discovery_posts_path

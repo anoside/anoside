@@ -41,7 +41,7 @@ hr
         p つぶやきにタグを付けて、話題ごとに分類することができます。自分のつぶやきだけでなく、他の人のつぶやきにも自由にタグ付けできます。
         p タグをフォローすることもできます。そのため、その話題 (タグ) を求めている人に、つぶやきを簡単に拡散することができます。
         p.action.text-right
-          = link_to discovery_path(anchor: 'popular-tags') do
+          = link_to discovery_tags_path do
             i.fa.fa-angle-right
             |  人気のタグを見る
 
@@ -56,7 +56,7 @@ hr
         p つぶやきの内容が良かったものには "Like" を、良くなかったものには "Dislike" をすることができます。
         p 具体的に反応を返したいときは、コメントを書くこともできます。"いいね!" より "ワロタwww" 派の方は、こちらが利用できます。
         p.action.text-right
-          = link_to '' do
+          = link_to discovery_posts_path do
             i.fa.fa-angle-right
             |  人気のつぶやきを見る
 

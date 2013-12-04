@@ -12,6 +12,10 @@ Anoside::Application.routes.draw do
     end
 
     resource :discovery, only: [] do
+      resources :posts, only: [] do
+        get :popular, on: :collection
+      end
+
       resources :tags, only: [] do
         get :popular, on: :collection
       end
@@ -27,7 +31,7 @@ Anoside::Application.routes.draw do
       post   :like,    to: 'likes#post_create'
     end
 
-    resources :tags,       only: [:popular, :show] do
+    resources :tags,       only: [:show] do
       resource :follow,    only: [:create, :destroy]
     end
 
@@ -41,7 +45,13 @@ Anoside::Application.routes.draw do
     resources :viewpoints, only: [:show]
   end
 
-  resource  :discovery,  only: [:show]
+  namespace :discovery do
+    resources :posts,    only: [:index]
+    resources :tags,     only: [:index]
+
+    root to: 'tags#index'
+  end
+
   resources :posts,      only: [:show]
   resource  :setting,    only: [:edit, :update]
   resources :tags,       only: [:show]

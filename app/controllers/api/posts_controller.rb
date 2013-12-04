@@ -37,6 +37,10 @@ class Api::PostsController < Api::ApplicationController
     end
   end
 
+  def popular
+    @posts = Post.order(likes_count: :desc).limit(10)
+  end
+
   private
 
   def post_params

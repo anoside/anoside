@@ -1,0 +1,9 @@
+body.discovery-tags-index {
+  article {
+    @include tag_list;
+
+    ul.nav-pills {
+      margin-bottom: 20px;
+    }
+  }
+}

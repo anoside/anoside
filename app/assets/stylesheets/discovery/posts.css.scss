@@ -1,0 +1,7 @@
+body.discovery-posts-index {
+  article {
+    .posts {
+      @include post;
+    }
+  }
+}
