@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require underscore-min
+//= require underscore.string.min
 //= require angular.min
 //= require angular-sanitize.min
 //= require angular-resource.min
