@@ -1,16 +1,22 @@
-h2 = t('words.sign_up')
+div ng-controller='Anoside.RegistrationsCtrl'
+  = form_for resource, as: resource_name, url: registration_path(resource_name), role: 'form' do |f|
+    = render 'error_panel', resource: resource
 
-= form_for resource, as: resource_name, url: registration_path(resource_name), class: 'form-inline', role: 'form' do |f|
-  = devise_error_messages!
+    .form-group
+      label.sr-only for='username' = t('activerecord.attributes.user.username')
+      = f.text_field :username, id: 'username', class: 'form-control', placeholder: t('activerecord.attributes.user.username'), autofocus: true
+    .form-group
+      label.sr-only for='password' = t('activerecord.attributes.user.password')
+      = f.password_field :password, id: 'password', class: 'form-control', placeholder: t('activerecord.attributes.user.password')
+    = hidden_field_tag 'user[accept_language_id]', session[:accept_language_id]
 
-  .form-group
-    .col-lg-3
-      label.sr-only for='username' Username
-      = f.text_field :username, id: 'username', class: 'form-control', placeholder: 'Username', autofocus: true
-  .form-group
-    .col-lg-3
-      label.sr-only for='password' Password
-      = f.password_field :password, id: 'password', class: 'form-control', placeholder: 'Password'
-  = hidden_field_tag 'user[accept_language_id]', session[:accept_language_id]
+    .text-center
+      = f.button t('registrations.new.button'), class: 'btn btn-primary'
 
-  = f.button t('registrations.new.button'), class: 'btn btn-primary'
+  hr
+
+  .panel.panel-info
+    .panel-heading
+      = t 'registrations.about_username'
+    .panel-body
+      = t 'registrations.about_username_body'

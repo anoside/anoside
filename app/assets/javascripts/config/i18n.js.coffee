@@ -9,6 +9,8 @@ Anoside.angular.config ($translateProvider) ->
       posts_i_like: '好きな投稿'
       timeline: 'タイムライン'
       settings: '設定'
+      sign_in: 'ログイン'
+      sign_up: 'アカウントを作る'
 
   $translateProvider.preferredLanguage('ja')
 

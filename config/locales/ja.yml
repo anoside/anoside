@@ -4,11 +4,27 @@ ja:
       setting:
         email: メールアドレス
         email_when_commented: 自分の投稿にコメントがあった場合にメール通知する
+      user:
+        password: パスワード
+        username: ログインID
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              blank: は入力してください
+            username:
+              blank: は入力してください
+              invalid: は不正な値です
+              taken: はすでに使用されています
   devise:
     sessions:
       user:
         signed_in: ''
         signed_out: ''
+  errors:
+    messages:
+      not_saved: 入力エラー
   messages:
     settings_have_been_saved: 設定を更新しました
   posts:
@@ -19,8 +35,12 @@ ja:
         catch_copy: 気にせず、つぶやこう。
         description: Anosideは、匿名でつぶやきが投稿できるウェブサービスです。
   registrations:
+    about_username: ログインIDについて
+    about_username_body: アカウント作成時に入力するログインIDは、ログインをするときにのみ使用されるIDになります。サイト上などに表示されることはありません。
     new:
-      button: 登録する
+      button: 作成する
+  sessions:
+    remember_me: ログイン情報を保存する
   settings:
     edit:
       general: 一般

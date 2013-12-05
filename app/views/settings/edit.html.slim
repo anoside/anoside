@@ -1,13 +1,6 @@
 .setting ng-controller='Anoside.SettingsCtrl'
   = form_for @setting, role: 'form' do |f|
-    - if @setting.errors.any?
-      .panel.panel-danger
-        .panel-heading
-          h3.panel-title
-            = t('words.error')
-        ul.panel-body
-          - @setting.errors.full_messages.each do |msg|
-            li = msg
+    = render 'error_panel', resource: @setting
 
     h3.text-muted
       = t('settings.edit.general')
