@@ -36,7 +36,7 @@ ja:
         description: Anosideは、匿名でつぶやきが投稿できるウェブサービスです。
   registrations:
     about_username: ログインIDについて
-    about_username_body: アカウント作成時に入力するログインIDは、ログインをするときにのみ使用されるIDになります。サイト上などに表示されることはありません。
+    about_username_body: アカウント作成時に入力するログインIDは、ログインをするときにのみ使用されるIDになります。URLに含まれたり、サイト上に表示されることはありません。
     new:
       button: 作成する
   sessions:
