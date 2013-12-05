@@ -22,6 +22,13 @@ ja:
       user:
         signed_in: ''
         signed_out: ''
+  discovery:
+    posts:
+      index:
+        page_title: 人気のつぶやきを見つける
+    tags:
+      index:
+        page_title: 人気のタグを見つける
   errors:
     messages:
       not_saved: 入力エラー
@@ -34,21 +41,29 @@ ja:
       signed_out:
         catch_copy: 気にせず、つぶやこう。
         description: Anosideは、匿名でつぶやきが投稿できるウェブサービスです。
+        page_title: 匿名で、気にせず、つぶやく。
   registrations:
     about_username: ログインIDについて
     about_username_body: アカウント作成時に入力するログインIDは、ログインをするときにのみ使用されるIDになります。URLに含まれたり、サイト上に表示されることはありません。
     new:
       button: 作成する
+      page_title: アカウントを作る
   sessions:
-    remember_me: ログイン情報を保存する
+    new:
+      page_title: ログイン
+      remember_me: ログイン情報を保存する
   settings:
     edit:
       general: 一般
       notification: 通知
+      page_title: 設定
   tags:
     show:
       follow: フォローする
       following: フォロー中
+  timelines:
+    show:
+      page_title: タイムライン
   titles:
     discovery: 見つける
     following_tags: フォローしているタグ
@@ -60,6 +75,18 @@ ja:
     posts_i_like: 好きな投稿
     settings: 設定
     timeline: タイムライン
+  user_dislikes:
+    index:
+      page_title: 嫌いな投稿
+  user_likes:
+    index:
+      page_title: 好きな投稿
+  user_tags:
+    index:
+      page_title: フォローしているタグ
+  users:
+    show:
+      page_title: 自分の投稿
   words:
     cancel: キャンセル
     save: 保存する

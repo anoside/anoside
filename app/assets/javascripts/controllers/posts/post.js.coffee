@@ -5,6 +5,7 @@ Anoside.PostCtrl = ($scope, $http) ->
     # I wrote this ugry code because `$scope.post = data` causes that
     # `timeAgo` attribute become null in timeAgo directive.
     $scope.posts = [data]
+    document.title = "Anoside | #{_.truncate(data.body, 40)}"
 
   $scope.deletePost = (post) ->
     if confirm('Are you sure?')

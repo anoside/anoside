@@ -1,3 +1,5 @@
+- content_for(:site_page_title, t('settings.edit.page_title'))
+
 .setting ng-controller='Anoside.SettingsCtrl'
   = form_for @setting, role: 'form' do |f|
     = render 'error_panel', resource: @setting

@@ -1,3 +1,5 @@
+- content_for(:site_page_title, t('sessions.new.page_title'))
+
 div ng-controller='Anoside.SessionsCtrl'
   = form_for resource, as: resource_name, url: session_path(resource_name), role: 'form' do |f|
     = render 'error_panel', resource: resource
@@ -12,7 +14,7 @@ div ng-controller='Anoside.SessionsCtrl'
       .checkbox
         label
           = f.check_box :remember_me
-          = t('sessions.remember_me')
+          = t('sessions.new.remember_me')
 
     .text-center
       = f.button t('words.sign_in'), class: 'btn btn-primary'

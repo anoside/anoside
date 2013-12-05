@@ -1,3 +1,5 @@
+- content_for(:site_page_title, t('user_likes.index.page_title'))
+
 .posts ng-controller='Anoside.UserLikesCtrl'
   .post ng-repeat='post in posts'
     = render 'posts/post'

@@ -5,6 +5,7 @@ Anoside.TagCtrl = ($scope, $http) ->
 
   $http.get("/api/tags/#{tagName}").success (data) ->
     $scope.tag = data
+    document.title = "Anoside | \##{data.name}"
 
   $scope.toggleFollow = ->
     if $scope.tag.followed

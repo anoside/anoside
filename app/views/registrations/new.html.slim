@@ -1,3 +1,5 @@
+- content_for(:site_page_title, t('registrations.new.page_title'))
+
 div ng-controller='Anoside.RegistrationsCtrl'
   = form_for resource, as: resource_name, url: registration_path(resource_name), role: 'form' do |f|
     = render 'error_panel', resource: resource
