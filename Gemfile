@@ -11,6 +11,7 @@ gem 'devise'
 gem 'enumerize'
 gem 'flutie'
 gem 'font-awesome-sass'
+gem 'http_accept_language'
 gem 'jbuilder'
 gem 'jquery-rails'
 gem 'kaminari'
@@ -22,8 +23,6 @@ gem 'sidekiq'
 gem 'slim'
 gem 'uglifier'
 
-# https://github.com/iain/http_accept_language/issues/22
-gem 'http_accept_language', github: 'DouweM/http_accept_language', branch: 'no-middleware-no-crash'
 
 group :development do
   gem 'better_errors'
