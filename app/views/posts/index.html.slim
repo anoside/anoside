@@ -3,7 +3,7 @@
 
   form role='form' ng-controller='Anoside.PostFormCtrl'
     .form-group
-      textarea.form-control rows='2' name='post[body]' ng-model='post.body' press-enter-key='expand($event)' ng-click='focus()' ng-keyup='countDownBody()'
+      textarea.form-control rows='2' name='post[body]' placeholder="#{t('posts.index.signed_in.post-body-placeholder')}" ng-model='post.body' press-enter-key='expand($event)' ng-click='focus()' ng-keyup='countDownBody()'
     .pull-left
       .body-count ng-show='formFocused' ng-class='{"count-over": countOver}' {{bodyCount}}
     .pull-right

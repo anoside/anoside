@@ -40,6 +40,7 @@ ja:
   posts:
     index:
       signed_in:
+        post-body-placeholder: いま、なにを考えていますか？
         tag_example: 火星, ヴェネツィア (カンマ区切り)
       signed_out:
         catch_copy: 気にせず、つぶやこう。
