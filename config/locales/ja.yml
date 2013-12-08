@@ -18,6 +18,9 @@ ja:
               invalid: は不正な値です
               taken: はすでに使用されています
   devise:
+    registrations:
+      user:
+        signed_up: アカウントを作成しました。アノニマスサイドにようこそ！
     sessions:
       user:
         signed_in: ''
