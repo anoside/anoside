@@ -18,5 +18,8 @@ Anoside.angular.directive 'resourceBody', ->
     # Parse URL
     body = body.replace(/(http.[^\s]+)/, '<a href="$1" target="_blank">$1</a>')
 
+    # Replace all new lines with `<br>`
+    body = body.replace(/\n{3,}/g, '<br><br>').replace(/\n/g, '<br>')
+
     elm.addClass('deleted') unless _.isNull(resource.deleted_at)
     elm.html(body)
