@@ -22,13 +22,17 @@ gem 'sass-rails'
 gem 'sidekiq'
 gem 'slim'
 gem 'uglifier'
+gem 'unicorn'
 
 
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller' # using better_errors
+  gem 'capistrano', '~> 2.15.5'
+  gem 'capistrano-unicorn', require: false
   gem 'mailcatcher'
   gem 'quiet_assets'
+  gem 'rvm-capistrano'
   gem 'spring'
   gem 'spring-commands-rspec', require: false
   gem 'thin'
