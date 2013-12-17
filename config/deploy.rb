@@ -6,7 +6,7 @@ require 'rvm/capistrano'
 set :application,     'anoside'
 set :deploy_via,      :remote_cache
 set :repository,      "git@github.com:anoside/#{application}.git"
-set :rvm_ruby_string, "ruby-2.0.0-p247@#{application}"
+set :rvm_ruby_string, "ruby-2.0.0-p353@#{application}"
 set :rvm_type,        :system
 set :scm,             :git
 set :user,            'root'
