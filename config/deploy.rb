@@ -21,7 +21,11 @@ set :default_environment, {
   'LC_ALL' => 'en_US.UTF-8'
 }
 
-#namespace :deploy do
+namespace :deploy do
+  task :copy_database_yml do
+    run "cp #{shared_path}/database.yml #{release_path}/config/"
+  end
+
   #pid_file_path = '/var/www/anoside/shared/pids/unicorn.pid'
 
   #task :start, roles: :app do
@@ -37,9 +41,10 @@ set :default_environment, {
       #run "kill -s USR2 `cat #{pid_file_path}`"
     #end
   #end
-#end
+end
 
-after 'deploy:restart', 'unicorn:reload'    # app IS NOT preloaded
-after 'deploy:restart', 'unicorn:restart'   # app preloaded
-after 'deploy:restart', 'unicorn:duplicate' # before_fork hook implemented (zero downtime deployments)
-after 'deploy:restart', 'deploy:cleanup'
+before 'deploy:restart', 'deploy:copy_database_yml'
+after  'deploy:restart', 'unicorn:reload'    # app IS NOT preloaded
+after  'deploy:restart', 'unicorn:restart'   # app preloaded
+after  'deploy:restart', 'unicorn:duplicate' # before_fork hook implemented (zero downtime deployments)
+after  'deploy:restart', 'deploy:cleanup'
