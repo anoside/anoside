@@ -1,4 +1,6 @@
 application = 'anoside'
+app_path    = "/var/www/#{application}"
+shared_path = "#{app_path}/shared"
 
 listen "#{shared_path}/sockets/unicorn.sock"
 pid    "#{shared_path}/pids/unicorn.pid"
@@ -8,10 +10,9 @@ worker_processes 6
 preload_app true
 
 # Capistrano 用に RAILS_ROOT を指定
-working_directory "/var/www/#{application}"
+working_directory app_path
 
 if 'production' == ENV['RAILS_ENV']
-  shared_path = "/var/www/#{application}/shared"
   stderr_path = "#{shared_path}/log/unicorn.stderr.log"
   stdout_path = "#{shared_path}/log/unicorn.stdout.log"
 end
