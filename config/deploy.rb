@@ -23,7 +23,7 @@ set :default_environment, {
 
 namespace :deploy do
   task :copy_database_yml do
-    run "cp #{shared_path}/database.yml #{release_path}/config/"
+    run "cp #{shared_path}/settings/database.yml #{release_path}/config/"
   end
 
   #pid_file_path = '/var/www/anoside/shared/pids/unicorn.pid'
