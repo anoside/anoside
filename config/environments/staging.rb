@@ -81,4 +81,13 @@ Anoside::Application.configure do
   # Prevents to break some of JavaScript (ex: Angular.js) code due to renaming
   # https://shellycloud.com/blog/2013/10/how-to-integrate-angularjs-with-rails-4
   config.assets.js_compressor = Uglifier.new(mangle: false)
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:        Settings.smtp_host,
+    port:           Settings.smtp_port,
+    user_name:      Settings.smtp_username,
+    password:       Settings.smtp_password,
+    authentication: :plain
+  }
 end
