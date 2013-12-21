@@ -12,7 +12,7 @@
         | \#{{tag.name}}
     - if user_signed_in?
       span ng-controller='Anoside.TagFormCtrl'
-        i.icon-tag.btn.btn-link ng-click='showForm()'
+        i.fa.fa-tag.btn.btn-link ng-click='showForm()'
         span ng-show='showed'
           form class='form' role='form'
             .form-group
