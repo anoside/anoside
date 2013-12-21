@@ -1,5 +1,5 @@
 class NotificationMailer < ActionMailer::Base
-  default from: 'no-reply@anoside.com'
+  default from: 'Anoside <no-reply@anoside.com>'
 
   def comment_on_post(comment_id)
     @comment = Comment.find(comment_id)
