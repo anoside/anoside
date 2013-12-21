@@ -1,5 +1,5 @@
 application  = 'anoside'
-app_path     = "/var/www/#{application}"
+app_path     = "/var/apps/#{application}"
 current_path = "#{app_path}/current"
 shared_path  = "#{app_path}/shared"
 
