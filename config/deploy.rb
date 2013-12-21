@@ -22,8 +22,10 @@ set :default_environment, {
 }
 
 namespace :deploy do
-  task :copy_database_yml do
-    run "cp #{shared_path}/settings/database.yml #{release_path}/config/"
+  task :copy_yml_files do
+    %w[database.yml newrelic.yml].each do |file_name|
+      run "cp #{shared_path}/settings/#{file_name} #{release_path}/config/"
+    end
   end
 
   #pid_file_path = '/var/www/anoside/shared/pids/unicorn.pid'
@@ -43,7 +45,7 @@ namespace :deploy do
   #end
 end
 
-after 'bundle:install', 'deploy:copy_database_yml'
+after 'bundle:install', 'deploy:copy_yml_files'
 after 'bundle:install', 'deploy:migrate'
 after 'deploy:restart', 'unicorn:reload'    # app IS NOT preloaded
 after 'deploy:restart', 'unicorn:restart'   # app preloaded
