@@ -52,6 +52,12 @@ Anoside::Application.routes.draw do
     root to: 'tags#index'
   end
 
+  resource  :policies,   only: [] do
+    collection do
+      get :privacy
+      get :terms
+    end
+  end
   resources :posts,      only: [:show]
   resource  :setting,    only: [:edit, :update]
   resources :tags,       only: [:show]
