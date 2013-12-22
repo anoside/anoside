@@ -1,6 +1,6 @@
-set :branch,    'staging'
-set :deploy_to, '/var/www/anoside'
+set :branch,    'master'
+set :deploy_to, '/var/apps/anoside'
 set :rails_env, 'staging'
 set :user,      'root' # SSH
 
-server '192.168.33.10', :app, :web, :db, primary: true
+server '192.168.11.14', :app, :web, :db, primary: true
