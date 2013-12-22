@@ -1,13 +1,7 @@
 doctype html
 html lang='en-us' ng-app='anoside'
   head
-    meta charset='utf-8'
-    = csrf_meta_tags
-    title
-      = page_title(page_title_symbol: :site_page_title, separator: ' | ')
-    meta name='viewport' content='width=device-width, initial-scale=1.0 user-scalable=no'
-    = stylesheet_link_tag 'application', media: 'all'
-    = javascript_include_tag 'application'
+    = render 'head'
   body class="#{user_signed_in? ? 'signed-in' : 'not-signed-in'} #{body_class}" ng-controller='Anoside.ApplicationCtrl'
     = render 'navbar'
 

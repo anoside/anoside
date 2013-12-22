@@ -1,0 +1,12 @@
+meta charset='utf-8'
+= csrf_meta_tags
+title
+  = page_title(page_title_symbol: :site_page_title, separator: ' | ')
+meta name='viewport' content='width=device-width, initial-scale=1.0 user-scalable=no'
+link href='/favicon.png' rel='shortcut icon' type='image/png'
+link href='/apple-touch-icon-144x144.png' rel='apple-touch-icon-precomposed' sizes='144x144'
+link href='/apple-touch-icon-114x114.png' rel='apple-touch-icon-precomposed' sizes='114x114'
+link href='/apple-touch-icon-72x72.png' rel='apple-touch-icon-precomposed' sizes='72x72'
+link href='/apple-touch-icon-57x57.png' rel='apple-touch-icon-precomposed' sizes='57x57'
+= stylesheet_link_tag 'application', media: 'all'
+= javascript_include_tag 'application'
