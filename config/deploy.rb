@@ -2,6 +2,7 @@ require 'bundler/capistrano'
 require 'capistrano/ext/multistage'
 require 'capistrano-unicorn'
 require 'rvm/capistrano'
+require 'sidekiq/capistrano'
 
 set :application,     'anoside'
 set :deploy_via,      :remote_cache
@@ -26,23 +27,9 @@ namespace :deploy do
     %w[database.yml newrelic.yml].each do |file_name|
       run "cp #{shared_path}/settings/#{file_name} #{release_path}/config/"
     end
+
+    run "cp #{shared_path}/settings/#{rails_env}.yml #{release_path}/config/settings/"
   end
-
-  #pid_file_path = '/var/www/anoside/shared/pids/unicorn.pid'
-
-  #task :start, roles: :app do
-    #run "cd #{current_path}; bundle exec unicorn_rails -c config/unicorn.rb -E #{rails_env} -D"
-  #end
-
-  #task :stop, roles: :app do
-    #run "kill -s QUIT `cat #{pid_file_path}`"
-  #end
-
-  #task :restart, roles: :app, except: { no_release: true } do
-    #if File.exist?(pid_file_path)
-      #run "kill -s USR2 `cat #{pid_file_path}`"
-    #end
-  #end
 end
 
 after 'bundle:install', 'deploy:copy_yml_files'
