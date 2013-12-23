@@ -40,6 +40,11 @@ ja:
       not_saved: 入力エラー
   messages:
     settings_have_been_saved: 設定を更新しました
+  notification_mailer:
+    more: つぶやきのページはこちら
+    new_comment: 書き込まれたコメント
+    you_have_a_new_comment: あなたのつぶやきにコメントが書き込まれました！
+    your_post: あなたのつぶやき
   posts:
     index:
       signed_in:

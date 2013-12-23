@@ -1,14 +1,14 @@
-You have a new comment!
+<%= t 'notification_mailer.you_have_a_new_comment' %>
 
-Your post:
+<%= t 'notification_mailer.your_post' %>:
 
 <%= @post.body %>
 
-New comment:
+<%= t 'notification_mailer.new_comment' %>:
 
 <%= @comment.body %>
 
-More: <%= post_url(@post) %>
+<%= t 'notification_mailer.more' %>: <%= post_url(@post) %>
 
 ---
 http://anoside.com
