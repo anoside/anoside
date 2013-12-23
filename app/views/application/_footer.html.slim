@@ -1,4 +1,9 @@
 footer
   hr
+  ul.links
+    li = link_to t('words.blog'), 'http://blog.anoside.com', target: '_blank'
+    li = link_to t('words.twitter'), 'https://twitter.com/anoside', target: '_blank'
+    li = link_to t('words.terms_of_service'), terms_policies_path
+    li = link_to t('words.privacy_policy'), privacy_policies_path
   p.text-center
     | © 2013 Anoside

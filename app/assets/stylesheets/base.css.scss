@@ -75,4 +75,17 @@ body {
       padding-left: 35px;
     }
   }
+
+  footer {
+    ul.links {
+      margin-bottom: 10px;
+      padding-left: 0;
+      text-align: center;
+
+      li {
+        display: inline;
+        margin-left: 13px;
+      }
+    }
+  }
 }
