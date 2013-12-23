@@ -1,11 +1,6 @@
 .tag ng-controller='Anoside.TagCtrl' data-tag-name='#{params[:id]}'
-  .header
-    .pull-left
-      h1.h2
-        | \#{{tag.name}}
-    .follow.pull-right
-      button.btn type='button' ng-class="{'btn-primary': !tag.followed, 'btn-success': tag.followed}" ng-click='toggleFollow()' {{tag.followed ? '#{t('tags.show.following')}' : '#{t('tags.show.follow')}'}}
-    .clearfix
+  .follow.text-center
+    button.btn type='button' ng-class="{'btn-primary': !tag.followed, 'btn-success': tag.followed}" ng-click='toggleFollow()' {{tag.followed ? '#{t('tags.show.following')}' : '#{t('tags.show.follow')}'}}
 
   hr
 
