@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_one  :setting,    dependent: :destroy
 
   validates :password, presence: true
+  validates :terms_of_service, acceptance: true
   validates :username, format: { with: /\A[A-Za-z0-9_]+\z/ }, presence: true, uniqueness: true
 
   devise :database_authenticatable, :registerable, :rememberable, :trackable

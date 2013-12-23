@@ -12,7 +12,8 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:username, :password, :accept_language_id) }
+    attrs = [:username, :password, :accept_language_id, :terms_of_service]
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(attrs) }
   end
 
   private

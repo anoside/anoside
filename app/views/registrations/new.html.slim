@@ -10,9 +10,15 @@ div ng-controller='Anoside.RegistrationsCtrl'
     .form-group
       label.sr-only for='password' = t('activerecord.attributes.user.password')
       = f.password_field :password, id: 'password', class: 'form-control', placeholder: t('activerecord.attributes.user.password')
+    .checkbox
+      label
+        = f.check_box :terms_of_service
+        - terms_of_service_link = link_to t('words.terms_of_service'), terms_policies_path
+        - privacy_policy_link = link_to t('words.privacy_policy'), privacy_policies_path
+        = t('registrations.terms_and_privacy_agreement_html', terms_of_service_link: terms_of_service_link, privacy_policy_link: privacy_policy_link)
     = hidden_field_tag 'user[accept_language_id]', session[:accept_language_id]
 
-    .text-center
+    .signup-button.text-center
       = f.button t('registrations.new.button'), class: 'btn btn-primary'
 
   hr

@@ -6,15 +6,18 @@ ja:
         email_when_commented: 自分の投稿にコメントがあった場合にメール通知する
       user:
         password: パスワード
+        terms_of_service: 利用規約とプライバシーポリシー
         username: ログインID
     errors:
       models:
         user:
           attributes:
             password:
-              blank: は入力してください
+              blank: を入力してください
+            terms_of_service:
+              accepted: に同意してください
             username:
-              blank: は入力してください
+              blank: を入力してください
               invalid: は不正な値です
               taken: はすでに使用されています
   devise:
@@ -49,6 +52,7 @@ ja:
   registrations:
     about_username: ログインIDについて
     about_username_body: アカウント作成時に入力するログインIDは、ログインをするときにのみ使用されるIDになります。URLに含まれたり、サイト上に表示されることはありません。
+    terms_and_privacy_agreement_html: "%{terms_of_service_link}と%{privacy_policy_link}に同意する"
     new:
       button: 作成する
       page_title: アカウントを作る
@@ -93,6 +97,8 @@ ja:
       page_title: 自分の投稿
   words:
     cancel: キャンセル
+    privacy_policy: プライバシーポリシー
+    terms_of_service: 利用規約
     save: 保存する
     sign_in: ログイン
     sign_out: ログアウト
