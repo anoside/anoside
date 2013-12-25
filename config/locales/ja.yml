@@ -53,7 +53,7 @@ ja:
       signed_out:
         catch_copy: 気にせず、つぶやこう。
         description: Anosideは、匿名でつぶやきが投稿できるウェブサービスです。
-        page_title: 匿名で、気にせず、つぶやく。
+        page_title: 匿名で、気にせず、つぶやこう。
   registrations:
     about_username: ログインIDについて
     about_username_body: アカウント作成時に入力するログインIDは、ログインをするときにのみ使用されるIDになります。URLに含まれたり、サイト上に表示されることはありません。
