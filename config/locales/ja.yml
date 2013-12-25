@@ -45,6 +45,8 @@ ja:
     new_comment: 書き込まれたコメント
     you_have_a_new_comment: あなたのつぶやきにコメントが書き込まれました！
     your_post: あなたのつぶやき
+  og:
+    description: 匿名でつぶやきが投稿できるWebサービスです。気にせず、つぶやこう。
   posts:
     index:
       signed_in:
