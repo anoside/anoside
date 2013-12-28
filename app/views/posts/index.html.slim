@@ -8,7 +8,7 @@
       .body-count ng-show='formFocused' ng-class='{"count-over": countOver}' {{bodyCount}}
     .pull-right
       button.cancel.btn.btn-link ng-click='unforcus()' ng-show='formFocused' = t('words.cancel')
-      button.btn.btn-primary ng-click='create(post)' ng-show='formFocused' ng-disabled='!post.body || countOver' = t('words.submit')
+      button.btn.btn-primary ng-click='create(post)' ng-show='formFocused' ng-disabled='didPost || (!post.body || countOver)' = t('words.submit')
   .clearfix
 
   hr.separate

@@ -1,6 +1,7 @@
 Anoside.PostFormCtrl = ($scope, $http, postService) ->
   $scope.bodyCount = 300
   $scope.countOver = false
+  $scope.didPost = false
 
   $scope.focus = ->
     $scope.formFocused = true
@@ -15,10 +16,12 @@ Anoside.PostFormCtrl = ($scope, $http, postService) ->
     $scope.countOver = $scope.bodyCount < 0
 
   $scope.create = (post) ->
+    $scope.didPost = true
     $http.post('/api/posts', post).success (data) ->
       postService.prependPost(data)
       post.body = ''
       $scope.countDownBody()
+      $scope.didPost = false
 
   $scope.expand = ($event) ->
     $($event.target).height(140)
