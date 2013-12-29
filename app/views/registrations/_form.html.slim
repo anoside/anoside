@@ -1,0 +1,18 @@
+= form_for resource, as: resource_name, url: registration_path(resource_name), role: 'form' do |f|
+  = render 'error_panel', resource: resource
+
+  .form-group
+    label.sr-only for='username' = t('activerecord.attributes.user.username')
+    = f.text_field :username, id: 'username', class: 'form-control', placeholder: t('activerecord.attributes.user.username'), autofocus: true
+  .form-group
+    label.sr-only for='password' = t('activerecord.attributes.user.password')
+    = f.password_field :password, id: 'password', class: 'form-control', placeholder: t('activerecord.attributes.user.password')
+  = hidden_field_tag 'user[accept_language_id]', session[:accept_language_id]
+
+  .signup-button.text-center
+    = f.button t('registrations.new.button'), class: 'btn btn-primary'
+
+  .policy-agreement.small.text-muted
+    - terms_of_service_link = link_to t('words.terms_of_service'), terms_policies_path, target: '_blank'
+    - privacy_policy_link = link_to t('words.privacy_policy'), privacy_policies_path, target: '_blank'
+    = t('registrations.terms_and_privacy_agreement_html', create: t('registrations.new.button'), terms_of_service_link: terms_of_service_link, privacy_policy_link: privacy_policy_link)

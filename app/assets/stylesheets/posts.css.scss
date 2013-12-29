@@ -3,29 +3,29 @@
     &.posts-index {
       article {
         .section-action-links {
-          &.bottom {
-            padding-top: 10px;
-          }
-
           margin-top: 20px;
+        }
 
-          p.sign-in {
-            margin-top: 15px;
+        .section-popular-posts, .section-action-links.bottom {
+          h2 {
+            color: #616161;
+            margin-bottom: 20px;
           }
         }
 
-        .section-feature {
-          h4 {
-            margin-bottom: 20px;
+        .section-popular-posts {
+          .posts {
+            @include post;
+          }
+        }
+
+        .section-action-links.bottom {
+          h2 {
+            margin-top: 0;
           }
 
-          img {
-            border: solid 1px #d5d5d5;
-            margin-bottom: 10px;
-          }
-
-          .action {
-            padding-top: 5px;
+          .excuse {
+            margin-top: 20px;
           }
         }
       }

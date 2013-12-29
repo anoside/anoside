@@ -11,56 +11,19 @@
   .container
     .row
       .col-xs-12.col-sm-6.col-md-6.col-sm-offset-3.col-md-offset-3
-        p.sign-up.text-center
-          = link_to t('words.sign_up'), new_user_registration_path, class: 'btn btn-primary btn-lg'
-        p.sign-in.text-center
-          = link_to t('words.sign_in'), new_user_session_path
+        = render 'registration_form', button_text: t('words.join_now'), action: 'pages#index registration button top'
 
 hr
 
-.section-feature
+.section-popular-posts
+  h2.h5.text-center = t 'posts.index.signed_out.timeline'
   .container
     .row
       .col-xs-12.col-sm-6.col-md-6.col-sm-offset-3.col-md-offset-3
-        .text-center
-          h4 匿名でつぶやく
-          = image_tag 'intro1.jpg', size: '550x300', alt: ''
-        p Anosideでは、タイムライン上につぶやいた人の名前やアバター画像が表示されません。誰がつぶやいたのか見えないようになっています。
-        p つぶやく内容は自由です。他のサービスで発言しているような話から、人には言えない趣味嗜好の話まで、気にせずつぶやくことができます。
-        p.action.text-right
-          = link_to timeline_path do
-            i.fa.fa-angle-right
-            |  タイムラインの様子を見る
-
-  hr
-
-  .container
-    .row
-      .col-xs-12.col-sm-6.col-md-6.col-sm-offset-3.col-md-offset-3
-        .text-center
-          h4 つぶやきにタグを付ける
-          = image_tag 'intro2.jpg', size: '550x300', alt: ''
-        p つぶやきにタグを付けて、話題ごとに分類することができます。自分のつぶやきだけでなく、他の人のつぶやきにも自由にタグ付けできます。
-        p タグをフォローすることもできます。そのため、その話題 (タグ) を求めている人に、つぶやきを簡単に拡散することができます。
-        p.action.text-right
-          = link_to discovery_tags_path do
-            i.fa.fa-angle-right
-            |  人気のタグを見る
-
-  hr
-
-  .container
-    .row
-      .col-xs-12.col-sm-6.col-md-6.col-sm-offset-3.col-md-offset-3
-        .text-center
-          h4 つぶやきに反応する
-          = image_tag 'intro3.jpg', size: '550x300', alt: ''
-        p つぶやきの内容が良かったものには "Like" を、良くなかったものには "Dislike" をすることができます。
-        p 具体的に反応を返したいときは、コメントを書くこともできます。"いいね!" より "ワロタwww" 派の方は、こちらが利用できます。
-        p.action.text-right
-          = link_to discovery_posts_path do
-            i.fa.fa-angle-right
-            |  人気のつぶやきを見る
+        .posts ng-controller='Anoside.PopularPostsCtrl'
+          .post ng-repeat='post in posts'
+            = render 'posts/post'
+            hr ng-hide='post.last'
 
 hr
 
@@ -68,6 +31,6 @@ hr
   .container
     .row
       .col-xs-12.col-sm-6.col-md-6.col-sm-offset-3.col-md-offset-3
-        p.sign-up.text-center
-          = link_to t('words.sign_up'), new_user_registration_path, class: 'btn btn-primary btn-lg'
-
+        h2.h5.text-center = t('posts.index.signed_out.temptation')
+        = render 'registration_form', button_text: t('words.sign_up'), action: 'pages#index registration button bottom'
+        p.excuse.small.text-muted = t('registrations.about_username_body')

@@ -1,0 +1,11 @@
+= form_for @user, url: user_registration_path, role: 'form' do |f|
+  .form-group
+    label.sr-only for='username' = t('activerecord.attributes.user.username')
+    = f.text_field :username, id: 'username', class: 'form-control', placeholder: t('activerecord.attributes.user.username'), autofocus: true
+  .form-group
+    label.sr-only for='password' = t('activerecord.attributes.user.password')
+    = f.password_field :password, id: 'password', class: 'form-control', placeholder: t('activerecord.attributes.user.password')
+  = hidden_field_tag 'user[accept_language_id]', session[:accept_language_id]
+
+  .signup-button.text-center
+    = f.button button_text, class: 'btn btn-primary', onclick: "_gaq.push(['_trackEvent', '#{action}', 'click']);"

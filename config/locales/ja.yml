@@ -56,10 +56,12 @@ ja:
         catch_copy: 気にせず、つぶやこう。
         description: Anosideは、匿名でつぶやきが投稿できるウェブサービスです。
         page_title: 匿名で、気にせず、つぶやこう。
+        temptation: 匿名で、気軽につぶやきませんか？
+        timeline: タイムラインの様子
   registrations:
     about_username: ログインIDについて
-    about_username_body: アカウント作成時に入力するログインIDは、ログインをするときにのみ使用されるIDになります。URLに含まれたり、サイト上に表示されることはありません。
-    terms_and_privacy_agreement_html: "%{terms_of_service_link}と%{privacy_policy_link}に同意する"
+    about_username_body: ログインIDは、ログインをするときにのみ使用されるIDになります。URLに含まれたり、サイト上に表示されることはありません。
+    terms_and_privacy_agreement_html: "上の「%{create}」ボタンを押すと、%{terms_of_service_link}と%{privacy_policy_link}に同意したことになります"
     new:
       button: 作成する
       page_title: アカウントを作る
@@ -105,12 +107,14 @@ ja:
   words:
     blog: ブログ
     cancel: キャンセル
+    join_now: 今すぐ参加する
     privacy_policy: プライバシーポリシー
     terms_of_service: 利用規約
+    top_page: トップページ
     save: 保存する
     sign_in: ログイン
     sign_out: ログアウト
-    sign_up: アカウントを作る
+    sign_up: アカウントを作って参加する
     submit: 投稿する
   notifications:
     comment_on_post:
