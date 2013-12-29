@@ -41,6 +41,10 @@ class Api::PostsController < Api::ApplicationController
     @posts = Post.order(likes_count: :desc).limit(10)
   end
 
+  def latest
+    @posts = Post.order(created_at: :desc).limit(10)
+  end
+
   private
 
   def post_params

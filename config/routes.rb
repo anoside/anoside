@@ -25,6 +25,8 @@ Anoside::Application.routes.draw do
       resources :comments, only: [:create, :index]
       resources :tags,     only: [:create, :index]
 
+      get    :latest,  on: :collection
+
       delete :dislike, to: 'dislikes#post_destroy'
       delete :like,    to: 'likes#post_destroy'
       post   :dislike, to: 'dislikes#post_create'
