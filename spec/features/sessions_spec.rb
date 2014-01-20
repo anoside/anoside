@@ -14,7 +14,7 @@ feature 'Sign in' do
       fill_in 'user[password]', with: 'svojob'
     end
 
-    click_button 'Sign in'
+    click_button 'ログイン'
 
     expect(current_path).to eq '/'
   end

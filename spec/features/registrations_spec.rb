@@ -13,7 +13,7 @@ feature 'Sign up' do
       fill_in 'user[password]', with: 'svojob'
     end
 
-    expect { click_button 'Create User' }.to change { User.count }.by 1
+    expect { click_button '作成する' }.to change { User.count }.by 1
     expect(current_path).to eq '/'
   end
 end

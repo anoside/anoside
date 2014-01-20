@@ -13,9 +13,9 @@ describe 'Tagging', type: :feature, js: true do
   it 'User can add tags to posts' do
     visit root_path
 
-    find('i.icon-tag').click
+    find('i.fa-tag').click
     fill_in 'post[tag_list]', with: 'tag1, tag2'
-    click_button 'Save'
+    click_button '保存する'
 
     expect(page).to have_link('tag1', href: '/tags/tag1')
     expect(page).to have_link('tag2', href: '/tags/tag2')

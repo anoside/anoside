@@ -13,7 +13,7 @@ describe 'Posting', type: :feature, js: true do
 
     find('article form textarea').click
     fill_in 'post[body]', with: 'hello'
-    click_button 'Submit'
+    click_button '投稿する'
 
     expect(page).to have_content('hello')
   end
