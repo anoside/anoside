@@ -55,5 +55,4 @@ group :test do
   gem 'factory_girl_rails'
   gem 'nyan-cat-formatter'
   gem 'poltergeist'
-  gem 'shoulda-matchers'
 end

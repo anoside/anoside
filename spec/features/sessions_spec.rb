@@ -2,8 +2,8 @@ require 'spec_helper'
 
 feature 'Sign in' do
   background do
-    create(:language)
-    create(:user)
+    language = create(:language)
+    create(:user, accept_language_id: language.id)
   end
 
   scenario 'User signs in normally' do

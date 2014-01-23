@@ -217,8 +217,6 @@ GEM
       railties (>= 4.0.0, < 5.0)
       sass (>= 3.1.10)
       sprockets-rails (~> 2.0.0)
-    shoulda-matchers (2.4.0)
-      activesupport (>= 3.0.0)
     sidekiq (2.16.1)
       celluloid (>= 0.15.2)
       connection_pool (>= 1.0.0)
@@ -318,7 +316,6 @@ DEPENDENCIES
   rspec-rails
   rvm-capistrano
   sass-rails
-  shoulda-matchers
   sidekiq
   slim
   spring
