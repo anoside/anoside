@@ -13,15 +13,18 @@
 
 ActiveRecord::Schema.define(version: 20131124044655) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "comments", force: true do |t|
     t.integer  "viewpoint_id",   default: 0, null: false
     t.integer  "post_id",                    null: false
     t.integer  "number",                     null: false
     t.text     "body",                       null: false
-    t.integer  "likes_count",    default: 0, null: false
-    t.integer  "dislikes_count", default: 0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "likes_count",    default: 0, null: false
+    t.integer  "dislikes_count", default: 0, null: false
   end
 
   add_index "comments", ["dislikes_count"], name: "index_comments_on_dislikes_count", using: :btree
@@ -62,9 +65,9 @@ ActiveRecord::Schema.define(version: 20131124044655) do
 
   create_table "languages_settings", force: true do |t|
     t.integer  "language_id", null: false
-    t.integer  "setting_id",  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "setting_id",  null: false
   end
 
   add_index "languages_settings", ["language_id"], name: "index_languages_settings_on_language_id", using: :btree
@@ -88,11 +91,11 @@ ActiveRecord::Schema.define(version: 20131124044655) do
     t.text     "body",                       null: false
     t.string   "deleted_by"
     t.integer  "comments_count", default: 0, null: false
-    t.integer  "likes_count",    default: 0
-    t.integer  "dislikes_count", default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "deleted_at"
+    t.integer  "likes_count",    default: 0
+    t.integer  "dislikes_count", default: 0
   end
 
   add_index "posts", ["comments_count"], name: "index_posts_on_comments_count", using: :btree
@@ -102,19 +105,19 @@ ActiveRecord::Schema.define(version: 20131124044655) do
 
   create_table "settings", force: true do |t|
     t.integer  "user_id",                             null: false
-    t.string   "email"
     t.boolean  "email_when_commented", default: true, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "email"
   end
 
   add_index "settings", ["email"], name: "index_settings_on_email", unique: true, using: :btree
   add_index "settings", ["user_id"], name: "index_settings_on_user_id", unique: true, using: :btree
 
   create_table "taggings", force: true do |t|
-    t.integer  "post_id",    null: false
     t.integer  "tag_id",     null: false
     t.datetime "created_at"
+    t.integer  "post_id",    null: false
   end
 
   add_index "taggings", ["post_id", "tag_id"], name: "index_taggings_on_post_id_and_tag_id", unique: true, using: :btree

@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0'
+ruby '2.1.0'
 
-gem 'rails', '4.0.1'
+gem 'rails', '4.0.2'
 
 gem 'bootstrap-sass'
 gem 'cld'
@@ -16,8 +16,8 @@ gem 'jbuilder'
 gem 'jquery-rails'
 gem 'kaminari'
 gem 'mobile-fu'
-gem 'mysql2'
 gem 'newrelic_rpm'
+gem 'pg'
 gem 'rails_config'
 gem 'redcarpet'
 gem 'sass-rails'
