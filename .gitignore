@@ -1,6 +1,7 @@
 .DS_Store
 
 /.bundle
+/.env
 
 /config/database.yml
 /config/settings.local.yml
