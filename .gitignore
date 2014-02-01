@@ -3,10 +3,8 @@
 /.bundle
 /.env
 
+/config/application.yml
 /config/database.yml
-/config/settings.local.yml
-/config/settings/*.local.yml
-/config/environments/*.local.yml
 /log/*.log
 /spec/render
 /tmp

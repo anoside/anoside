@@ -1,6 +1,0 @@
-host: 'example.com'
-
-smtp_host: 'smtp.example.com'
-smtp_port: 587
-smtp_username: 'username'
-smtp_password: 'password'

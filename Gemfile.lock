@@ -91,6 +91,9 @@ GEM
       factory_girl (~> 4.3.0)
       railties (>= 3.0.0)
     ffi (1.9.0)
+    figaro (0.7.0)
+      bundler (~> 1.0)
+      rails (>= 3, < 5)
     flutie (2.0.0)
     font-awesome-sass (4.0.2)
       sass-rails (>= 3.1.1)
@@ -188,8 +191,6 @@ GEM
     rails_12factor (0.0.2)
       rails_serve_static_assets
       rails_stdout_logging
-    rails_config (0.3.3)
-      activesupport (>= 3.0)
     rails_serve_static_assets (0.0.2)
     rails_stdout_logging (0.0.3)
     railties (4.0.2)
@@ -301,6 +302,7 @@ DEPENDENCIES
   devise
   enumerize
   factory_girl_rails
+  figaro
   flutie
   font-awesome-sass
   foreman
@@ -321,7 +323,6 @@ DEPENDENCIES
   quiet_assets
   rails (= 4.0.2)
   rails_12factor
-  rails_config
   redcarpet
   rspec-rails
   rvm-capistrano

@@ -24,5 +24,14 @@ module Anoside
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :ja
+
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      address:        ENV['SMTP_HOST'],
+      port:           ENV['SMTP_PORT'],
+      user_name:      ENV['SMTP_USERNAME'],
+      password:       ENV['SMTP_PASSWORD'],
+      authentication: :plain
+    }
   end
 end
