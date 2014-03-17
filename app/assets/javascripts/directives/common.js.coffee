@@ -16,7 +16,7 @@ Anoside.angular.directive 'resourceBody', ->
     body = body.replace(/\#([a-zA-Z0-9ぁ-龥]+)/g, '<a href="/tags/$1">#$1</a>')
 
     # Parse URL
-    body = body.replace(/(http.[^\s]+)/, '<a href="$1" target="_blank">$1</a>')
+    # body = body.replace(/(http.[^\s]+)/, '<a href="$1" target="_blank">$1</a>')
 
     # Replace all new lines with `<br>`
     body = body.replace(/\n{3,}/g, '<br><br>').replace(/\n/g, '<br>')
