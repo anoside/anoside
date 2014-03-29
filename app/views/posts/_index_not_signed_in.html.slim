@@ -8,10 +8,13 @@
         p = t('posts.index.signed_out.description')
 
 .section-action-links
-  .container
-    .row
-      .col-xs-12.col-sm-6.col-md-6.col-sm-offset-3.col-md-offset-3
-        = render 'registration_form', button_text: t('words.join_now'), action: 'pages#index registration button top'
+  .container.text-center
+    .sign-up-btn
+      = link_to t('words.sign_up'), new_user_registration_path, class: 'btn btn-primary'
+    .or
+      = t('words.or')
+    .sign-in-link
+      = link_to t('words.sign_in'), new_user_session_path
 
 hr
 
@@ -28,9 +31,7 @@ hr
 hr
 
 .section-action-links.bottom
-  .container
-    .row
-      .col-xs-12.col-sm-6.col-md-6.col-sm-offset-3.col-md-offset-3
-        h2.h5.text-center = t('posts.index.signed_out.temptation')
-        = render 'registration_form', button_text: t('words.sign_up'), action: 'pages#index registration button bottom'
-        p.excuse.small.text-muted = t('registrations.about_username_body')
+  .container.text-center
+    h2.h5
+      = t('posts.index.signed_out.temptation')
+    = link_to t('words.sign_up'), new_user_registration_path, class: 'btn btn-primary'

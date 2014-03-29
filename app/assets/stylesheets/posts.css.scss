@@ -4,6 +4,16 @@
       article {
         .section-action-links {
           margin-top: 20px;
+
+          .sign-up-btn {
+            margin-bottom: 15px;
+          }
+
+          .or {
+            color: #b7b7b7;
+            font-size: 10px;
+            margin: 10px 0;
+          }
         }
 
         .section-popular-posts, .section-action-links.bottom {

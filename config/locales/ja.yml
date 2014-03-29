@@ -107,14 +107,14 @@ ja:
   words:
     blog: ブログ
     cancel: キャンセル
-    join_now: 今すぐ参加する
+    or: または
     privacy_policy: プライバシーポリシー
     terms_of_service: 利用規約
     top_page: トップページ
     save: 保存する
     sign_in: ログイン
     sign_out: ログアウト
-    sign_up: アカウントを作って参加する
+    sign_up: アカウントを作る
     submit: 投稿する
   notifications:
     comment_on_post:
