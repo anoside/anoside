@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '2.1.0'
+ruby '2.1.1'
 
-gem 'rails', '4.0.2'
+gem 'rails', '4.0.4'
 
 gem 'bootstrap-sass'
 gem 'cld'
@@ -31,11 +31,8 @@ gem 'unicorn'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller' # using better_errors
-  gem 'capistrano', '~> 2.15.5'
-  gem 'capistrano-unicorn', require: false
   gem 'mailcatcher'
   gem 'quiet_assets'
-  gem 'rvm-capistrano'
   gem 'spring'
   gem 'spring-commands-rspec', require: false
   gem 'thin'
