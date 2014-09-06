@@ -3,7 +3,7 @@ class Api::CommentsController < Api::ApplicationController
     post = Post.find(params[:post_id])
     @comments = post.comments
   end
- 
+
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.new(comment_params)
@@ -11,12 +11,12 @@ class Api::CommentsController < Api::ApplicationController
 
     @comment.number = @post.comments.count + 1
     @comment.viewpoint = viewpoint
- 
+
     if @comment.save
       post_user = @post.viewpoint.user
- 
+
       if post_user.recieve_when_commented?(@comment)
-        NotificationMailer.delay.comment_on_post(@comment.id)
+        NotificationMailer.comment_on_post(@comment.id).deliver
       end
     end
   end
